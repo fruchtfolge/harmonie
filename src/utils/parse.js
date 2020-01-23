@@ -1,5 +1,6 @@
 const parser = require('fast-xml-parser')
 const shapefile = require('shapefile')
+const dataExperts = require('C:/Users/pahmeyer/Documents/elan-parser')
 
 module.exports = {
   async shape (shp, dbf) {
@@ -7,5 +8,8 @@ module.exports = {
   },
   xml (xml) {
     return parser.parse(xml, null, true)
+  },
+  dataExperts (xml, gml) {
+    return dataExperts.join(dataExperts.parseXML(xml), dataExperts.parseGML(gml))
   }
 }
