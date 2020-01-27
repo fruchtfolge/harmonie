@@ -13,6 +13,8 @@ module.exports = (query) => {
   switch (state) {
     case 'DE-BB':
       return bb(query)
+    case 'DE-MV':
+      return bb(query)
     case 'DE-NW':
       return nw(query)
     default:

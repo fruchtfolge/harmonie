@@ -1,16 +1,90 @@
 const parse = require('../utils/parse')
+const helpers = require('../utils/helpers')
 const queryComplete = require('../utils/queryComplete')
 const Field = require('../Field')
 
 module.exports = async (query) => {
-  const incomplete = queryComplete(query, ['shp', 'dbf'])
+  const incomplete = queryComplete(query, ['xml'])
   if (incomplete) throw new Error(incomplete)
-  const data = await parse.shape(query.shp, query.dbf)
+  const data = parse.xml(query.xml)
+  const applicationYear = data['fa:flaechenantrag']['fa:xsd_info']['fa:xsd_jahr']
+  const parzellen = data['fa:flaechenantrag']['fa:gesamtparzellen']['fa:gesamtparzelle']
+  let count = 0
+  return parzellen.reduce((acc, p, i) => {
+    // start off with main area of field
+    const hnf = p['fa:teilflaechen']['fa:hauptnutzungsflaeche']
+    acc.push(new Field({
+      id: `harmonie_${count}_${hnf['fa:flik']}`,
+      referenceDate: applicationYear,
+      NameOfField: '', // seems to be unavailable in Agrarantrag-BB export files?,
+      NumberOfField: Math.floor(hnf['fa:teilflaechennummer']),
+      Area: hnf['fa:groesse'],
+      FieldBlockNumber: hnf['fa:flik'],
+      PartOfField: 'a',
+      SpatialData: helpers.toGeoJSON(hnf['fa:geometrie']),
+      LandUseRestriction: '',
+      Cultivation: {
+        PrimaryCrop: {
+          CropSpeciesCode: hnf['fa:nutzung'],
+          Name: ''
+        },
+        CatchCrop: {
+          CropSpeciesCode: '',
+          Name: ''
+        },
+        PrecedingCrop: {
+          CropSpeciesCode: '',
+          Name: ''
+        }
+      }
+    }))
+    count++
+    // go on with field (buffer) strips
+    const strfFlaechen = p['fa:teilflaechen']['fa:streifen_flaechen']
+    // return only main area if no field strips are defined
+    if (!strfFlaechen) return acc
+    // convert to array structure if only one buffer strip is defined
+    if (!Array.isArray(strfFlaechen['fa:streifen'])) {
+      strfFlaechen['fa:streifen'] = [strfFlaechen['fa:streifen']]
+    }
+    strfFlaechen['fa:streifen'].forEach((stf, j) => {
+      count++
+      acc.push(new Field({
+        id: `harmonie_${count}_${stf['fa:flik']}`,
+        referenceDate: applicationYear,
+        NameOfField: '', // seems to be unavailable in Agrarantrag-BB export files?,
+        NumberOfField: Math.floor(stf['fa:teilflaechennummer']),
+        Area: stf['fa:groesse'],
+        FieldBlockNumber: stf['fa:flik'],
+        PartOfField: helpers.toLetter(j + 1),
+        SpatialData: helpers.toGeoJSON(stf['fa:geometrie']),
+        LandUseRestriction: '',
+        Cultivation: {
+          PrimaryCrop: {
+            CropSpeciesCode: stf['fa:nutzung'],
+            Name: ''
+          },
+          CatchCrop: {
+            CropSpeciesCode: '',
+            Name: ''
+          },
+          PrecedingCrop: {
+            CropSpeciesCode: '',
+            Name: ''
+          }
+        }
+      }))
+    })
+    return acc
+  }, [])
+  // const geom = helpers.toGeoJSON(parzellen[0]['fa:teilflaechen']['fa:hauptnutzungsflaeche']['fa:geometrie'])
+  // return geom['gml:Surface']['gml:patches']['gml:PolygonPatch']
   // for now, we are only interested in main crops and fiel strips,
   // landscape elements and conservation areas are left out for now
-  const filtered = data.features.filter(f => f.properties.ART === 'HNF' ||
-  f.properties.ART === 'STR')
+  // const filtered = data.features.filter(f => f.properties.ART === 'HNF' ||
+  // f.properties.ART === 'STR')
 
+  /*
   return filtered.map((f, i) => new Field({
     id: `harmonie_${i}_${f.properties.CONSTANT + f.properties.FLIK_FLEK}`,
     referenceDate: '', // seems to be only stored in the xml file
@@ -36,4 +110,5 @@ module.exports = async (query) => {
       }
     }
   }))
+  */
 }

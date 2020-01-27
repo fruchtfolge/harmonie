@@ -27,8 +27,10 @@
   },
   "homepage": "https://github.com/fruchtfolge/harmonie#readme",
   "dependencies": {
+    "@turf/helpers": "^6.1.4",
     "elan-parser": "^0.3.0",
     "fast-xml-parser": "^3.16.0",
+    "proj4": "^2.6.0",
     "shapefile": "^0.6.6"
   },
   "devDependencies": {
