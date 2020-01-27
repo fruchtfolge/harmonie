@@ -1,41 +1,35 @@
 const parse = require('../utils/parse')
 const queryComplete = require('../utils/queryComplete')
+const Field = require('../Field')
 
 module.exports = async (query) => {
   const incomplete = queryComplete(query, ['xml', 'gml'])
   if (incomplete) throw new Error(incomplete)
   const data = parse.dataExperts(query.xml, query.gml)
-  return data
-}
 
-/*
-{
-  id: 'String',
-  referenceDate: 2020,
-  NameOfField: 'String',
-  NumberOfField: 1,
-  Area: 1.1,
-  FieldBlockNumber: 1,
-  PartOfField: 'a',
-  SpatialData: {},
-  LandUseRestriction: [{
-    TypeOfRestriction: 'String',
-    StartDate: '2020-01-23T13:11:07.774Z',
-    EndDate: '2020-01-23T13:11:07.774Z'
-  }],
-  Cultivation: {
-    PrimaryCrop: {
-      CropSpeciesCode: 1,
-      Name: 'String'
-    },
-    CatchCrop: {
-      CropSpeciesCode: 1,
-      Name: 'String'
-    },
-    PrecedingCrop: {
-      CropSpeciesCode: 1,
-      Name: 'String'
+  return data.map((f, i) => new Field({
+    id: `harmonie_${i}_${f.feldblock}`,
+    referenceDate: f.applicationYear,
+    NameOfField: f.schlag.bezeichnung,
+    NumberOfField: f.schlag.nummer,
+    Area: f.nettoflaeche,
+    FieldBlockNumber: f.feldblock,
+    PartOfField: f.teilschlag,
+    SpatialData: f.geometry,
+    LandUseRestriction: '',
+    Cultivation: {
+      PrimaryCrop: {
+        CropSpeciesCode: f.nutzungaj.code,
+        Name: f.nutzungaj.bezeichnung
+      },
+      CatchCrop: {
+        CropSpeciesCode: f.greeningcode === '1' ? 50 : '',
+        Name: f.greeningcode === '1' ? 'Mischkulturen Saatgutmischung' : ''
+      },
+      PrecedingCrop: {
+        CropSpeciesCode: f.nutzungvj.code,
+        Name: f.nutzungvj.bezeichnung
+      }
     }
-  }
+  }))
 }
-*/

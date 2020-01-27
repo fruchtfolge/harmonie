@@ -1,4 +1,4 @@
-// const bb = require('bb')
+const bb = require('./states/DE-BB')
 // const bw = require('bw')
 // const by = require('by')
 // const he = require('he')
@@ -11,6 +11,8 @@ module.exports = (query) => {
      'ISO 3166-2 UTF-8 string format (e.g. "DE-NW")')
   }
   switch (state) {
+    case 'DE-BB':
+      return bb(query)
     case 'DE-NW':
       return nw(query)
     default:
