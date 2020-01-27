@@ -1,7 +1,10 @@
 # harmonie :seedling:
-*harmonie* is a `Node.js` package that harmonizes IACS (ZID) files of all German federal states. With *harmonie*, you can outsource parsing of the different direct payment application files, so you can rely on a given input data structure.
+*harmonie* is a software package that harmonizes IACS (ZID) files of all German federal states. With *harmonie*, you can outsource parsing of the different direct payment application files, so you can rely on a given input data structure.  
 
-- 
+*harmonie*
+- ✅ works in the browser/Node.js
+- ✅ adheres to the [agroJSON](https://github.com/fruchtfolge/agroJSON) specification
+- ✅ is open source (MIT license)
 
 This repository is **WIP**, APIs and data structures are likely to change.  
 Currently, **4/16** federal states are supported.  
@@ -25,6 +28,10 @@ The following overview table displays the current state of the project:
 | Sachsen                | DE-SN           | ⬜️                    | ⬜️                       | Waiting on test data (DIANAweb Sachsen-Anhalt) |
 | Sachsen-Anhalt         | DE-ST           | ⬜️                    | ⬜️                       | Waiting on test data (ELAISA Sachsen)          |
 | Thüringen              | DE-TH           | ✅                    | ⬜️                       | Create property mapping                        |
+
+## Installation
+The package is not published (yet).
+In order to install, clone or fork this repository.
 
 ## Usage
 The module exports one method. 
@@ -80,6 +87,11 @@ Sample minimum return value:
   }
 }]
 ```
+
+## Contribution
+Contribution is highly appreciated 👍!  
+Please open an issue in case of questions / bug reports or a pull request if you implemented a new feature / bug fix.  
+In the latter case, please make sure to run `npm test` (and adapt `test/test.js` to your changes) and / or update the `README` 🙂
 
 ## License
 MIT
