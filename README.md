@@ -48,9 +48,9 @@ npm install zid-harmonie
 
 The module exports a single function. 
 ```js
-const harmonie = require('harmonie')
+const harmonie = require('zid-harmonie')
 // or using ES6 import
-import harmonie from 'harmonie'
+import harmonie from 'zid-harmonie'
 ```
 
 ## Usage
