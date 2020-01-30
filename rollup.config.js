@@ -4,7 +4,7 @@ import { terser } from 'rollup-plugin-terser'
 import pkg from './package.json'
 
 export default [
-  // browser-friendly UMD build
+  // browser-friendly (minified) UMD build
   {
     input: 'src/index.js',
     output: {
@@ -14,27 +14,8 @@ export default [
     },
     plugins: [
       resolve(),
-      commonjs()
-      // babel({
-      //   exclude: ['node_modules/**']
-      // })
-    ]
-  },
-  // minified browser-friendly UMD build
-  {
-    input: 'src/index.js',
-    output: {
-      name: 'harmonie',
-      file: pkg.minified,
-      format: 'umd'
-    },
-    plugins: [
-      resolve(),
       commonjs(),
       terser()
-      // babel({
-      //   exclude: ['node_modules/**']
-      // })
     ]
   },
   // node js and module version

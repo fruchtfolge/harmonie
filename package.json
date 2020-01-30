@@ -1,10 +1,9 @@
 {
   "name": "harmonie",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "dist/harmonie.cjs.js",
   "module": "dist/harmonie.esm.js",
-  "browser": "dist/harmonie.umd.js",
-  "minified": "dist/harmonie.min.js",
+  "browser": "dist/harmonie.min.js",
   "description": "Harmonizes IACS (ZID) files of all German Federal States",
   "directories": {
     "test": "test"

@@ -30,16 +30,31 @@ The following overview table displays the current state of the project:
 | Thüringen              | DE-TH           | ✅                    | ⬜️                       | Create property mapping                        |
 
 ## Installation
-The package is not published (yet).
-In order to install, clone or fork this repository.
 
-## Usage
-The module exports one method. 
-```js
-const harmonie = require('harmonie')
+### Browser
+```html
+<script src='https://raw.githubusercontent.com/fruchtfolge/harmonie/master/dist/harmonie.min.js'></script>
+```
+Or grab a release from the [relases tab](https://github.com/fruchtfolge/harmonie/releases).
+Loading the minified file via script tag exposes the global function `harmonie`.
+
+**Internet Explorer compatibility:** Note that this package makes use of modern [ES6 language features](http://es6-features.org/#StringInterpolation) which are **not compatible** with Internet Explorer (also not by polyfilling). In order to support Internet Explorer directly, you may transpile the code (e.g. using [@babel](https://github.com/babel/babel)). Alternatively, you may use the plugin on the server side, or use our (upcoming) API.
+
+
+### Node.js / build tools
+```
+npm install harmonie
 ```
 
-The method takes a single argument (*object*), returning a *Promise*
+The module exports a single function. 
+```js
+const harmonie = require('harmonie')
+// or using ES6 import
+import harmonie from 'harmonie'
+```
+
+## Usage
+The function takes a single argument (*object*), returning a *Promise*. 
 ```js
 const data = harmonie({
   state: 'DE-NW', // Required. The federal state (ISO 3166-2 code) that issued the ZID/IACS files
@@ -87,6 +102,28 @@ Sample minimum return value:
   }
 }]
 ```
+
+The following table displays the required properties for a query depending on
+the federal state:
+
+| Federal state          | ISO 3166-2 code | Required query data |
+|:-----------------------|:----------------|:--------------------|
+| Brandenburg            | DE-BB           | state, xml          |
+| Berlin                 | DE-BE           | state, xml          |
+| Baden-Württemberg      | DE-BW           | state, -            |
+| Bayern                 | DE-BY           | state, -            |
+| Bremen                 | DE-HB           | state, -            |
+| Hessen                 | DE-HE           | state, -            |
+| Hamburg                | DE-HH           | state, -            |
+| Mecklenburg-Vorpommern | DE-MV           | state, xml          |
+| Niedersachsen          | DE-NI           | state, -            |
+| Nordrhein-Westfalen    | DE-NW           | state, xml, gml     |
+| Rheinland-Pfalz        | DE-RP           | state, -            |
+| Schleswig-Holstein     | DE-SH           | state, -            |
+| Saarland               | DE-SL           | state, -            |
+| Sachsen                | DE-SN           | state, -            |
+| Sachsen-Anhalt         | DE-ST           | state, -            |
+| Thüringen              | DE-TH           | state, -            |
 
 ## Contribution
 Contribution is highly appreciated 👍!  
