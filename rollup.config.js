@@ -1,6 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import babel from 'rollup-plugin-babel'
 import { terser } from 'rollup-plugin-terser'
 import pkg from './package.json'
 
@@ -15,10 +14,10 @@ export default [
     },
     plugins: [
       resolve(),
-      commonjs(),
-      babel({
-        exclude: ['node_modules/**']
-      })
+      commonjs()
+      // babel({
+      //   exclude: ['node_modules/**']
+      // })
     ]
   },
   // minified browser-friendly UMD build
@@ -32,10 +31,10 @@ export default [
     plugins: [
       resolve(),
       commonjs(),
-      terser(),
-      babel({
-        exclude: ['node_modules/**']
-      })
+      terser()
+      // babel({
+      //   exclude: ['node_modules/**']
+      // })
     ]
   },
   // node js and module version
