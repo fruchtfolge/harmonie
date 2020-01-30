@@ -131,6 +131,6 @@ Please open an issue in case of questions / bug reports or a pull request if you
 In the latter case, please make sure to run `npm test` (and adapt `test/test.js` to your changes) and / or update the `README` 🙂
 
 ## License
-MIT
+MIT @Christoph Pahmeyer
 
 This software is crafted with :heart: at the [University of Bonn - EMAS Group](https://www.ilr.uni-bonn.de/em/em_e.htm)
