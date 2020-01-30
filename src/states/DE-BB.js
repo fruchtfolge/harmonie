@@ -1,16 +1,16 @@
-const parse = require('../utils/parse')
-const helpers = require('../utils/helpers')
-const queryComplete = require('../utils/queryComplete')
-const Field = require('../Field')
+import parse from '../utils/parse'
+import helpers from '../utils/helpers'
+import queryComplete from '../utils/queryComplete'
+import Field from '../Field'
 
-module.exports = async (query) => {
+export default async function bb (query) {
   const incomplete = queryComplete(query, ['xml'])
   if (incomplete) throw new Error(incomplete)
   const data = parse.xml(query.xml)
   const applicationYear = data['fa:flaechenantrag']['fa:xsd_info']['fa:xsd_jahr']
   const parzellen = data['fa:flaechenantrag']['fa:gesamtparzellen']['fa:gesamtparzelle']
   let count = 0
-  return parzellen.reduce((acc, p, i) => {
+  return parzellen.reduce((acc, p) => {
     // start off with main area of field
     const hnf = p['fa:teilflaechen']['fa:hauptnutzungsflaeche']
     acc.push(new Field({

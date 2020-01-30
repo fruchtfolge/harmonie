@@ -1,10 +1,11 @@
-const bb = require('./states/DE-BB')
+import '@babel/polyfill'
+import bb from './states/DE-BB'
 // const bw = require('bw')
 // const by = require('by')
 // const he = require('he')
-const nw = require('./states/DE-NW')
+import nw from './states/DE-NW'
 
-module.exports = (query) => {
+export default function harmonie (query) {
   const state = query.state
   if (!state) {
     throw new Error('No property "state" given, required to be in ' +

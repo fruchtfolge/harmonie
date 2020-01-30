@@ -1,15 +1,15 @@
-const parser = require('fast-xml-parser')
-const shapefile = require('shapefile')
-const dataExperts = require('elan-parser')
+import { parse } from 'fast-xml-parser'
+import { read } from 'shapefile'
+import { join, parseXML, parseGML } from 'elan-parser'
 
-module.exports = {
+export default {
   async shape (shp, dbf) {
-    return shapefile.read(shp, dbf)
+    return read(shp, dbf)
   },
   xml (xml) {
-    return parser.parse(xml, null, true)
+    return parse(xml, null, true)
   },
   dataExperts (xml, gml) {
-    return dataExperts.join(dataExperts.parseXML(xml), dataExperts.parseGML(gml))
+    return join(parseXML(xml), parseGML(gml))
   }
 }

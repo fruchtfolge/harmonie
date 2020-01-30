@@ -1,8 +1,8 @@
-const parse = require('../utils/parse')
-const queryComplete = require('../utils/queryComplete')
-const Field = require('../Field')
+import parse from '../utils/parse'
+import queryComplete from '../utils/queryComplete'
+import Field from '../Field'
 
-module.exports = async (query) => {
+export default async function nw (query) {
   const incomplete = queryComplete(query, ['xml', 'gml'])
   if (incomplete) throw new Error(incomplete)
   const data = parse.dataExperts(query.xml, query.gml)

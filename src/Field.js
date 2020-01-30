@@ -1,8 +1,8 @@
-module.exports = class Field {
+export default class Field {
   constructor (properties) {
     this.id = properties.id || 'String'
     this.referenceDate = properties.referenceDate
-    this.NameOfField = properties.NameOfField
+    this.NameOfField = properties.NameOfField || `Unbenannt ${properties.NumberOfField}`
     this.NumberOfField = properties.NumberOfField
     this.Area = properties.Area
     this.FieldBlockNumber = properties.FieldBlockNumber
