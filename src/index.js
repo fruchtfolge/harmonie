@@ -1,8 +1,7 @@
-import '@babel/polyfill'
 import bb from './states/DE-BB'
-// const bw = require('bw')
-// const by = require('by')
-// const he = require('he')
+// import bw from 'bw'
+// import by from 'by'
+// import he from 'he'
 import nw from './states/DE-NW'
 
 export default function harmonie (query) {

@@ -1,20 +1,18 @@
-function _interopDefault$1 (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var fastXmlParser = require('fast-xml-parser');
-var shapefile = require('shapefile');
-var elanParser = require('elan-parser');
-var helpers$1 = require('@turf/helpers');
-var proj4 = _interopDefault$1(require('proj4'));
+import { parse as parse$1 } from 'fast-xml-parser';
+import { read } from 'shapefile';
+import { join, parseXML, parseGML } from 'elan-parser';
+import { multiPolygon } from '@turf/helpers';
+import proj4 from 'proj4';
 
 var parse = {
   async shape (shp, dbf) {
-    return shapefile.read(shp, dbf)
+    return read(shp, dbf)
   },
   xml (xml) {
-    return fastXmlParser.parse(xml, null, true)
+    return parse$1(xml, null, true)
   },
   dataExperts (xml, gml) {
-    return elanParser.join(elanParser.parseXML(xml), elanParser.parseGML(gml))
+    return join(parseXML(xml), parseGML(gml))
   }
 };
 
@@ -38,7 +36,7 @@ var helpers = {
     const polygonArray = Object.keys(flatJson).map(k => {
       return this.toCoordinates(flatJson[k])
     });
-    return helpers$1.multiPolygon(polygonArray)
+    return multiPolygon(polygonArray)
   },
   toPairs (array) {
     return array.reduce((result, value, index, array) => {
@@ -57,12 +55,12 @@ var helpers = {
     return coords
   },
   flatten (ob) {
-    var toReturn = {};
-    for (var i in ob) {
+    const toReturn = {};
+    for (const i in ob) {
       if (!(i in ob)) continue
       if ((typeof ob[i]) === 'object') {
-        var flatObject = this.flatten(ob[i]);
-        for (var x in flatObject) {
+        const flatObject = this.flatten(ob[i]);
+        for (const x in flatObject) {
           if (!(x in flatObject)) continue
           toReturn[i + '.' + x] = flatObject[x];
         }
@@ -252,9 +250,8 @@ function harmonie (query) {
     case 'DE-NW':
       return nw(query)
     default:
-      throw new Error(`No such state as "${state
-      }" according to ISO 3166-2 in Germany."`)
+      throw new Error(`No such state as "${state}" according to ISO 3166-2 in Germany."`)
   }
 }
 
-module.exports = harmonie;
+export default harmonie;

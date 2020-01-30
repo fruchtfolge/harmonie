@@ -1848,35 +1848,6 @@
     });
   }
 
-  function openShp(source, options) {
-    if (typeof source === "string") {
-      if (!/\.shp$/.test(source)) source += ".shp";
-      source = path(source);
-    } else if (source instanceof ArrayBuffer || source instanceof Uint8Array) {
-      source = array(source);
-    } else {
-      source = stream(source);
-    }
-    return Promise.resolve(source).then(shp);
-  }
-
-  function openDbf(source, options) {
-    var encoding = "windows-1252";
-    if (options && options.encoding != null) encoding = options.encoding;
-    encoding = new TextDecoder(encoding);
-    if (typeof source === "string") {
-      if (!/\.dbf$/.test(source)) source += ".dbf";
-      source = path(source);
-    } else if (source instanceof ArrayBuffer || source instanceof Uint8Array) {
-      source = array(source);
-    } else {
-      source = stream(source);
-    }
-    return Promise.resolve(source).then(function(source) {
-      return dbf(source, encoding);
-    });
-  }
-
   function read(shp, dbf, options) {
     return open(shp, dbf, options).then(function(source) {
       var features = [], collection = {type: "FeatureCollection", features: features, bbox: source.bbox};
@@ -1887,14 +1858,6 @@
       });
     });
   }
-
-  var shapefile$1 = /*#__PURE__*/Object.freeze({
-    __proto__: null,
-    open: open,
-    openShp: openShp,
-    openDbf: openDbf,
-    read: read
-  });
 
   function globals(defs) {
     defs('EPSG:4326', "+title=WGS 84 (long/lat) +proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees");
@@ -9313,12 +9276,9 @@
     }
 
   };
-
-  function _interopDefault$1(ex) {
-    return ex && _typeof(ex) === 'object' && 'default' in ex ? ex['default'] : ex;
-  }
-
-  var proj4$1 = _interopDefault$1(proj4);
+  var elanParser_1 = elanParser.parseXML;
+  var elanParser_2 = elanParser.parseGML;
+  var elanParser_3 = elanParser.join;
 
   var parse$1 = {
     shape: function shape(shp, dbf) {
@@ -9329,7 +9289,7 @@
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                return _context.abrupt("return", shapefile$1.read(shp, dbf));
+                return _context.abrupt("return", read(shp, dbf));
 
               case 1:
               case "end":
@@ -9340,16 +9300,16 @@
       }))();
     },
     xml: function xml(_xml) {
-      return parser.parse(_xml, null, true);
+      return parser_1(_xml, null, true);
     },
     dataExperts: function dataExperts(xml, gml) {
-      return elanParser.join(elanParser.parseXML(xml), elanParser.parseGML(gml));
+      return elanParser_3(elanParser_1(xml), elanParser_2(gml));
     }
-  }; // configure proj4 in order to convert GIS coordinates to web mercator
+  };
 
-  proj4$1.defs('EPSG:25832', '+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs');
-  var fromETRS89$1 = new proj4$1.Proj('EPSG:25832');
-  var toWGS84$1 = new proj4$1.Proj('WGS84');
+  proj4.defs('EPSG:25832', '+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs');
+  var fromETRS89$1 = new proj4.Proj('EPSG:25832');
+  var toWGS84$1 = new proj4.Proj('WGS84');
   var helpers$1 = {
     toLetter: function toLetter(number) {
       if (!isNaN(number) && number >= 0 && number <= 26) {
@@ -9368,7 +9328,7 @@
       var polygonArray = Object.keys(flatJson).map(function (k) {
         return _this.toCoordinates(flatJson[k]);
       });
-      return helpers.multiPolygon(polygonArray);
+      return helpers_16(polygonArray);
     },
     toPairs: function toPairs(array) {
       return array.reduce(function (result, value, index, array) {
@@ -9387,7 +9347,7 @@
 
       if (!keepProjection) {
         coords = coords.map(function (latlng) {
-          return proj4$1(fromETRS89$1, toWGS84$1, latlng);
+          return proj4(fromETRS89$1, toWGS84$1, latlng);
         });
       }
 
@@ -9444,16 +9404,16 @@
   function _bb() {
     _bb = _asyncToGenerator(
     /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee2(query) {
+    regeneratorRuntime.mark(function _callee(query) {
       var incomplete, data, applicationYear, parzellen, count;
-      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context.prev = _context.next) {
             case 0:
               incomplete = queryComplete(query, ['xml']);
 
               if (!incomplete) {
-                _context2.next = 3;
+                _context.next = 3;
                 break;
               }
 
@@ -9464,7 +9424,7 @@
               applicationYear = data['fa:flaechenantrag']['fa:xsd_info']['fa:xsd_jahr'];
               parzellen = data['fa:flaechenantrag']['fa:gesamtparzellen']['fa:gesamtparzelle'];
               count = 0;
-              return _context2.abrupt("return", parzellen.reduce(function (acc, p) {
+              return _context.abrupt("return", parzellen.reduce(function (acc, p) {
                 // start off with main area of field
                 var hnf = p['fa:teilflaechen']['fa:hauptnutzungsflaeche'];
                 acc.push(new Field({
@@ -9537,31 +9497,31 @@
 
             case 8:
             case "end":
-              return _context2.stop();
+              return _context.stop();
           }
         }
-      }, _callee2);
+      }, _callee);
     }));
     return _bb.apply(this, arguments);
   }
 
-  function nw(_x2) {
+  function nw(_x) {
     return _nw.apply(this, arguments);
   }
 
   function _nw() {
     _nw = _asyncToGenerator(
     /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee3(query) {
+    regeneratorRuntime.mark(function _callee(query) {
       var incomplete, data;
-      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+      return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
-          switch (_context3.prev = _context3.next) {
+          switch (_context.prev = _context.next) {
             case 0:
               incomplete = queryComplete(query, ['xml', 'gml']);
 
               if (!incomplete) {
-                _context3.next = 3;
+                _context.next = 3;
                 break;
               }
 
@@ -9569,7 +9529,7 @@
 
             case 3:
               data = parse$1.dataExperts(query.xml, query.gml);
-              return _context3.abrupt("return", data.map(function (f, i) {
+              return _context.abrupt("return", data.map(function (f, i) {
                 return new Field({
                   id: "harmonie_".concat(i, "_").concat(f.feldblock),
                   referenceDate: f.applicationYear,
@@ -9599,10 +9559,10 @@
 
             case 5:
             case "end":
-              return _context3.stop();
+              return _context.stop();
           }
         }
-      }, _callee3);
+      }, _callee);
     }));
     return _nw.apply(this, arguments);
   }
@@ -9629,8 +9589,6 @@
     }
   }
 
-  var src = harmonie;
-
-  return src;
+  return harmonie;
 
 })));
