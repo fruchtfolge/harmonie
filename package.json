@@ -1,5 +1,5 @@
 {
-  "name": "harmonie",
+  "name": "zid-harmonie",
   "version": "1.0.0",
   "main": "dist/harmonie.cjs.js",
   "module": "dist/harmonie.esm.js",

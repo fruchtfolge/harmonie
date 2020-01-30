@@ -43,7 +43,7 @@ Loading the minified file via script tag exposes the global function `harmonie`.
 
 ### Node.js / build tools
 ```
-npm install harmonie
+npm install zid-harmonie
 ```
 
 The module exports a single function. 
