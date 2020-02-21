@@ -19,7 +19,7 @@ const readFile = util.promisify(fs.readFile)
     console.log(e)
   }
   */
-  /*
+
   // DE-BW
   const xml = await readFile('./test/input/DE-BW/FIONA-FSV-089994449001-AKTIV.xml', 'utf8')
   try {
@@ -31,6 +31,7 @@ const readFile = util.promisify(fs.readFile)
   } catch (e) {
     console.log(e)
   }
+
   /*
   // DE-MV
   const xml = await readFile('./test/input/DE-MV/139530620006.nn.xml', 'utf8')
