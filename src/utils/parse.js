@@ -7,7 +7,7 @@ export default {
     return read(shp, dbf)
   },
   xml (xml) {
-    return parse(xml, null, true)
+    return parse(xml, { ignoreAttributes: false }, true)
   },
   dataExperts (xml, gml) {
     return join(parseXML(xml), parseGML(gml))

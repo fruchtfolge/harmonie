@@ -13,7 +13,7 @@ var parse = {
     return shapefile.read(shp, dbf)
   },
   xml (xml) {
-    return fastXmlParser.parse(xml, null, true)
+    return fastXmlParser.parse(xml, { ignoreAttributes: false }, true)
   },
   dataExperts (xml, gml) {
     return elanParser.join(elanParser.parseXML(xml), elanParser.parseGML(gml))
@@ -236,6 +236,38 @@ async function bw (query) {
   }))
 }
 
+async function bw$1 (query) {
+  const incomplete = queryComplete(query, ['xml']);
+  if (incomplete) throw new Error(incomplete)
+  const data = parse.xml(query.xml);
+  let applicationYear, subplots;
+  // try to access the subplots from the xml
+  try {
+    applicationYear = data.Ergebnis.Abfrage.Jahr;
+    subplots = data.Ergebnis.Betriebe.Betrieb.Feldstuecke;
+    console.log(subplots);
+    // only consider plots that have a geometry attached
+    subplots = subplots.filter(plot => plot.Geometrie);
+  } catch (e) {
+    throw new Error(e, 'Error in XML data structure. Is this file the correct file from iBALIS Bavaria?')
+  }
+  return subplots
+  /*
+  return subplots.map((plot, count) => new Field({
+    id: `harmonie_${count}_${plot['fsvele:FLIK']}`,
+    referenceDate: applicationYear,
+    NameOfField: plot['fsvele:GewannName'] || `Unbenannt ${plot['fsvele:SchlagNummer']}`,
+    NumberOfField: plot['fsvele:SchlagNummer'],
+    Area: plot['fsvele:NutzflaecheMitLandschaftselement'],
+    FieldBlockNumber: plot['fsvele:FLIK'],
+    PartOfField: '',
+    SpatialData: '', // helpers.toGeoJSON(plot['fsvele:Geometrie']),
+    LandUseRestriction: '',
+    Cultivation: plot['fsvele:CodeDerKultur']
+  }))
+  */
+}
+
 async function nw (query) {
   const incomplete = queryComplete(query, ['xml', 'gml']);
   if (incomplete) throw new Error(incomplete)
@@ -279,6 +311,8 @@ function harmonie (query) {
       return bb(query)
     case 'DE-BW':
       return bw(query)
+    case 'DE-BY':
+      return bw$1(query)
     case 'DE-MV':
       return bb(query)
     case 'DE-NW':

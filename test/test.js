@@ -18,13 +18,24 @@ const readFile = util.promisify(fs.readFile)
   } catch (e) {
     console.log(e)
   }
-  */
 
   // DE-BW
   const xml = await readFile('./test/input/DE-BW/FIONA-FSV-089994449001-AKTIV.xml', 'utf8')
   try {
     const data = await harmonie({
       state: 'DE-BW',
+      xml: xml
+    })
+    console.log(data)
+  } catch (e) {
+    console.log(e)
+  }
+  */
+  // DE-BY
+  const xml = await readFile('./test/input/DE-BY/FlaechenAbfrage_535585.xml', 'utf8')
+  try {
+    const data = await harmonie({
+      state: 'DE-BY',
       xml: xml
     })
     console.log(data)

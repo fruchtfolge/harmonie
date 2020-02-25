@@ -27,6 +27,11 @@ export default async function bw (query) {
     PartOfField: '',
     SpatialData: '', // helpers.toGeoJSON(plot['fsvele:Geometrie']),
     LandUseRestriction: '',
-    Cultivation: plot['fsvele:CodeDerKultur']
+    Cultivation: {
+      PrimaryCrop: {
+        CropSpeciesCode: plot['fsvele:CodeDerKultur'],
+        Name: ''
+      }
+    }
   }))
 }

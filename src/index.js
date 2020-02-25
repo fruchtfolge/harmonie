@@ -1,6 +1,6 @@
 import bb from './states/DE-BB'
 import bw from './states/DE-BW'
-// import by from 'by'
+import by from './states/DE-BY'
 // import he from 'he'
 import nw from './states/DE-NW'
 
@@ -15,6 +15,8 @@ export default function harmonie (query) {
       return bb(query)
     case 'DE-BW':
       return bw(query)
+    case 'DE-BY':
+      return by(query)
     case 'DE-MV':
       return bb(query)
     case 'DE-NW':

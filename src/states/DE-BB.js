@@ -27,14 +27,6 @@ export default async function bb (query) {
         PrimaryCrop: {
           CropSpeciesCode: hnf['fa:nutzung'],
           Name: ''
-        },
-        CatchCrop: {
-          CropSpeciesCode: '',
-          Name: ''
-        },
-        PrecedingCrop: {
-          CropSpeciesCode: '',
-          Name: ''
         }
       }
     }))
