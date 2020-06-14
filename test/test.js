@@ -3,69 +3,72 @@ const harmonie = require('..')
 const util = require('util')
 
 const readFile = util.promisify(fs.readFile)
+const writeFile = util.promisify(fs.writeFile)
 // const readDir = util.promisify('fs.readDir')
 
 ;(async () => {
-  /*
   // DE-BB
-  const xml = await readFile('./test/input/DE-BB/129530000041.nn.xml', 'utf8')
+  const bb = await readFile('./test/input/DE-BB/129530000041.nn.xml', 'utf8')
   try {
     const data = await harmonie({
       state: 'DE-BB',
-      xml: xml
+      xml: bb
     })
-    console.log(data)
+    writeFile('test/output/DE-BB.json', JSON.stringify(data), 'utf8')
   } catch (e) {
     console.log(e)
   }
-
+/*
   // DE-BW
-  const xml = await readFile('./test/input/DE-BW/FIONA-FSV-089994449001-AKTIV.xml', 'utf8')
+  const xml_BW = await readFile('./test/input/DE-BW/Flurstücksverzeichnis/FIONA-FSV-089994449000-AKTIV.xml', 'utf8')
+  const shp_BW = await readFile('./test/input/DE-BW/GIS/fiona_089994449000_ETRS89.shp')
+  const dbf_BW = await readFile('./test/input/DE-BW/GIS/fiona_089994449000_ETRS89.dbf')
   try {
     const data = await harmonie({
       state: 'DE-BW',
-      xml: xml
+      xml: xml_BW,
+      shp: shp_BW,
+      dbf: dbf_BW
     })
-    console.log(data)
+    writeFile('test/output/DE-BW.json', JSON.stringify(data), 'utf8')
   } catch (e) {
     console.log(e)
   }
-  */
+  /*
   // DE-BY
-  const xml = await readFile('./test/input/DE-BY/FlaechenAbfrage_535585.xml', 'utf8')
+  const by = await readFile('./test/input/DE-BY/FlaechenAbfrage_535585.xml', 'utf8')
   try {
     const data = await harmonie({
       state: 'DE-BY',
-      xml: xml
+      xml: by
     })
-    console.log(data)
+    writeFile('test/output/DE-BY.json', JSON.stringify(data), 'utf8')
   } catch (e) {
     console.log(e)
   }
 
-  /*
   // DE-MV
-  const xml = await readFile('./test/input/DE-MV/139530620006.nn.xml', 'utf8')
+  const mv = await readFile('./test/input/DE-MV/139530620006.nn.xml', 'utf8')
   try {
     const data = await harmonie({
       state: 'DE-MV',
-      xml: xml
+      xml: mv
     })
-    console.log(data)
+    writeFile('test/output/DE-MV.json', JSON.stringify(data), 'utf8')
   } catch (e) {
     console.log(e)
   }
 
   // DE-NW
-  const xml = await readFile('./test/input/DE-NW/NW20AGR_NTNW_009990088.xml', 'utf8')
+  const nw = await readFile('./test/input/DE-NW/NW20AGR_NTNW_009990088.xml', 'utf8')
   const gml = await readFile('./test/input/DE-NW/TS_009990088.gml', 'utf8')
   try {
     const data = await harmonie({
       state: 'DE-NW',
-      xml: xml,
+      xml: nw,
       gml: gml
     })
-    console.log(data)
+    writeFile('test/output/DE-NW.json', JSON.stringify(data), 'utf8')
   } catch (e) {
     console.log(e)
   }

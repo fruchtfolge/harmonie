@@ -26,11 +26,14 @@ export default async function bw (query) {
     Area: plot.Flaeche,
     FieldBlockNumber: plot['@_FID'],
     PartOfField: '',
-    SpatialData: '', // helpers.toGeoJSON(plot['fsvele:Geometrie']),
+    SpatialData: helpers.wktToGeoJSON(plot.Geometrie),
     LandUseRestriction: '',
     Cultivation: {
       PrimaryCrop: {
-        CropSpeciesCode: plot['fsvele:CodeDerKultur'],
+        // only return the first crop found in the Nutzungen property (in case
+        // of multiple crops), as we don't have any spatial information
+        // about where the crops are cultivated
+        CropSpeciesCode: helpers.getSafe(() => plot.Nutzungen.Nutzung.Code) || helpers.getSafe(() => plot.Nutzungen.Nutzung[0].Code),
         Name: ''
       }
     }

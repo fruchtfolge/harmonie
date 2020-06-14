@@ -1,6 +1,9 @@
 import parse from './parse'
 import { multiPolygon } from '@turf/helpers'
+import { coordEach } from '@turf/meta'
 import proj4 from 'proj4'
+import polygonClipping from 'polygon-clipping'
+import { parse as wktParse } from 'terraformer-wkt-parser'
 
 // configure proj4 in order to convert GIS coordinates to web mercator
 proj4.defs('EPSG:25832', '+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs')
@@ -21,7 +24,8 @@ export default {
     const flatJson = this.flatten(json)
     const polygonArray = Object.keys(flatJson).map(k => {
       return this.toCoordinates(flatJson[k])
-    })
+    }).filter(c => c[0])
+    console.log(polygonArray)
     return multiPolygon(polygonArray)
   },
   toPairs (array) {
@@ -30,13 +34,15 @@ export default {
       return result
     }, [])
   },
+  toWGS84 (coordPair) {
+    if (coordPair.length !== 2) return
+    return proj4(fromETRS89, toWGS84, coordPair)
+  },
   toCoordinates (string, keepProjection) {
-    const numbers = string.split(/\s+/g).map(s => Number(s))
+    const numbers = string.split(/\s+/g).map(s => Number(s)).filter(n => !isNaN(n))
     let coords = this.toPairs(numbers)
     if (!keepProjection) {
-      coords = coords.map(latlng => {
-        return proj4(fromETRS89, toWGS84, latlng)
-      })
+      coords = coords.map(this.toWGS84)
     }
     return coords
   },
@@ -55,5 +61,75 @@ export default {
       }
     }
     return toReturn
+  },
+  wktToGeoJSON (wkt) {
+    let geojson = wktParse(wkt)
+    geojson = this.reprojectFeature(geojson)
+    return geojson
+  },
+  reprojectFeature (feature) {
+    coordEach(feature, coord => {
+      const p = proj4(fromETRS89, toWGS84, coord)
+      coord.length = 0
+      coord.push(...p)
+    })
+    return feature
+  },
+  getSafe (value, defVal) {
+    try {
+      return value()
+    } catch (e) {
+      return defVal
+    }
+  },
+  groupByFLIK (fields) {
+    // create an object where each fieldblock the farm operates on is a key
+    // with the fields in that fieldblock being the properties
+    const groups = this.groupBy(fields, 'FieldBlockNumber')
+    let curNo = 0
+    const reNumberedFields = []
+    Object.keys(groups).forEach(fieldBlock => {
+      // if there's only one field in the fieldblock, we just re-assign its field
+      // number and go on
+      const fieldsInFieldBlock = groups[fieldBlock]
+      if (fieldsInFieldBlock.length === 1) {
+        fieldsInFieldBlock[0].NumberOfField = curNo
+        fieldsInFieldBlock[0].PartOfField = 0
+        reNumberedFields.push(fieldsInFieldBlock[0])
+        curNo++
+      } else {
+        // unfortunately, we cannot be sure if the two fields from a fieldblock
+        // are acutally part of a single field, as it may happen that a farmer has
+        // two fields in the same fieldblock, while another farmer owns the field
+        // in between these other fields.
+        // we therefore need to check if the fields would form a union or not
+        const union = polygonClipping.union(...fieldsInFieldBlock.map(f => f.SpatialData.geometry.coordinates))
+        // the features do not form a single union, we therefore assume they
+        // cannot be joined to single field
+
+        if (this.getSafe(() => union.geometry.length) > 1) {
+          fieldsInFieldBlock.forEach(field => {
+            field.NumberOfField = curNo
+            field.PartOfField = 0
+            reNumberedFields.push(field)
+            curNo++
+          })
+        } else {
+          fieldsInFieldBlock.forEach((field, i) => {
+            field.NumberOfField = curNo
+            field.PartOfField = i
+            reNumberedFields.push(field)
+          })
+          curNo++
+        }
+      }
+    })
+    return reNumberedFields
+  },
+  groupBy (xs, key) {
+    return xs.reduce((rv, x) => {
+      (rv[x[key]] = rv[x[key]] || []).push(x)
+      return rv
+    }, {})
   }
 }

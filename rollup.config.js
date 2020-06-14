@@ -26,7 +26,10 @@ export default [
       'elan-parser',
       'fast-xml-parser',
       'proj4',
-      'shapefile'
+      'shapefile',
+      '@turf/meta',
+      'terraformer-wkt-parser',
+      'polygon-clipping'
     ],
     output: [{
       file: pkg.main,

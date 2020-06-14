@@ -2,7 +2,10 @@ import { parse as parse$1 } from 'fast-xml-parser';
 import { read } from 'shapefile';
 import { join, parseXML, parseGML } from 'elan-parser';
 import { multiPolygon } from '@turf/helpers';
+import { coordEach } from '@turf/meta';
 import proj4 from 'proj4';
+import polygonClipping from 'polygon-clipping';
+import { parse as parse$2 } from 'terraformer-wkt-parser';
 
 var parse = {
   async shape (shp, dbf) {
@@ -35,7 +38,8 @@ var helpers = {
     const flatJson = this.flatten(json);
     const polygonArray = Object.keys(flatJson).map(k => {
       return this.toCoordinates(flatJson[k])
-    });
+    }).filter(c => c[0]);
+    console.log(polygonArray);
     return multiPolygon(polygonArray)
   },
   toPairs (array) {
@@ -44,13 +48,15 @@ var helpers = {
       return result
     }, [])
   },
+  toWGS84 (coordPair) {
+    if (coordPair.length !== 2) return
+    return proj4(fromETRS89, toWGS84, coordPair)
+  },
   toCoordinates (string, keepProjection) {
-    const numbers = string.split(/\s+/g).map(s => Number(s));
+    const numbers = string.split(/\s+/g).map(s => Number(s)).filter(n => !isNaN(n));
     let coords = this.toPairs(numbers);
     if (!keepProjection) {
-      coords = coords.map(latlng => {
-        return proj4(fromETRS89, toWGS84, latlng)
-      });
+      coords = coords.map(this.toWGS84);
     }
     return coords
   },
@@ -69,6 +75,76 @@ var helpers = {
       }
     }
     return toReturn
+  },
+  wktToGeoJSON (wkt) {
+    let geojson = parse$2(wkt);
+    geojson = this.reprojectFeature(geojson);
+    return geojson
+  },
+  reprojectFeature (feature) {
+    coordEach(feature, coord => {
+      const p = proj4(fromETRS89, toWGS84, coord);
+      coord.length = 0;
+      coord.push(...p);
+    });
+    return feature
+  },
+  getSafe (value, defVal) {
+    try {
+      return value()
+    } catch (e) {
+      return defVal
+    }
+  },
+  groupByFLIK (fields) {
+    // create an object where each fieldblock the farm operates on is a key
+    // with the fields in that fieldblock being the properties
+    const groups = this.groupBy(fields, 'FieldBlockNumber');
+    let curNo = 0;
+    const reNumberedFields = [];
+    Object.keys(groups).forEach(fieldBlock => {
+      // if there's only one field in the fieldblock, we just re-assign its field
+      // number and go on
+      const fieldsInFieldBlock = groups[fieldBlock];
+      if (fieldsInFieldBlock.length === 1) {
+        fieldsInFieldBlock[0].NumberOfField = curNo;
+        fieldsInFieldBlock[0].PartOfField = 0;
+        reNumberedFields.push(fieldsInFieldBlock[0]);
+        curNo++;
+      } else {
+        // unfortunately, we cannot be sure if the two fields from a fieldblock
+        // are acutally part of a single field, as it may happen that a farmer has
+        // two fields in the same fieldblock, while another farmer owns the field
+        // in between these other fields.
+        // we therefore need to check if the fields would form a union or not
+        const union = polygonClipping.union(...fieldsInFieldBlock.map(f => f.SpatialData.geometry.coordinates));
+        // the features do not form a single union, we therefore assume they
+        // cannot be joined to single field
+
+        if (this.getSafe(() => union.geometry.length) > 1) {
+          fieldsInFieldBlock.forEach(field => {
+            field.NumberOfField = curNo;
+            field.PartOfField = 0;
+            reNumberedFields.push(field);
+            curNo++;
+          });
+        } else {
+          fieldsInFieldBlock.forEach((field, i) => {
+            field.NumberOfField = curNo;
+            field.PartOfField = i;
+            reNumberedFields.push(field);
+          });
+          curNo++;
+        }
+      }
+    });
+    return reNumberedFields
+  },
+  groupBy (xs, key) {
+    return xs.reduce((rv, x) => {
+      (rv[x[key]] = rv[x[key]] || []).push(x);
+      return rv
+    }, {})
   }
 };
 
@@ -101,7 +177,7 @@ async function bb (query) {
   const applicationYear = data['fa:flaechenantrag']['fa:xsd_info']['fa:xsd_jahr'];
   const parzellen = data['fa:flaechenantrag']['fa:gesamtparzellen']['fa:gesamtparzelle'];
   let count = 0;
-  return parzellen.reduce((acc, p) => {
+  const plots = parzellen.reduce((acc, p) => {
     // start off with main area of field
     const hnf = p['fa:teilflaechen']['fa:hauptnutzungsflaeche'];
     acc.push(new Field({
@@ -117,14 +193,6 @@ async function bb (query) {
       Cultivation: {
         PrimaryCrop: {
           CropSpeciesCode: hnf['fa:nutzung'],
-          Name: ''
-        },
-        CatchCrop: {
-          CropSpeciesCode: '',
-          Name: ''
-        },
-        PrecedingCrop: {
-          CropSpeciesCode: '',
           Name: ''
         }
       }
@@ -167,69 +235,67 @@ async function bb (query) {
       }));
     });
     return acc
-  }, [])
-  // const geom = helpers.toGeoJSON(parzellen[0]['fa:teilflaechen']['fa:hauptnutzungsflaeche']['fa:geometrie'])
-  // return geom['gml:Surface']['gml:patches']['gml:PolygonPatch']
-  // for now, we are only interested in main crops and fiel strips,
-  // landscape elements and conservation areas are left out for now
-  // const filtered = data.features.filter(f => f.properties.ART === 'HNF' ||
-  // f.properties.ART === 'STR')
-
-  /*
-  return filtered.map((f, i) => new Field({
-    id: `harmonie_${i}_${f.properties.CONSTANT + f.properties.FLIK_FLEK}`,
-    referenceDate: '', // seems to be only stored in the xml file
-    NameOfField: '', // seems to be unavailable in Agrarantrag-BB export files?,
-    NumberOfField: f.properties.NUMMER.split('.')[0],
-    Area: f.properties.FLAECHE * 10000,
-    FieldBlockNumber: f.feldblock,
-    PartOfField: Number(f.properties.NUMMER.split('.')[1]),
-    SpatialData: f.geometry,
-    LandUseRestriction: '',
-    Cultivation: {
-      PrimaryCrop: {
-        CropSpeciesCode: f.properties.CODE,
-        Name: f.properties.CODE_BEZ
-      },
-      CatchCrop: {
-        CropSpeciesCode: f.greeningcode === '1' ? 50 : '',
-        Name: f.greeningcode === '1' ? 'Mischkulturen Saatgutmischung' : ''
-      },
-      PrecedingCrop: {
-        CropSpeciesCode: f.nutzungvj.code,
-        Name: f.nutzungvj.bezeichnung
-      }
-    }
-  }))
-  */
+  }, []);
+  // finally, group the parts of fields by their FLIK and check whether they are
+  // actually seperate parts of fields
+  return helpers.groupByFLIK(plots)
 }
 
 async function bw (query) {
-  const incomplete = queryComplete(query, ['xml']);
+  const incomplete = queryComplete(query, ['xml', 'shp', 'dbf']);
   if (incomplete) throw new Error(incomplete)
+  // parse the shape file information
+  const geometries = await parse.shape(query.shp, query.dbf);
+  // reproject coordinates into web mercator
+  geometries.features = geometries.features.map(helpers.reprojectFeature);
+  // parse the individual field information
   const data = parse.xml(query.xml);
-  let applicationYear, subplots;
+  let applicationYear, subplotsRawData;
   // try to access the subplots from the xml
   try {
     applicationYear = data['fsv:FSV']['fsv:FSVHeader']['commons:Antragsjahr'];
-    subplots = data['fsv:FSV']['fsv:FSVTable']['fsv:FSVTableRow'];
+    subplotsRawData = data['fsv:FSV']['fsv:FSVTable']['fsv:FSVTableRow'];
     // only consider plots that have a geometry attached
-    subplots = subplots.filter(plot => plot['fsvele:Geometrie']);
+    subplotsRawData = subplotsRawData.filter(plot => plot['fsvele:Geometrie']);
   } catch (e) {
     throw new Error('Error in XML data structure. Is this file the correct file from FSV BW?')
   }
-  return subplots.map((plot, count) => new Field({
+  const subplots = subplotsRawData.map((plot, count) => new Field({
     id: `harmonie_${count}_${plot['fsvele:FLIK']}`,
     referenceDate: applicationYear,
-    NameOfField: plot['fsvele:GewannName'] || `Unbenannt ${plot['fsvele:SchlagNummer']}`,
+    NameOfField: plot['commons:Bezeichnung'],
     NumberOfField: plot['fsvele:SchlagNummer'],
-    Area: plot['fsvele:NutzflaecheMitLandschaftselement'],
+    Area: plot['fsvele:NutzflaecheMitLandschaftselement']['#text'],
     FieldBlockNumber: plot['fsvele:FLIK'],
     PartOfField: '',
-    SpatialData: '', // helpers.toGeoJSON(plot['fsvele:Geometrie']),
+    SpatialData: plot['fsvele:GeometrieId'],
     LandUseRestriction: '',
-    Cultivation: plot['fsvele:CodeDerKultur']
-  }))
+    Cultivation: {
+      PrimaryCrop: {
+        CropSpeciesCode: plot['fsvele:CodeDerKultur'],
+        Name: ''
+      }
+    }
+  }));
+  // in BW some fields are having multiple entries in the raw XML, despite only
+  // having a single geometry attached
+  // we now group the fields by similar geometries and re-evaluate
+  const grouped = helpers.groupBy(subplots, 'SpatialData');
+  const cleanedPlots = [];
+  Object.keys(grouped).forEach(geometryId => {
+    const fieldsWithSameId = grouped[geometryId];
+    if (fieldsWithSameId.length > 1) {
+      for (var i = 1; i < fieldsWithSameId.length; i++) {
+        fieldsWithSameId[0].Area += fieldsWithSameId[i].Area;
+      }
+    }
+    // replace geometry id with actualy geometry
+    fieldsWithSameId[0].SpatialData = geometries.features.find(f => f.properties.geo_id);
+    cleanedPlots.push(fieldsWithSameId[0]);
+  });
+  // finally, group the parts of fields by their FLIK and check whether they are
+  // actually seperate parts of fields
+  return helpers.groupByFLIK(cleanedPlots)
 }
 
 async function bw$1 (query) {
@@ -240,28 +306,33 @@ async function bw$1 (query) {
   // try to access the subplots from the xml
   try {
     applicationYear = data.Ergebnis.Abfrage.Jahr;
-    subplots = data.Ergebnis.Betriebe.Betrieb.Feldstuecke;
-    console.log(subplots);
+    subplots = data.Ergebnis.Betriebe.Betrieb.Feldstuecke.Feldstueck;
     // only consider plots that have a geometry attached
     subplots = subplots.filter(plot => plot.Geometrie);
   } catch (e) {
     throw new Error(e, 'Error in XML data structure. Is this file the correct file from iBALIS Bavaria?')
   }
-  return subplots
-  /*
+
   return subplots.map((plot, count) => new Field({
-    id: `harmonie_${count}_${plot['fsvele:FLIK']}`,
+    id: `harmonie_${count}_${plot['@_FID']}`,
     referenceDate: applicationYear,
-    NameOfField: plot['fsvele:GewannName'] || `Unbenannt ${plot['fsvele:SchlagNummer']}`,
-    NumberOfField: plot['fsvele:SchlagNummer'],
-    Area: plot['fsvele:NutzflaecheMitLandschaftselement'],
-    FieldBlockNumber: plot['fsvele:FLIK'],
+    NameOfField: plot.Name || `Unbenannt ${plot.Nummer}`,
+    NumberOfField: plot.Nummer,
+    Area: plot.Flaeche,
+    FieldBlockNumber: plot['@_FID'],
     PartOfField: '',
-    SpatialData: '', // helpers.toGeoJSON(plot['fsvele:Geometrie']),
+    SpatialData: helpers.wktToGeoJSON(plot.Geometrie),
     LandUseRestriction: '',
-    Cultivation: plot['fsvele:CodeDerKultur']
+    Cultivation: {
+      PrimaryCrop: {
+        // only return the first crop found in the Nutzungen property (in case
+        // of multiple crops), as we don't have any spatial information
+        // about where the crops are cultivated
+        CropSpeciesCode: helpers.getSafe(() => plot.Nutzungen.Nutzung.Code) || helpers.getSafe(() => plot.Nutzungen.Nutzung[0].Code),
+        Name: ''
+      }
+    }
   }))
-  */
 }
 
 async function nw (query) {

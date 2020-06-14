@@ -7,15 +7,15 @@
 - ✅ is open source (MIT license)
 
 This repository is **WIP**, APIs and data structures are likely to change.  
-Currently, **4/16** federal states are supported.  
+Currently, **6/16** federal states are supported.  
 The following overview table displays the current state of the project:
 
 | Federal state          | ISO 3166-2 code | Test data available? | Supported by 'harmonie' | ToDos                                          |
 |:-----------------------|:----------------|:---------------------|:------------------------|:-----------------------------------------------|
 | Brandenburg            | DE-BB           | ✅                    | ✅                       | -                                              |
 | Berlin                 | DE-BE           | ✅                    | ✅                       | -                                              |
-| Baden-Württemberg      | DE-BW           | ✅                    | ⬜️                       | Create property mapping                        |
-| Bayern                 | DE-BY           | ✅                    | ⬜️                       | Create property mapping                        |
+| Baden-Württemberg      | DE-BW           | ✅                    | ✅                       | -                                              |
+| Bayern                 | DE-BY           | ✅                    | ✅                       | -                                              |
 | Bremen                 | DE-HB           | ⬜️                    | ⬜️                       | Waiting on test data (ANDI NDS)                |
 | Hessen                 | DE-HE           | ✅                    | ⬜️                       | Create property mapping                        |
 | Hamburg                | DE-HH           | ⬜️                    | ⬜️                       | Waiting on test data (ANDI NDS)                |
@@ -87,10 +87,10 @@ Sample minimum return value:
   id: 'harmonie_runningIndex_FieldBlockNumber', // e.g. 'harmonie_36_DEBBLI0261009129'
   referenceDate: 2020,
   NameOfField: 'Hinterm Hof',
-  NumberOfField: 1,
+  NumberOfField: 0,
   Area: 1.1,
   FieldBlockNumber: 'DENW...',
-  PartOfField: 'a',
+  PartOfField: 0,
   SpatialData: {
     // a GeoJSON feature
   },
@@ -106,24 +106,24 @@ Sample minimum return value:
 The following table displays the required properties for a query depending on
 the federal state:
 
-| Federal state          | ISO 3166-2 code | Required query data |
-|:-----------------------|:----------------|:--------------------|
-| Brandenburg            | DE-BB           | state, xml          |
-| Berlin                 | DE-BE           | state, xml          |
-| Baden-Württemberg      | DE-BW           | state, -            |
-| Bayern                 | DE-BY           | state, -            |
-| Bremen                 | DE-HB           | state, -            |
-| Hessen                 | DE-HE           | state, -            |
-| Hamburg                | DE-HH           | state, -            |
-| Mecklenburg-Vorpommern | DE-MV           | state, xml          |
-| Niedersachsen          | DE-NI           | state, -            |
-| Nordrhein-Westfalen    | DE-NW           | state, xml, gml     |
-| Rheinland-Pfalz        | DE-RP           | state, -            |
-| Schleswig-Holstein     | DE-SH           | state, -            |
-| Saarland               | DE-SL           | state, -            |
-| Sachsen                | DE-SN           | state, -            |
-| Sachsen-Anhalt         | DE-ST           | state, -            |
-| Thüringen              | DE-TH           | state, -            |
+| Federal state          | ISO 3166-2 code | Required query data  |
+|:-----------------------|:----------------|:---------------------|
+| Brandenburg            | DE-BB           | state, xml           |
+| Berlin                 | DE-BE           | state, xml           |
+| Baden-Württemberg      | DE-BW           | state, xml, shp, dbf |
+| Bayern                 | DE-BY           | state, xml           |
+| Bremen                 | DE-HB           | state, -             |
+| Hessen                 | DE-HE           | state, -             |
+| Hamburg                | DE-HH           | state, -             |
+| Mecklenburg-Vorpommern | DE-MV           | state, xml           |
+| Niedersachsen          | DE-NI           | state, -             |
+| Nordrhein-Westfalen    | DE-NW           | state, xml, gml      |
+| Rheinland-Pfalz        | DE-RP           | state, -             |
+| Schleswig-Holstein     | DE-SH           | state, -             |
+| Saarland               | DE-SL           | state, -             |
+| Sachsen                | DE-SN           | state, -             |
+| Sachsen-Anhalt         | DE-ST           | state, -             |
+| Thüringen              | DE-TH           | state, -             |
 
 ## Contribution
 Contribution is highly appreciated 👍!  
