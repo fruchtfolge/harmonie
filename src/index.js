@@ -3,6 +3,7 @@ import bw from './states/DE-BW'
 import by from './states/DE-BY'
 import he from './states/DE-HE'
 import mv from './states/DE-MV'
+import ni from './states/DE-NI'
 import nw from './states/DE-NW'
 import sl from './states/DE-SL'
 import th from './states/DE-TH'
@@ -16,18 +17,34 @@ export default function harmonie (query) {
   switch (state) {
     case 'DE-BB':
       return bb(query)
+    case 'DE-BE':
+      return bb(query)
     case 'DE-BW':
       return bw(query)
     case 'DE-BY':
       return by(query)
+    case 'DE-HB':
+      return ni(query)
     case 'DE-HE':
       return he(query)
+    case 'DE-HH':
+      return ni(query)
     case 'DE-MV':
       return mv(query)
+    case 'DE-NI':
+      return ni(query)
     case 'DE-NW':
       return nw(query)
+    case 'DE-RP':
+      return ni(query)
+    case 'DE-SH':
+      return ni(query)
     case 'DE-SL':
       return sl(query)
+    case 'DE-SN':
+      return ni(query)
+    case 'DE-ST':
+      return ni(query)
     case 'DE-TH':
       return th(query)
     default:

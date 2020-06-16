@@ -31,6 +31,10 @@ proj4.defs('EPSG:5650', '+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9996 +x_0=33500000 
 proj4.defs('EPSG:31467', '+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs');
 // DE-SL
 proj4.defs('EPSG:31462', '+proj=tmerc +lat_0=0 +lon_0=6 +k=1 +x_0=2500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs');
+// others
+proj4.defs('EPSG:31468', '+proj=tmerc +lat_0=0 +lon_0=12 +k=1 +x_0=4500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs');
+proj4.defs('EPSG:25833', '+proj=utm +zone=33 +ellps=GRS80 +units=m +no_defs');
+proj4.defs('EPSG:4647', '+proj=tmerc +lat_0=0 +lon_0=9 +k=0.9996 +x_0=32500000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs');
 
 const fromETRS89 = new proj4.Proj('EPSG:25832');
 const toWGS84 = new proj4.Proj('WGS84');
@@ -438,6 +442,44 @@ async function bb$1 (query) {
   return helpers.groupByFLIK(plots)
 }
 
+async function sl (query) {
+  const incomplete = queryComplete(query, ['shp', 'dbf']);
+  if (incomplete) throw new Error(incomplete)
+  // if a projection was passed, check if it is supported
+  const supportedProjs = ['EPSG:25832', 'EPSG:5650', 'EPSG:31467', 'EPSG:31462', 'EPSG:31468', 'EPSG:25833', 'EPSG:4647'];
+  if (query.projection && supportedProjs.indexOf(query.projection) === -1) {
+    throw new Error(`Projection ${query.projection} is not supported by harmonie. The supported projections are: ${supportedProjs}`)
+  }
+  // parse the shape file information
+  const geometries = await parse.shape(query.shp, query.dbf);
+  // reproject coordinates into web mercator
+  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.projection));
+
+  // as we don't know anything about the structure of the shape files,
+  // we just make some assumptions based on the following information
+  //
+  const subplots = geometries.features.map((plot, count) => new Field({
+    id: `harmonie_${count}_${plot.properties.FLIK}`,
+    referenceDate: plot.properties.ANTJAHR,
+    NameOfField: '',
+    NumberOfField: count,
+    Area: plot.properties.AKT_FL,
+    FieldBlockNumber: plot.properties.FLIK,
+    PartOfField: '',
+    SpatialData: plot,
+    Cultivation: {
+      PrimaryCrop: {
+        CropSpeciesCode: plot.properties.KC_GEM,
+        Name: undefined
+      }
+    }
+  }));
+
+  // finally, group the parts of fields by their FLIK and check whether they are
+  // actually seperate parts of fields
+  return helpers.groupByFLIK(subplots)
+}
+
 async function nw (query) {
   const incomplete = queryComplete(query, ['xml', 'gml']);
   if (incomplete) throw new Error(incomplete)
@@ -472,7 +514,7 @@ async function nw (query) {
   return helpers.groupByFLIK(plots)
 }
 
-async function sl (query) {
+async function sl$1 (query) {
   const incomplete = queryComplete(query, ['shp', 'dbf']);
   if (incomplete) throw new Error(incomplete)
   // parse the shape file information
@@ -502,7 +544,7 @@ async function sl (query) {
   return helpers.groupByFLIK(subplots)
 }
 
-async function sl$1 (query) {
+async function sl$2 (query) {
   const incomplete = queryComplete(query, ['shp', 'dbf']);
   if (incomplete) throw new Error(incomplete)
   // parse the shape file information
@@ -541,20 +583,36 @@ function harmonie (query) {
   switch (state) {
     case 'DE-BB':
       return bb(query)
+    case 'DE-BE':
+      return bb(query)
     case 'DE-BW':
       return bw(query)
     case 'DE-BY':
       return bw$1(query)
+    case 'DE-HB':
+      return sl(query)
     case 'DE-HE':
       return he(query)
+    case 'DE-HH':
+      return sl(query)
     case 'DE-MV':
       return bb$1(query)
+    case 'DE-NI':
+      return sl(query)
     case 'DE-NW':
       return nw(query)
+    case 'DE-RP':
+      return sl(query)
+    case 'DE-SH':
+      return sl(query)
     case 'DE-SL':
+      return sl$1(query)
+    case 'DE-SN':
+      return sl(query)
+    case 'DE-ST':
       return sl(query)
     case 'DE-TH':
-      return sl$1(query)
+      return sl$2(query)
     default:
       throw new Error(`No such state as "${state}" according to ISO 3166-2 in Germany."`)
   }

@@ -9,7 +9,7 @@ const states = require('./states')
     states.mv(),
     states.nw(),
     states.sl(),
-    states.th(true)
+    states.th()
   ]
 
   try {

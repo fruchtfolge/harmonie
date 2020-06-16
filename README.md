@@ -1,33 +1,42 @@
 # harmonie :seedling:
-*harmonie* is a software package that harmonizes IACS (ZID) files of all German federal states. With *harmonie*, you can outsource parsing of the different direct payment application files, so you can rely on a given input data structure.  
+*harmonie* is a software package that harmonizes farm subsidy application files of all German federal states. 
+It takes the various xml, gml, shp, and dbf files issued by the federal farm subsidy application softwares, and converts them into **WGS84** projected
+GeoJSON geometries suitable for any web mapping service.
+
+With *harmonie*, you can outsource parsing of the different direct payment application files, so you can rely on a given input data structure.  
 
 *harmonie*
 - ✅ works in the browser/Node.js
 - ✅ adheres to the [agroJSON](https://github.com/fruchtfolge/agroJSON) specification
 - ✅ is open source (MIT license)
 
-This repository is **WIP**, APIs and data structures are likely to change.  
-Currently, **9/16** federal states are supported.  
+
+Converting the geometries (fields) contained in the application files is supported for **all** federal states in Germany.
+For most federal states, additional information as the primary crop cultivated on a field, as well as the [fieldblock number (FLIK)](https://de.wikipedia.org/wiki/Feldblock) are obtained as well.
+
 The following overview table displays the current state of the project:
 
-| Federal state          | ISO 3166-2 code | Test data available? | Supported by 'harmonie' | ToDos                                          |
-|:-----------------------|:----------------|:---------------------|:------------------------|:-----------------------------------------------|
-| Brandenburg            | DE-BB           | ✅                    | ✅                       | -                                              |
-| Berlin                 | DE-BE           | ✅                    | ✅                       | -                                              |
-| Baden-Württemberg      | DE-BW           | ✅                    | ✅                       | -                                              |
-| Bayern                 | DE-BY           | ✅                    | ✅                       | -                                              |
-| Bremen                 | DE-HB           | ⬜️                    | ⬜️                       | Waiting on test data (ANDI NDS)                |
-| Hessen                 | DE-HE           | ✅                    | ✅                       | -                                              |
-| Hamburg                | DE-HH           | ⬜️                    | ⬜️                       | Waiting on test data (ANDI NDS)                |
-| Mecklenburg-Vorpommern | DE-MV           | ✅                    | ✅                       | -                                              |
-| Niedersachsen          | DE-NI           | ⬜️                    | ⬜️                       | Waiting on test data (ANDI NDS)                |
-| Nordrhein-Westfalen    | DE-NW           | ✅                    | ✅                       | -                                              |
-| Rheinland-Pfalz        | DE-RP           | ✅                    | ⬜️                       | Create property mapping                        |
-| Schleswig-Holstein     | DE-SH           | ⬜️                    | ⬜️                       | Waiting on test data (ELSA Schleswig-Holstein) |
-| Saarland               | DE-SL           | ✅                    | ✅                       | -                                              |
-| Sachsen                | DE-SN           | ⬜️                    | ⬜️                       | Waiting on test data (DIANAweb Sachsen-Anhalt) |
-| Sachsen-Anhalt         | DE-ST           | ⬜️                    | ⬜️                       | Waiting on test data (ELAISA Sachsen)          |
-| Thüringen              | DE-TH           | ✅                    | ✅                       | -                                              |
+✅ Federal states fully supported by 'harmonie': Plot geometries, including crop cultivation code and FLIK are obtained.  
+☑️ Federal states partially supported by 'harmonie': Only plot geometries are obtained.
+
+| Federal state          | ISO 3166-2 code | Subsidy application program                                                                                                              | Test data available? | Supported by 'harmonie' | ToDos                                          |
+|:-----------------------|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:------------------------|:-----------------------------------------------|
+| Brandenburg            | DE-BB           | [WebClient Agrarantrag BB](https://www.agrarantrag-bb.de/webClient_BB_P/)                                                                | ✅                    | ✅                       | -                                              |
+| Berlin                 | DE-BE           | [WebClient Agrarantrag BB](https://www.agrarantrag-bb.de/webClient_BB_P/)                                                                | ✅                    | ✅                       | -                                              |
+| Baden-Württemberg      | DE-BW           | [FIONA - Flächeninformation und Online-Antrag](https://fiona.landbw.de/fiona/pages/login.xhtml)                                          | ✅                    | ✅                       | -                                              |
+| Bayern                 | DE-BY           | [iBalis Bayern](https://www.stmelf.bayern.de/ibalis/hRPSYCJ9iai73RtXboYewXCBR-_cYW-D/hRPf5)                                              | ✅                    | ✅                       | -                                              |
+| Bremen                 | DE-HB           | [ANDI - Agrarförderung Niedersachsen Digital](https://sla.niedersachsen.de/andi-web/)                                                    | ⬜️                    | ☑️                       | Waiting on test data (ANDI NDS)                |
+| Hessen                 | DE-HE           | [Antragsmappe der WI-Bank](https://www.wibank.de/wibank/direktzahlungen)                                                                 | ✅                    | ✅                       | -                                              |
+| Hamburg                | DE-HH           | [ANDI - Agrarförderung Niedersachsen Digital](https://sla.niedersachsen.de/andi-web/)                                                    | ⬜️                    | ☑️                       | Waiting on test data (ANDI NDS)                |
+| Mecklenburg-Vorpommern | DE-MV           | [WebClient Agrarantrag MV](https://online.agrarantrag-mv.de/webClient_MV_P/)                                                             | ✅                    | ✅                       | -                                              |
+| Niedersachsen          | DE-NI           | [ANDI - Agrarförderung Niedersachsen Digital](https://sla.niedersachsen.de/andi-web/)                                                    | ⬜️                    | ☑️                       | Waiting on test data (ANDI NDS)                |
+| Nordrhein-Westfalen    | DE-NW           | [ELAN-NRW WebClient](https://www.elan-nrw.de/webClient_NW/#docs)                                                                         | ✅                    | ✅                       | -                                              |
+| Rheinland-Pfalz        | DE-RP           | [eAntrag](https://www.dlr.rlp.de/Internet/global/inetcntr.nsf/dlr_web_full.xsp?src=6F7G9TYH1A&p1=IT5HUS52Z8&p3=SXP6I7GS55&p4=JM94D5V1SK) | ✅                    | ☑️                       | Create property mapping                        |
+| Schleswig-Holstein     | DE-SH           | [WebClient Agrarantrag SH](https://www.sammelantrag-sh.dataport.de/webClient_SH_P/SHWebClient.html)                                      | ⬜️                    | ☑️                       | Waiting on test data (ELSA Schleswig-Holstein) |
+| Saarland               | DE-SL           | [ASdigital Saarland](https://www.saarland.de/126854.htm)                                                                                 | ✅                    | ✅                       | -                                              |
+| Sachsen                | DE-SN           | [DianaWeb WebClient SN](https://www.diana.sachsen.de/webClient_SN_P/#login)                                                              | ⬜️                    | ☑️                       | Waiting on test data (DIANAweb Sachsen)        |
+| Sachsen-Anhalt         | DE-ST           | [ELAISA WebClient ST](https://www.inet17.sachsen-anhalt.de/webClient_ST_P/)                                                              | ⬜️                    | ☑️                       | Waiting on test data (ELAISA Sachsen-Anhalt)   |
+| Thüringen              | DE-TH           | [Verona Thüringen](https://verona.thueringen.de/#)                                                                                       | ✅                    | ✅                       | -                                              |
 
 ## Installation
 
@@ -80,8 +89,9 @@ Returns an array of objects containing individual parts of fields (German: *Teil
   -  `gml` *\<string, UTF-8\>*
   -  `shp` *\<blob\>*
   -  `dbf` *\<blob\>*
+  - `projection` *\<string, UTF-8\> optional for shp and dbf request, can be specified when the input files are not EPSG:25832* 
 
-Sample minimum return value:
+Sample return value:
 ```js
 [{
   id: 'harmonie_runningIndex_FieldBlockNumber', // e.g. 'harmonie_36_DEBBLI0261009129'
@@ -112,17 +122,17 @@ the federal state:
 | Berlin                 | DE-BE           | state, xml           |
 | Baden-Württemberg      | DE-BW           | state, xml, shp, dbf |
 | Bayern                 | DE-BY           | state, xml           |
-| Bremen                 | DE-HB           | state, -             |
+| Bremen                 | DE-HB           | state, shp, dbf      |
 | Hessen                 | DE-HE           | state, shp, dbf      |
-| Hamburg                | DE-HH           | state, -             |
+| Hamburg                | DE-HH           | state, shp, dbf      |
 | Mecklenburg-Vorpommern | DE-MV           | state, xml           |
-| Niedersachsen          | DE-NI           | state, -             |
+| Niedersachsen          | DE-NI           | state, shp, dbf      |
 | Nordrhein-Westfalen    | DE-NW           | state, xml, gml      |
-| Rheinland-Pfalz        | DE-RP           | state, -             |
-| Schleswig-Holstein     | DE-SH           | state, -             |
+| Rheinland-Pfalz        | DE-RP           | state, shp, dbf      |
+| Schleswig-Holstein     | DE-SH           | state, shp, dbf      |
 | Saarland               | DE-SL           | state, shp, dbf      |
-| Sachsen                | DE-SN           | state, -             |
-| Sachsen-Anhalt         | DE-ST           | state, -             |
+| Sachsen                | DE-SN           | state, shp, dbf      |
+| Sachsen-Anhalt         | DE-ST           | state, shp, dbf      |
 | Thüringen              | DE-TH           | state, shp, dbf      |
 
 ## Specifics for certain federal states

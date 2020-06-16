@@ -4,7 +4,7 @@
   "main": "dist/harmonie.cjs.js",
   "module": "dist/harmonie.esm.js",
   "browser": "dist/harmonie.min.js",
-  "description": "Harmonizes IACS (ZID) files of all German Federal States",
+  "description": "Farm subsidy application files of all German federal states",
   "directories": {
     "test": "test"
   },
