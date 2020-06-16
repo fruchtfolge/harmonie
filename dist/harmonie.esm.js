@@ -39,7 +39,6 @@ var helpers = {
     const polygonArray = Object.keys(flatJson).map(k => {
       return this.toCoordinates(flatJson[k])
     }).filter(c => c[0]);
-    console.log(polygonArray);
     return multiPolygon(polygonArray)
   },
   toPairs (array) {
@@ -185,9 +184,9 @@ async function bb (query) {
       referenceDate: applicationYear,
       NameOfField: '', // seems to be unavailable in Agrarantrag-BB export files?,
       NumberOfField: Math.floor(hnf['fa:teilflaechennummer']),
-      Area: hnf['fa:groesse'],
+      Area: hnf['fa:groesse'] / 10000,
       FieldBlockNumber: hnf['fa:flik'],
-      PartOfField: 'a',
+      PartOfField: 0,
       SpatialData: helpers.toGeoJSON(hnf['fa:geometrie']),
       LandUseRestriction: '',
       Cultivation: {
@@ -213,7 +212,7 @@ async function bb (query) {
         referenceDate: applicationYear,
         NameOfField: '', // seems to be unavailable in Agrarantrag-BB export files?,
         NumberOfField: Math.floor(stf['fa:teilflaechennummer']),
-        Area: stf['fa:groesse'],
+        Area: stf['fa:groesse'] / 10000,
         FieldBlockNumber: stf['fa:flik'],
         PartOfField: helpers.toLetter(j + 1),
         SpatialData: helpers.toGeoJSON(stf['fa:geometrie']),
@@ -221,14 +220,6 @@ async function bb (query) {
         Cultivation: {
           PrimaryCrop: {
             CropSpeciesCode: stf['fa:nutzung'],
-            Name: ''
-          },
-          CatchCrop: {
-            CropSpeciesCode: '',
-            Name: ''
-          },
-          PrecedingCrop: {
-            CropSpeciesCode: '',
             Name: ''
           }
         }
