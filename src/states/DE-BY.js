@@ -18,7 +18,7 @@ export default async function bw (query) {
     throw new Error(e, 'Error in XML data structure. Is this file the correct file from iBALIS Bavaria?')
   }
 
-  return subplots.map((plot, count) => new Field({
+  const plots = subplots.map((plot, count) => new Field({
     id: `harmonie_${count}_${plot['@_FID']}`,
     referenceDate: applicationYear,
     NameOfField: plot.Name || `Unbenannt ${plot.Nummer}`,
@@ -38,4 +38,7 @@ export default async function bw (query) {
       }
     }
   }))
+  // finally, group the parts of fields by their FLIK and check whether they are
+  // actually seperate parts of fields
+  return helpers.groupByFLIK(plots)
 }
