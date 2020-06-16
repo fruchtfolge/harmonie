@@ -5,6 +5,7 @@ const states = require('./states')
     states.bb(),
     states.bw(),
     states.by(),
+    states.he(),
     states.mv(),
     states.nw()
   ]

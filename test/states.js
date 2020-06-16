@@ -24,6 +24,14 @@ module.exports = {
       testResultsFile: 'test/output/DE-BY.json'
     }, updateResults)
   },
+  he (updateResults) {
+    return test({
+      state: 'DE-HE',
+      shp: './test/input/DE-HE/SCHLAG.shp',
+      dbf: './test/input/DE-HE/SCHLAG.dbf',
+      testResultsFile: 'test/output/DE-HE.json'
+    }, updateResults)
+  },
   mv (updateResults) {
     return test({
       state: 'DE-MV',

@@ -25,7 +25,11 @@ var parse = {
 
 // configure proj4 in order to convert GIS coordinates to web mercator
 proj4.defs('EPSG:25832', '+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs');
+// DE-MV
 proj4.defs('EPSG:5650', '+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9996 +x_0=33500000 +y_0=0 +ellps=GRS80 +units=m +no_defs');
+// DE-HE
+proj4.defs('EPSG:31467', '+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs');
+
 const fromETRS89 = new proj4.Proj('EPSG:25832');
 const toWGS84 = new proj4.Proj('WGS84');
 
@@ -339,6 +343,36 @@ async function bw$1 (query) {
   return helpers.groupByFLIK(plots)
 }
 
+async function he (query) {
+  const incomplete = queryComplete(query, ['shp', 'dbf']);
+  if (incomplete) throw new Error(incomplete)
+  // parse the shape file information
+  const geometries = await parse.shape(query.shp, query.dbf);
+  // reproject coordinates into web mercator
+  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, 'EPSG:31467'));
+
+  const subplots = geometries.features.map((plot, count) => new Field({
+    id: `harmonie_${count}_${plot.properties.FLIK}`,
+    referenceDate: undefined, // duh!
+    NameOfField: plot.properties.LAGE_BEZ,
+    NumberOfField: count,
+    Area: plot.properties.BEANTR_GRO,
+    FieldBlockNumber: plot.properties.FLIK,
+    PartOfField: '',
+    SpatialData: plot,
+    Cultivation: {
+      PrimaryCrop: {
+        CropSpeciesCode: plot.properties.NCODE,
+        Name: plot.properties.NUTZUNG
+      }
+    }
+  }));
+
+  // finally, group the parts of fields by their FLIK and check whether they are
+  // actually seperate parts of fields
+  return helpers.groupByFLIK(subplots)
+}
+
 async function nw (query) {
   const incomplete = queryComplete(query, ['xml', 'gml']);
   if (incomplete) throw new Error(incomplete)
@@ -353,7 +387,6 @@ async function nw (query) {
     FieldBlockNumber: f.feldblock,
     PartOfField: f.teilschlag,
     SpatialData: f.geometry,
-    LandUseRestriction: '',
     Cultivation: {
       PrimaryCrop: {
         CropSpeciesCode: f.nutzungaj.code,
@@ -450,6 +483,8 @@ function harmonie (query) {
       return bw(query)
     case 'DE-BY':
       return bw$1(query)
+    case 'DE-HE':
+      return he(query)
     case 'DE-NW':
       return nw(query)
     case 'DE-MV':

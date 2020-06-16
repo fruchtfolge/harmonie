@@ -1,0 +1,79 @@
+[{
+  "id": "harmonie_0_DEHELI0009998845",
+  "NameOfField": "Schlag 6",
+  "NumberOfField": 0,
+  "Area": 1.65712,
+  "FieldBlockNumber": "DEHELI0009998845",
+  "PartOfField": 0,
+  "SpatialData": {
+    "type": "Feature",
+    "properties": {
+      "FID": 1,
+      "ID": 999888669,
+      "PI": "9999999",
+      "V_SCHLAGNR": 6,
+      "SCHLAGNR": 6,
+      "SNR_H": 6,
+      "V_FLIK": "DEHELI0009998845",
+      "FLIK": "DEHELI0009998845",
+      "V_NCODE": 143,
+      "NCODE": 143,
+      "SORTE_HANF": null,
+      "V_SCHLAG_G": 1.65712,
+      "BEANTR_GRO": 1.65712,
+      "LAGE_BEZ": "Schlag 6",
+      "NUTZUNG": "Sommerhafer",
+      "NICHT_AGZ": null,
+      "NICHT_ZA": null,
+      "CL_B": null,
+      "EREGION": "06",
+      "AF_DGL": null,
+      "EROSION": 0,
+      "AGZ": 2,
+      "V_OEVF": "0",
+      "OEVF": null,
+      "HALM": null,
+      "GUELTIG": null,
+      "LAENGE": null,
+      "MIN_BREITE": null,
+      "MAX_BREITE": null,
+      "MIT_BREITE": null,
+      "MSN_E21_B": null,
+      "MSN_E22_B": null,
+      "KUP": null,
+      "KUP_BEGINN": null,
+      "KUP_ENDE": null,
+      "NLF_BEGINN": "1899-11-29T23:00:00.000Z",
+      "NLF_ENDE": "1899-11-29T23:00:00.000Z",
+      "DGL_SEIT": null,
+      "FEHLER": "t",
+      "BEMERKUNG": null,
+      "DGL_AENDER": "1899-11-29T23:00:00.000Z",
+      "ANSAATJAHR": null
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [9.070304894483765, 50.586689319620575],
+          [9.070998897907387, 50.58799561739274],
+          [9.07118149134244, 50.58800161942324],
+          [9.071302653475012, 50.58800568079924],
+          [9.072298078671945, 50.588039676833944],
+          [9.072620756830625, 50.58805071232507],
+          [9.07192246251235, 50.58672488936684],
+          [9.071863267750123, 50.58671911314712],
+          [9.071595254561286, 50.58671397409358],
+          [9.070602279072636, 50.58669498278589],
+          [9.070304894483765, 50.586689319620575]
+        ]
+      ]
+    }
+  },
+  "Cultivation": {
+    "PrimaryCrop": {
+      "CropSpeciesCode": 143,
+      "Name": "Sommerhafer"
+    }
+  }
+}]

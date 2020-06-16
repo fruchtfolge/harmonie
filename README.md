@@ -7,7 +7,7 @@
 - ✅ is open source (MIT license)
 
 This repository is **WIP**, APIs and data structures are likely to change.  
-Currently, **6/16** federal states are supported.  
+Currently, **7/16** federal states are supported.  
 The following overview table displays the current state of the project:
 
 | Federal state          | ISO 3166-2 code | Test data available? | Supported by 'harmonie' | ToDos                                          |
@@ -17,7 +17,7 @@ The following overview table displays the current state of the project:
 | Baden-Württemberg      | DE-BW           | ✅                    | ✅                       | -                                              |
 | Bayern                 | DE-BY           | ✅                    | ✅                       | -                                              |
 | Bremen                 | DE-HB           | ⬜️                    | ⬜️                       | Waiting on test data (ANDI NDS)                |
-| Hessen                 | DE-HE           | ✅                    | ⬜️                       | Create property mapping                        |
+| Hessen                 | DE-HE           | ✅                    | ✅                       | -                                              |
 | Hamburg                | DE-HH           | ⬜️                    | ⬜️                       | Waiting on test data (ANDI NDS)                |
 | Mecklenburg-Vorpommern | DE-MV           | ✅                    | ✅                       | -                                              |
 | Niedersachsen          | DE-NI           | ⬜️                    | ⬜️                       | Waiting on test data (ANDI NDS)                |
