@@ -25,6 +25,7 @@ var parse = {
 
 // configure proj4 in order to convert GIS coordinates to web mercator
 proj4.defs('EPSG:25832', '+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs');
+proj4.defs('EPSG:5650', '+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9996 +x_0=33500000 +y_0=0 +ellps=GRS80 +units=m +no_defs');
 const fromETRS89 = new proj4.Proj('EPSG:25832');
 const toWGS84 = new proj4.Proj('WGS84');
 
@@ -36,12 +37,12 @@ var helpers = {
     }
     return 'a'
   },
-  toGeoJSON (gml) {
+  toGeoJSON (gml, projection) {
     // convert gml to json
     const json = parse.xml(gml.replace(/&lt;/g, '<').replace(/&gt;/g, '>'));
     const flatJson = this.flatten(json);
     const polygonArray = Object.keys(flatJson).map(k => {
-      return this.toCoordinates(flatJson[k])
+      return this.toCoordinates(flatJson[k], projection)
     }).filter(c => c[0]);
     return helpers$1.multiPolygon(polygonArray)
   },
@@ -51,15 +52,17 @@ var helpers = {
       return result
     }, [])
   },
-  toWGS84 (coordPair) {
+  toWGS84 (coordPair, projection) {
     if (coordPair.length !== 2) return
-    return proj4(fromETRS89, toWGS84, coordPair)
+    if (projection) projection = new proj4.Proj(projection);
+    else projection = fromETRS89;
+    return proj4(projection, toWGS84, coordPair)
   },
-  toCoordinates (string, keepProjection) {
+  toCoordinates (string, projection, keepProjection) {
     const numbers = string.split(/\s+/g).map(s => Number(s)).filter(n => !isNaN(n));
     let coords = this.toPairs(numbers);
     if (!keepProjection) {
-      coords = coords.map(this.toWGS84);
+      coords = coords.map(c => this.toWGS84(c, projection));
     }
     return coords
   },
@@ -84,9 +87,11 @@ var helpers = {
     geojson = this.reprojectFeature(geojson);
     return geojson
   },
-  reprojectFeature (feature) {
+  reprojectFeature (feature, projection) {
+    if (projection) projection = new proj4.Proj(projection);
+    else projection = fromETRS89;
     meta.coordEach(feature, coord => {
-      const p = proj4(fromETRS89, toWGS84, coord);
+      const p = proj4(projection, toWGS84, coord);
       coord.length = 0;
       coord.push(...p);
     });
@@ -218,7 +223,7 @@ async function bb (query) {
         NumberOfField: Math.floor(stf['fa:teilflaechennummer']),
         Area: stf['fa:groesse'] / 10000,
         FieldBlockNumber: stf['fa:flik'],
-        PartOfField: helpers.toLetter(j + 1),
+        PartOfField: j,
         SpatialData: helpers.toGeoJSON(stf['fa:geometrie']),
         LandUseRestriction: '',
         Cultivation: {
@@ -308,7 +313,7 @@ async function bw$1 (query) {
     throw new Error(e, 'Error in XML data structure. Is this file the correct file from iBALIS Bavaria?')
   }
 
-  return subplots.map((plot, count) => new Field({
+  const plots = subplots.map((plot, count) => new Field({
     id: `harmonie_${count}_${plot['@_FID']}`,
     referenceDate: applicationYear,
     NameOfField: plot.Name || `Unbenannt ${plot.Nummer}`,
@@ -327,7 +332,10 @@ async function bw$1 (query) {
         Name: ''
       }
     }
-  }))
+  }));
+  // finally, group the parts of fields by their FLIK and check whether they are
+  // actually seperate parts of fields
+  return helpers.groupByFLIK(plots)
 }
 
 async function nw (query) {
@@ -335,7 +343,7 @@ async function nw (query) {
   if (incomplete) throw new Error(incomplete)
   const data = parse.dataExperts(query.xml, query.gml);
 
-  return data.map((f, i) => new Field({
+  const plots = data.map((f, i) => new Field({
     id: `harmonie_${i}_${f.feldblock}`,
     referenceDate: f.applicationYear,
     NameOfField: f.schlag.bezeichnung,
@@ -359,7 +367,73 @@ async function nw (query) {
         Name: f.nutzungvj.bezeichnung
       }
     }
-  }))
+  }));
+  // finally, group the parts of fields by their FLIK and check whether they are
+  // actually seperate parts of fields
+  return helpers.groupByFLIK(plots)
+}
+
+async function bb$1 (query) {
+  const incomplete = queryComplete(query, ['xml']);
+  if (incomplete) throw new Error(incomplete)
+  const data = parse.xml(query.xml);
+  const applicationYear = data['fa:flaechenantrag']['fa:xsd_info']['fa:xsd_jahr'];
+  const parzellen = data['fa:flaechenantrag']['fa:gesamtparzellen']['fa:gesamtparzelle'];
+  let count = 0;
+  const plots = parzellen.reduce((acc, p) => {
+    // start off with main area of field
+    const hnf = p['fa:teilflaechen']['fa:hauptnutzungsflaeche'];
+    acc.push(new Field({
+      id: `harmonie_${count}_${hnf['fa:flik']}`,
+      referenceDate: applicationYear,
+      NameOfField: '', // seems to be unavailable in Agrarantrag-BB export files?,
+      NumberOfField: Math.floor(hnf['fa:teilflaechennummer']),
+      Area: hnf['fa:groesse'] / 10000,
+      FieldBlockNumber: hnf['fa:flik'],
+      PartOfField: 0,
+      SpatialData: helpers.toGeoJSON(hnf['fa:geometrie'], 'EPSG:5650'),
+      LandUseRestriction: '',
+      Cultivation: {
+        PrimaryCrop: {
+          CropSpeciesCode: hnf['fa:nutzung'],
+          Name: ''
+        }
+      }
+    }));
+    count++;
+    // go on with field (buffer) strips
+    const strfFlaechen = p['fa:teilflaechen']['fa:streifen_flaechen'];
+    // return only main area if no field strips are defined
+    if (!strfFlaechen) return acc
+    // convert to array structure if only one buffer strip is defined
+    if (!Array.isArray(strfFlaechen['fa:streifen'])) {
+      strfFlaechen['fa:streifen'] = [strfFlaechen['fa:streifen']];
+    }
+    strfFlaechen['fa:streifen'].forEach((stf, j) => {
+      count++;
+      acc.push(new Field({
+        id: `harmonie_${count}_${stf['fa:flik']}`,
+        referenceDate: applicationYear,
+        NameOfField: '', // seems to be unavailable in Agrarantrag-BB export files?,
+        NumberOfField: Math.floor(stf['fa:teilflaechennummer']),
+        Area: stf['fa:groesse'] / 10000,
+        FieldBlockNumber: stf['fa:flik'],
+        PartOfField: j,
+        SpatialData: helpers.toGeoJSON(stf['fa:geometrie']),
+        LandUseRestriction: '',
+        Cultivation: {
+          PrimaryCrop: {
+            CropSpeciesCode: stf['fa:nutzung'],
+            Name: ''
+          }
+        }
+      }));
+    });
+    return acc
+  }, []);
+  // finally, group the parts of fields by their FLIK and check whether they are
+  // actually seperate parts of fields
+  return helpers.groupByFLIK(plots)
 }
 
 function harmonie (query) {
@@ -375,10 +449,10 @@ function harmonie (query) {
       return bw(query)
     case 'DE-BY':
       return bw$1(query)
-    case 'DE-MV':
-      return bb(query)
     case 'DE-NW':
       return nw(query)
+    case 'DE-MV':
+      return bb$1(query)
     default:
       throw new Error(`No such state as "${state}" according to ISO 3166-2 in Germany."`)
   }
