@@ -1,4 +1,5 @@
 import parse from '../utils/parse'
+import helpers from '../utils/helpers'
 import queryComplete from '../utils/queryComplete'
 import Field from '../Field'
 
@@ -7,7 +8,7 @@ export default async function nw (query) {
   if (incomplete) throw new Error(incomplete)
   const data = parse.dataExperts(query.xml, query.gml)
 
-  return data.map((f, i) => new Field({
+  const plots = data.map((f, i) => new Field({
     id: `harmonie_${i}_${f.feldblock}`,
     referenceDate: f.applicationYear,
     NameOfField: f.schlag.bezeichnung,
@@ -32,4 +33,7 @@ export default async function nw (query) {
       }
     }
   }))
+  // finally, group the parts of fields by their FLIK and check whether they are
+  // actually seperate parts of fields
+  return helpers.groupByFLIK(plots)
 }
