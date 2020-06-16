@@ -1,36 +1,21 @@
-const fs = require('fs')
-const harmonie = require('..')
-const util = require('util')
-
-const readFile = util.promisify(fs.readFile)
-const writeFile = util.promisify(fs.writeFile)
-// const readDir = util.promisify('fs.readDir')
+const states = require('./states')
 
 ;(async () => {
-  // DE-BB
-  const bb = await readFile('./test/input/DE-BB/129530000041.nn.xml', 'utf8')
+  const tests = [
+    // states.bb(),
+    // states.bw(),
+    // states.by(),
+    states.mv(true)
+  ]
+
   try {
-    const data = await harmonie({
-      state: 'DE-BB',
-      xml: bb
-    })
-    writeFile('test/output/DE-BB.json', JSON.stringify(data), 'utf8')
+    await Promise.all(tests)
+    console.log('Passed all tests.')
   } catch (e) {
+    console.log('Error:')
     console.log(e)
   }
 /*
-  // DE-BW
-  const xml_BW = await readFile('./test/input/DE-BW/Flurstücksverzeichnis/FIONA-FSV-089994449000-AKTIV.xml', 'utf8')
-  const shp_BW = await readFile('./test/input/DE-BW/GIS/fiona_089994449000_ETRS89.shp')
-  const dbf_BW = await readFile('./test/input/DE-BW/GIS/fiona_089994449000_ETRS89.dbf')
-  try {
-    const data = await harmonie({
-      state: 'DE-BW',
-      xml: xml_BW,
-      shp: shp_BW,
-      dbf: dbf_BW
-    })
-    writeFile('test/output/DE-BW.json', JSON.stringify(data), 'utf8')
   } catch (e) {
     console.log(e)
   }
