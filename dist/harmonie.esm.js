@@ -25,6 +25,8 @@ proj4.defs('EPSG:25832', '+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs');
 proj4.defs('EPSG:5650', '+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9996 +x_0=33500000 +y_0=0 +ellps=GRS80 +units=m +no_defs');
 // DE-HE
 proj4.defs('EPSG:31467', '+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs');
+// DE-SL
+proj4.defs('EPSG:31462', '+proj=tmerc +lat_0=0 +lon_0=6 +k=1 +x_0=2500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs');
 
 const fromETRS89 = new proj4.Proj('EPSG:25832');
 const toWGS84 = new proj4.Proj('WGS84');
@@ -369,40 +371,6 @@ async function he (query) {
   return helpers.groupByFLIK(subplots)
 }
 
-async function nw (query) {
-  const incomplete = queryComplete(query, ['xml', 'gml']);
-  if (incomplete) throw new Error(incomplete)
-  const data = parse.dataExperts(query.xml, query.gml);
-
-  const plots = data.map((f, i) => new Field({
-    id: `harmonie_${i}_${f.feldblock}`,
-    referenceDate: f.applicationYear,
-    NameOfField: f.schlag.bezeichnung,
-    NumberOfField: f.schlag.nummer,
-    Area: f.nettoflaeche / 10000,
-    FieldBlockNumber: f.feldblock,
-    PartOfField: f.teilschlag,
-    SpatialData: f.geometry,
-    Cultivation: {
-      PrimaryCrop: {
-        CropSpeciesCode: f.nutzungaj.code,
-        Name: f.nutzungaj.bezeichnung
-      },
-      CatchCrop: {
-        CropSpeciesCode: f.greeningcode === '1' ? 50 : '',
-        Name: f.greeningcode === '1' ? 'Mischkulturen Saatgutmischung' : ''
-      },
-      PrecedingCrop: {
-        CropSpeciesCode: f.nutzungvj.code,
-        Name: f.nutzungvj.bezeichnung
-      }
-    }
-  }));
-  // finally, group the parts of fields by their FLIK and check whether they are
-  // actually seperate parts of fields
-  return helpers.groupByFLIK(plots)
-}
-
 async function bb$1 (query) {
   const incomplete = queryComplete(query, ['xml']);
   if (incomplete) throw new Error(incomplete)
@@ -466,6 +434,70 @@ async function bb$1 (query) {
   return helpers.groupByFLIK(plots)
 }
 
+async function nw (query) {
+  const incomplete = queryComplete(query, ['xml', 'gml']);
+  if (incomplete) throw new Error(incomplete)
+  const data = parse.dataExperts(query.xml, query.gml);
+
+  const plots = data.map((f, i) => new Field({
+    id: `harmonie_${i}_${f.feldblock}`,
+    referenceDate: f.applicationYear,
+    NameOfField: f.schlag.bezeichnung,
+    NumberOfField: f.schlag.nummer,
+    Area: f.nettoflaeche / 10000,
+    FieldBlockNumber: f.feldblock,
+    PartOfField: f.teilschlag,
+    SpatialData: f.geometry,
+    Cultivation: {
+      PrimaryCrop: {
+        CropSpeciesCode: f.nutzungaj.code,
+        Name: f.nutzungaj.bezeichnung
+      },
+      CatchCrop: {
+        CropSpeciesCode: f.greeningcode === '1' ? 50 : '',
+        Name: f.greeningcode === '1' ? 'Mischkulturen Saatgutmischung' : ''
+      },
+      PrecedingCrop: {
+        CropSpeciesCode: f.nutzungvj.code,
+        Name: f.nutzungvj.bezeichnung
+      }
+    }
+  }));
+  // finally, group the parts of fields by their FLIK and check whether they are
+  // actually seperate parts of fields
+  return helpers.groupByFLIK(plots)
+}
+
+async function sl (query) {
+  const incomplete = queryComplete(query, ['shp', 'dbf']);
+  if (incomplete) throw new Error(incomplete)
+  // parse the shape file information
+  const geometries = await parse.shape(query.shp, query.dbf);
+  // reproject coordinates into web mercator
+  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, 'EPSG:31462'));
+
+  const subplots = geometries.features.map((plot, count) => new Field({
+    id: `harmonie_${count}_${plot.properties.FLIK}`,
+    referenceDate: plot.properties.JAHR,
+    NameOfField: plot.properties.LAGE_BEZ,
+    NumberOfField: count,
+    Area: plot.properties.GR,
+    FieldBlockNumber: plot.properties.FLIK,
+    PartOfField: '',
+    SpatialData: plot,
+    Cultivation: {
+      PrimaryCrop: {
+        CropSpeciesCode: plot.properties.NCODE,
+        Name: plot.properties.CODE_BEZ
+      }
+    }
+  }));
+
+  // finally, group the parts of fields by their FLIK and check whether they are
+  // actually seperate parts of fields
+  return helpers.groupByFLIK(subplots)
+}
+
 function harmonie (query) {
   const state = query.state;
   if (!state) {
@@ -481,10 +513,12 @@ function harmonie (query) {
       return bw$1(query)
     case 'DE-HE':
       return he(query)
-    case 'DE-NW':
-      return nw(query)
     case 'DE-MV':
       return bb$1(query)
+    case 'DE-NW':
+      return nw(query)
+    case 'DE-SL':
+      return sl(query)
     default:
       throw new Error(`No such state as "${state}" according to ISO 3166-2 in Germany."`)
   }

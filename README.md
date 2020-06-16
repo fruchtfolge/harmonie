@@ -7,7 +7,7 @@
 - ✅ is open source (MIT license)
 
 This repository is **WIP**, APIs and data structures are likely to change.  
-Currently, **7/16** federal states are supported.  
+Currently, **8/16** federal states are supported.  
 The following overview table displays the current state of the project:
 
 | Federal state          | ISO 3166-2 code | Test data available? | Supported by 'harmonie' | ToDos                                          |
@@ -24,7 +24,7 @@ The following overview table displays the current state of the project:
 | Nordrhein-Westfalen    | DE-NW           | ✅                    | ✅                       | -                                              |
 | Rheinland-Pfalz        | DE-RP           | ✅                    | ⬜️                       | Create property mapping                        |
 | Schleswig-Holstein     | DE-SH           | ⬜️                    | ⬜️                       | Waiting on test data (ELSA Schleswig-Holstein) |
-| Saarland               | DE-SL           | ✅                    | ⬜️                       | Create property mapping                        |
+| Saarland               | DE-SL           | ✅                    | ✅                       | -                                              |
 | Sachsen                | DE-SN           | ⬜️                    | ⬜️                       | Waiting on test data (DIANAweb Sachsen-Anhalt) |
 | Sachsen-Anhalt         | DE-ST           | ⬜️                    | ⬜️                       | Waiting on test data (ELAISA Sachsen)          |
 | Thüringen              | DE-TH           | ✅                    | ⬜️                       | Create property mapping                        |
@@ -113,14 +113,14 @@ the federal state:
 | Baden-Württemberg      | DE-BW           | state, xml, shp, dbf |
 | Bayern                 | DE-BY           | state, xml           |
 | Bremen                 | DE-HB           | state, -             |
-| Hessen                 | DE-HE           | state, -             |
+| Hessen                 | DE-HE           | state, shp, dbf      |
 | Hamburg                | DE-HH           | state, -             |
 | Mecklenburg-Vorpommern | DE-MV           | state, xml           |
 | Niedersachsen          | DE-NI           | state, -             |
 | Nordrhein-Westfalen    | DE-NW           | state, xml, gml      |
 | Rheinland-Pfalz        | DE-RP           | state, -             |
 | Schleswig-Holstein     | DE-SH           | state, -             |
-| Saarland               | DE-SL           | state, -             |
+| Saarland               | DE-SL           | state, shp, dbf      |
 | Sachsen                | DE-SN           | state, -             |
 | Sachsen-Anhalt         | DE-ST           | state, -             |
 | Thüringen              | DE-TH           | state, -             |

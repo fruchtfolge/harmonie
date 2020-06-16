@@ -46,5 +46,13 @@ module.exports = {
       gml: './test/input/DE-NW/TS_009990088.gml',
       testResultsFile: 'test/output/DE-NW.json'
     }, updateResults)
+  },
+  sl (updateResults) {
+    return test({
+      state: 'DE-SL',
+      shp: './test/input/DE-SL/schlag_pi5120.shp',
+      dbf: './test/input/DE-SL/schlag_pi5120.dbf',
+      testResultsFile: 'test/output/DE-SL.json'
+    }, updateResults)
   }
 }
