@@ -247,7 +247,8 @@ async function bw (query) {
   // parse the shape file information
   const geometries = await parse.shape(query.shp, query.dbf);
   // reproject coordinates into web mercator
-  geometries.features = geometries.features.map(helpers.reprojectFeature);
+  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f));
+
   // parse the individual field information
   const data = parse.xml(query.xml);
   let applicationYear, subplotsRawData;
@@ -348,7 +349,7 @@ async function nw (query) {
     referenceDate: f.applicationYear,
     NameOfField: f.schlag.bezeichnung,
     NumberOfField: f.schlag.nummer,
-    Area: f.nettoflaeche,
+    Area: f.nettoflaeche / 10000,
     FieldBlockNumber: f.feldblock,
     PartOfField: f.teilschlag,
     SpatialData: f.geometry,
