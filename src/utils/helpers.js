@@ -7,6 +7,7 @@ import { parse as wktParse } from 'terraformer-wkt-parser'
 
 // configure proj4 in order to convert GIS coordinates to web mercator
 proj4.defs('EPSG:25832', '+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs')
+proj4.defs('EPSG:5650', '+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9996 +x_0=33500000 +y_0=0 +ellps=GRS80 +units=m +no_defs')
 const fromETRS89 = new proj4.Proj('EPSG:25832')
 const toWGS84 = new proj4.Proj('WGS84')
 
@@ -18,12 +19,12 @@ export default {
     }
     return 'a'
   },
-  toGeoJSON (gml) {
+  toGeoJSON (gml, projection) {
     // convert gml to json
     const json = parse.xml(gml.replace(/&lt;/g, '<').replace(/&gt;/g, '>'))
     const flatJson = this.flatten(json)
     const polygonArray = Object.keys(flatJson).map(k => {
-      return this.toCoordinates(flatJson[k])
+      return this.toCoordinates(flatJson[k], projection)
     }).filter(c => c[0])
     return multiPolygon(polygonArray)
   },
@@ -33,15 +34,17 @@ export default {
       return result
     }, [])
   },
-  toWGS84 (coordPair) {
+  toWGS84 (coordPair, projection) {
     if (coordPair.length !== 2) return
-    return proj4(fromETRS89, toWGS84, coordPair)
+    if (projection) projection = new proj4.Proj(projection)
+    else projection = fromETRS89
+    return proj4(projection, toWGS84, coordPair)
   },
-  toCoordinates (string, keepProjection) {
+  toCoordinates (string, projection, keepProjection) {
     const numbers = string.split(/\s+/g).map(s => Number(s)).filter(n => !isNaN(n))
     let coords = this.toPairs(numbers)
     if (!keepProjection) {
-      coords = coords.map(this.toWGS84)
+      coords = coords.map(c => this.toWGS84(c, projection))
     }
     return coords
   },
@@ -66,9 +69,11 @@ export default {
     geojson = this.reprojectFeature(geojson)
     return geojson
   },
-  reprojectFeature (feature) {
+  reprojectFeature (feature, projection) {
+    if (projection) projection = new proj4.Proj(projection)
+    else projection = fromETRS89
     coordEach(feature, coord => {
-      const p = proj4(fromETRS89, toWGS84, coord)
+      const p = proj4(projection, toWGS84, coord)
       coord.length = 0
       coord.push(...p)
     })

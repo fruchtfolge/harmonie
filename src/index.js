@@ -3,6 +3,7 @@ import bw from './states/DE-BW'
 import by from './states/DE-BY'
 // import he from 'he'
 import nw from './states/DE-NW'
+import mv from './states/DE-MV'
 
 export default function harmonie (query) {
   const state = query.state
@@ -17,10 +18,10 @@ export default function harmonie (query) {
       return bw(query)
     case 'DE-BY':
       return by(query)
-    case 'DE-MV':
-      return bb(query)
     case 'DE-NW':
       return nw(query)
+    case 'DE-MV':
+      return mv(query)
     default:
       throw new Error(`No such state as "${state}" according to ISO 3166-2 in Germany."`)
   }
