@@ -9,7 +9,8 @@ export default async function bw (query) {
   // parse the shape file information
   const geometries = await parse.shape(query.shp, query.dbf)
   // reproject coordinates into web mercator
-  geometries.features = geometries.features.map(helpers.reprojectFeature)
+  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f))
+
   // parse the individual field information
   const data = parse.xml(query.xml)
   let applicationYear, subplotsRawData
