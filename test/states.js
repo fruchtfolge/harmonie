@@ -30,5 +30,13 @@ module.exports = {
       xml: './test/input/DE-MV/139530620006.nn.xml',
       testResultsFile: 'test/output/DE-MV.json'
     }, updateResults)
+  },
+  nw (updateResults) {
+    return test({
+      state: 'DE-NW',
+      xml: './test/input/DE-NW/NW20AGR_NTNW_009990088.xml',
+      gml: './test/input/DE-NW/TS_009990088.gml',
+      testResultsFile: 'test/output/DE-NW.json'
+    }, updateResults)
   }
 }

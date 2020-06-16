@@ -2,10 +2,10 @@
   "id": "harmonie_0_DEBYLI5140000148",
   "referenceDate": 2019,
   "NameOfField": "Hallerwiese",
-  "NumberOfField": 24,
+  "NumberOfField": 0,
   "Area": 1.429,
   "FieldBlockNumber": "DEBYLI5140000148",
-  "PartOfField": "",
+  "PartOfField": 0,
   "SpatialData": {
     "type": "MultiPolygon",
     "coordinates": [
@@ -59,10 +59,10 @@
   "id": "harmonie_1_DEBYLI5140000144",
   "referenceDate": 2019,
   "NameOfField": "Pfalzacker",
-  "NumberOfField": 25,
+  "NumberOfField": 1,
   "Area": 1.5044,
   "FieldBlockNumber": "DEBYLI5140000144",
-  "PartOfField": "",
+  "PartOfField": 0,
   "SpatialData": {
     "type": "MultiPolygon",
     "coordinates": [
