@@ -1,5 +1,5 @@
 const fs = require('fs')
-const assert = require('assert')
+const { deepStrictEqual } = require('assert')
 const util = require('util')
 const harmonie = require('..')
 
@@ -12,22 +12,26 @@ async function updateTestResult (path, data) {
 
 async function compare (expectedFile, actual) {
   const expected = await readFile(expectedFile, 'utf8')
-  assert.deepEqual(JSON.parse(expected), actual)
+  deepStrictEqual(JSON.parse(expected), JSON.parse(JSON.stringify(actual)))
 }
 
 async function test (options, updateResults) {
-  // read input data from test directory
-  if (options.xml) options.xml = await readFile(options.xml, 'utf8')
-  if (options.gml) options.gml = await readFile(options.gml, 'utf8')
-  if (options.shp) options.shp = await readFile(options.shp)
-  if (options.dbf) options.dbf = await readFile(options.dbf)
+  try {
+    // read input data from test directory
+    if (options.xml) options.xml = await readFile(options.xml, 'utf8')
+    if (options.gml) options.gml = await readFile(options.gml, 'utf8')
+    if (options.shp) options.shp = await readFile(options.shp)
+    if (options.dbf) options.dbf = await readFile(options.dbf)
 
-  const data = await harmonie(options)
+    const data = await harmonie(options)
 
-  if (updateResults) {
-    await updateTestResult(options.testResultsFile, data)
-  } else {
-    await compare(options.testResultsFile, data)
+    if (updateResults) {
+      await updateTestResult(options.testResultsFile, data)
+    } else {
+      await compare(options.testResultsFile, data)
+    }
+  } catch (e) {
+    throw new Error(`Error in ${options.state}: ${e}`)
   }
 }
 
