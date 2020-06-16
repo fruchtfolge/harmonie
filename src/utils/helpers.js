@@ -25,7 +25,6 @@ export default {
     const polygonArray = Object.keys(flatJson).map(k => {
       return this.toCoordinates(flatJson[k])
     }).filter(c => c[0])
-    console.log(polygonArray)
     return multiPolygon(polygonArray)
   },
   toPairs (array) {
