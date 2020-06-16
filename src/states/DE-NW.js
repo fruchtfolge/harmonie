@@ -13,11 +13,10 @@ export default async function nw (query) {
     referenceDate: f.applicationYear,
     NameOfField: f.schlag.bezeichnung,
     NumberOfField: f.schlag.nummer,
-    Area: f.nettoflaeche,
+    Area: f.nettoflaeche / 10000,
     FieldBlockNumber: f.feldblock,
     PartOfField: f.teilschlag,
     SpatialData: f.geometry,
-    LandUseRestriction: '',
     Cultivation: {
       PrimaryCrop: {
         CropSpeciesCode: f.nutzungaj.code,
