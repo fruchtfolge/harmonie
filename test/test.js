@@ -8,7 +8,8 @@ const states = require('./states')
     states.he(),
     states.mv(),
     states.nw(),
-    states.sl(true)
+    states.sl(),
+    states.th(true)
   ]
 
   try {

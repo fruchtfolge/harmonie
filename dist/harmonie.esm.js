@@ -498,6 +498,36 @@ async function sl (query) {
   return helpers.groupByFLIK(subplots)
 }
 
+async function sl$1 (query) {
+  const incomplete = queryComplete(query, ['shp', 'dbf']);
+  if (incomplete) throw new Error(incomplete)
+  // parse the shape file information
+  const geometries = await parse.shape(query.shp, query.dbf);
+  // reproject coordinates into web mercator
+  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f));
+
+  const subplots = geometries.features.map((plot, count) => new Field({
+    id: `harmonie_${count}_${plot.properties.FBI}`,
+    referenceDate: undefined, // duh!
+    NameOfField: '',
+    NumberOfField: count,
+    Area: plot.properties.FL,
+    FieldBlockNumber: plot.properties.FBI,
+    PartOfField: '',
+    SpatialData: plot,
+    Cultivation: {
+      PrimaryCrop: {
+        CropSpeciesCode: undefined, // duh!
+        Name: undefined
+      }
+    }
+  }));
+
+  // finally, group the parts of fields by their FLIK and check whether they are
+  // actually seperate parts of fields
+  return helpers.groupByFLIK(subplots)
+}
+
 function harmonie (query) {
   const state = query.state;
   if (!state) {
@@ -519,6 +549,8 @@ function harmonie (query) {
       return nw(query)
     case 'DE-SL':
       return sl(query)
+    case 'DE-TH':
+      return sl$1(query)
     default:
       throw new Error(`No such state as "${state}" according to ISO 3166-2 in Germany."`)
   }

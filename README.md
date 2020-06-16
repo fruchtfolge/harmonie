@@ -7,7 +7,7 @@
 - ✅ is open source (MIT license)
 
 This repository is **WIP**, APIs and data structures are likely to change.  
-Currently, **8/16** federal states are supported.  
+Currently, **9/16** federal states are supported.  
 The following overview table displays the current state of the project:
 
 | Federal state          | ISO 3166-2 code | Test data available? | Supported by 'harmonie' | ToDos                                          |
@@ -27,7 +27,7 @@ The following overview table displays the current state of the project:
 | Saarland               | DE-SL           | ✅                    | ✅                       | -                                              |
 | Sachsen                | DE-SN           | ⬜️                    | ⬜️                       | Waiting on test data (DIANAweb Sachsen-Anhalt) |
 | Sachsen-Anhalt         | DE-ST           | ⬜️                    | ⬜️                       | Waiting on test data (ELAISA Sachsen)          |
-| Thüringen              | DE-TH           | ✅                    | ⬜️                       | Create property mapping                        |
+| Thüringen              | DE-TH           | ✅                    | ✅                       | -                                              |
 
 ## Installation
 
@@ -123,7 +123,18 @@ the federal state:
 | Saarland               | DE-SL           | state, shp, dbf      |
 | Sachsen                | DE-SN           | state, -             |
 | Sachsen-Anhalt         | DE-ST           | state, -             |
-| Thüringen              | DE-TH           | state, -             |
+| Thüringen              | DE-TH           | state, shp, dbf      |
+
+## Specifics for certain federal states
+
+#### DE-HE: Hessen
+According to the test data received from Hessen, the shape file and accompanying database
+does not contain information about the reference date of the files. Therefore, please expect the `referenceDate` to be undefined for this federal state.
+
+#### DE-TH: Thüringen
+According to the test data received from Thüringen, the shape file and accompanying database
+does not contain information about the crop cultivation for a particular field. Therefore, expect the
+`Cultivation` property to be empty.
 
 ## Contribution
 Contribution is highly appreciated 👍!  

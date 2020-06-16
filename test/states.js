@@ -54,5 +54,13 @@ module.exports = {
       dbf: './test/input/DE-SL/schlag_pi5120.dbf',
       testResultsFile: 'test/output/DE-SL.json'
     }, updateResults)
+  },
+  th (updateResults) {
+    return test({
+      state: 'DE-TH',
+      shp: './test/input/DE-TH/FNNH_BS.shp',
+      dbf: './test/input/DE-TH/FNNH_BS.dbf',
+      testResultsFile: 'test/output/DE-TH.json'
+    }, updateResults)
   }
 }
