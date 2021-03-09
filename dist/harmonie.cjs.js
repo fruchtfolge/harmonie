@@ -39,6 +39,13 @@ proj4.defs('EPSG:4647', '+proj=tmerc +lat_0=0 +lon_0=9 +k=0.9996 +x_0=32500000 +
 const fromETRS89 = new proj4.Proj('EPSG:25832');
 const toWGS84 = new proj4.Proj('WGS84');
 
+// ToDo: Fix lexical binding of this
+function getArrayDepth (value) {
+  return Array.isArray(value)
+    ? 1 + Math.max(...value.map(getArrayDepth))
+    : 0
+}
+
 var helpers = {
   toLetter (number) {
     if (!isNaN(number) && number >= 0 && number <= 26) {
@@ -54,7 +61,10 @@ var helpers = {
     const polygonArray = Object.keys(flatJson).map(k => {
       return this.toCoordinates(flatJson[k], projection)
     }).filter(c => c[0]);
-    return helpers$1.multiPolygon(polygonArray)
+    if (getArrayDepth(polygonArray) === 4) {
+      return helpers$1.multiPolygon(polygonArray)
+    }
+    return helpers$1.polygon(polygonArray)
   },
   toPairs (array) {
     return array.reduce((result, value, index, array) => {
@@ -64,8 +74,7 @@ var helpers = {
   },
   toWGS84 (coordPair, projection) {
     if (coordPair.length !== 2) return
-    if (projection) projection = new proj4.Proj(projection);
-    else projection = fromETRS89;
+    if (!projection) projection = fromETRS89;
     return proj4(projection, toWGS84, coordPair)
   },
   toCoordinates (string, projection, keepProjection) {
@@ -98,8 +107,7 @@ var helpers = {
     return geojson
   },
   reprojectFeature (feature, projection) {
-    if (projection) projection = new proj4.Proj(projection);
-    else projection = fromETRS89;
+    if (!projection) projection = fromETRS89;
     meta.coordEach(feature, coord => {
       const p = proj4(projection, toWGS84, coord);
       coord.length = 0;
@@ -206,7 +214,7 @@ async function bb (query) {
       Area: hnf['fa:groesse'] / 10000,
       FieldBlockNumber: hnf['fa:flik'],
       PartOfField: 0,
-      SpatialData: helpers.toGeoJSON(hnf['fa:geometrie']),
+      SpatialData: helpers.toGeoJSON(hnf['fa:geometrie'], 'EPSG:25833'),
       LandUseRestriction: '',
       Cultivation: {
         PrimaryCrop: {
@@ -234,7 +242,7 @@ async function bb (query) {
         Area: stf['fa:groesse'] / 10000,
         FieldBlockNumber: stf['fa:flik'],
         PartOfField: j,
-        SpatialData: helpers.toGeoJSON(stf['fa:geometrie']),
+        SpatialData: helpers.toGeoJSON(stf['fa:geometrie'], 'EPSG:25833'),
         LandUseRestriction: '',
         Cultivation: {
           PrimaryCrop: {
@@ -257,7 +265,8 @@ async function bw (query) {
   // parse the shape file information
   const geometries = await parse.shape(query.shp, query.dbf);
   // reproject coordinates into web mercator
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f));
+  query.prj = query.prj || 'GEOGCS["ETRS89",DATUM["D_ETRS_1989",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]';
+  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj));
 
   // parse the individual field information
   const data = parse.xml(query.xml);
@@ -301,7 +310,9 @@ async function bw (query) {
       }
     }
     // replace geometry id with actualy geometry
-    fieldsWithSameId[0].SpatialData = geometries.features.find(f => f.properties.geo_id);
+    fieldsWithSameId[0].SpatialData = geometries.features.find(f => {
+      return fieldsWithSameId[0].SpatialData === f.properties.geo_id
+    });
     cleanedPlots.push(fieldsWithSameId[0]);
   });
   // finally, group the parts of fields by their FLIK and check whether they are
@@ -355,7 +366,10 @@ async function he (query) {
   // parse the shape file information
   const geometries = await parse.shape(query.shp, query.dbf);
   // reproject coordinates into web mercator
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, 'EPSG:31467'));
+  if (!query.prj) {
+    query.prj = 'EPSG:31467';
+  }
+  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj));
 
   const subplots = geometries.features.map((plot, count) => new Field({
     id: `harmonie_${count}_${plot.properties.FLIK}`,
@@ -447,13 +461,16 @@ async function sl (query) {
   if (incomplete) throw new Error(incomplete)
   // if a projection was passed, check if it is supported
   const supportedProjs = ['EPSG:25832', 'EPSG:5650', 'EPSG:31467', 'EPSG:31462', 'EPSG:31468', 'EPSG:25833', 'EPSG:4647'];
-  if (query.projection && supportedProjs.indexOf(query.projection) === -1) {
-    throw new Error(`Projection ${query.projection} is not supported by harmonie. The supported projections are: ${supportedProjs}`)
+  if (query.projection && !query.prj) {
+    if (supportedProjs.indexOf(query.projection) === -1) {
+      throw new Error(`Projection ${query.projection} is not supported by harmonie. The supported projections are: ${supportedProjs}`)
+    }
+    query.prj = query.projection;
   }
   // parse the shape file information
   const geometries = await parse.shape(query.shp, query.dbf);
   // reproject coordinates into web mercator
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.projection));
+  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj));
 
   // as we don't know anything about the structure of the shape files,
   // we just make some assumptions based on the following information
@@ -520,7 +537,8 @@ async function sl$1 (query) {
   // parse the shape file information
   const geometries = await parse.shape(query.shp, query.dbf);
   // reproject coordinates into web mercator
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, 'EPSG:31462'));
+  query.prj = query.prj || 'EPSG:31462';
+  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj));
 
   const subplots = geometries.features.map((plot, count) => new Field({
     id: `harmonie_${count}_${plot.properties.FLIK}`,
@@ -550,7 +568,7 @@ async function sl$2 (query) {
   // parse the shape file information
   const geometries = await parse.shape(query.shp, query.dbf);
   // reproject coordinates into web mercator
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f));
+  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj));
 
   const subplots = geometries.features.map((plot, count) => new Field({
     id: `harmonie_${count}_${plot.properties.FBI}`,
