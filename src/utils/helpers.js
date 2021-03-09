@@ -1,5 +1,5 @@
 import parse from './parse'
-import { multiPolygon } from '@turf/helpers'
+import { polygon, multiPolygon } from '@turf/helpers'
 import { coordEach } from '@turf/meta'
 import proj4 from 'proj4'
 import polygonClipping from 'polygon-clipping'
@@ -21,6 +21,13 @@ proj4.defs('EPSG:4647', '+proj=tmerc +lat_0=0 +lon_0=9 +k=0.9996 +x_0=32500000 +
 const fromETRS89 = new proj4.Proj('EPSG:25832')
 const toWGS84 = new proj4.Proj('WGS84')
 
+// ToDo: Fix lexical binding of this
+function getArrayDepth (value) {
+  return Array.isArray(value)
+    ? 1 + Math.max(...value.map(getArrayDepth))
+    : 0
+}
+
 export default {
   toLetter (number) {
     if (!isNaN(number) && number >= 0 && number <= 26) {
@@ -36,7 +43,10 @@ export default {
     const polygonArray = Object.keys(flatJson).map(k => {
       return this.toCoordinates(flatJson[k], projection)
     }).filter(c => c[0])
-    return multiPolygon(polygonArray)
+    if (getArrayDepth(polygonArray) === 4) {
+      return multiPolygon(polygonArray)
+    }
+    return polygon(polygonArray)
   },
   toPairs (array) {
     return array.reduce((result, value, index, array) => {
@@ -46,8 +56,7 @@ export default {
   },
   toWGS84 (coordPair, projection) {
     if (coordPair.length !== 2) return
-    if (projection) projection = new proj4.Proj(projection)
-    else projection = fromETRS89
+    if (!projection) projection = fromETRS89
     return proj4(projection, toWGS84, coordPair)
   },
   toCoordinates (string, projection, keepProjection) {
@@ -80,8 +89,7 @@ export default {
     return geojson
   },
   reprojectFeature (feature, projection) {
-    if (projection) projection = new proj4.Proj(projection)
-    else projection = fromETRS89
+    if (!projection) projection = fromETRS89
     coordEach(feature, coord => {
       const p = proj4(projection, toWGS84, coord)
       coord.length = 0

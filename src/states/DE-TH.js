@@ -9,7 +9,7 @@ export default async function sl (query) {
   // parse the shape file information
   const geometries = await parse.shape(query.shp, query.dbf)
   // reproject coordinates into web mercator
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f))
+  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj))
 
   const subplots = geometries.features.map((plot, count) => new Field({
     id: `harmonie_${count}_${plot.properties.FBI}`,

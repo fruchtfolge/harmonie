@@ -9,7 +9,8 @@ export default async function bw (query) {
   // parse the shape file information
   const geometries = await parse.shape(query.shp, query.dbf)
   // reproject coordinates into web mercator
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f))
+  query.prj = query.prj || 'GEOGCS["ETRS89",DATUM["D_ETRS_1989",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]'
+  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj))
 
   // parse the individual field information
   const data = parse.xml(query.xml)
@@ -53,7 +54,9 @@ export default async function bw (query) {
       }
     }
     // replace geometry id with actualy geometry
-    fieldsWithSameId[0].SpatialData = geometries.features.find(f => f.properties.geo_id)
+    fieldsWithSameId[0].SpatialData = geometries.features.find(f => {
+      return fieldsWithSameId[0].SpatialData === f.properties.geo_id
+    })
     cleanedPlots.push(fieldsWithSameId[0])
   })
   // finally, group the parts of fields by their FLIK and check whether they are

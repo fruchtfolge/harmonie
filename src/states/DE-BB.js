@@ -21,7 +21,7 @@ export default async function bb (query) {
       Area: hnf['fa:groesse'] / 10000,
       FieldBlockNumber: hnf['fa:flik'],
       PartOfField: 0,
-      SpatialData: helpers.toGeoJSON(hnf['fa:geometrie']),
+      SpatialData: helpers.toGeoJSON(hnf['fa:geometrie'], 'EPSG:25833'),
       LandUseRestriction: '',
       Cultivation: {
         PrimaryCrop: {
@@ -49,7 +49,7 @@ export default async function bb (query) {
         Area: stf['fa:groesse'] / 10000,
         FieldBlockNumber: stf['fa:flik'],
         PartOfField: j,
-        SpatialData: helpers.toGeoJSON(stf['fa:geometrie']),
+        SpatialData: helpers.toGeoJSON(stf['fa:geometrie'], 'EPSG:25833'),
         LandUseRestriction: '',
         Cultivation: {
           PrimaryCrop: {
