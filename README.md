@@ -5,6 +5,8 @@ GeoJSON geometries suitable for any web mapping service.
 
 With *harmonie*, you can outsource parsing of the different direct payment application files, so you can rely on a given input data structure.  
 
+[![Demonstration of the ZID-Harmonie library](https://user-images.githubusercontent.com/20703207/110504610-a0ee8700-80fd-11eb-8d5a-0640ecf7c04d.gif)](https://observablehq.com/@chrispahm/harmonizing-common-agricultural-policy-cap-farm-applicat)
+
 *harmonie*
 - ✅ works in the browser/Node.js
 - ✅ adheres to the [agroJSON](https://github.com/fruchtfolge/agroJSON) specification
@@ -42,7 +44,7 @@ The following overview table displays the current state of the project:
 
 ### Browser
 ```html
-<script src='https://raw.githubusercontent.com/fruchtfolge/harmonie/master/dist/harmonie.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/zid-harmonie@2.1.0/dist/harmonie.min.js'></script>
 ```
 Or grab a release from the [relases tab](https://github.com/fruchtfolge/harmonie/releases).
 Loading the minified file via script tag exposes the global function `harmonie`.
@@ -61,6 +63,11 @@ const harmonie = require('zid-harmonie')
 // or using ES6 import
 import harmonie from 'zid-harmonie'
 ```
+## Demonstration
+
+Check out the following Observable notebook demonstrating the use of the library with a minimal user interface.
+
+https://observablehq.com/@chrispahm/harmonizing-common-agricultural-policy-cap-farm-applicat
 
 ## Usage
 The function takes a single argument (*object*), returning a *Promise*. 
@@ -89,7 +96,7 @@ Returns an array of objects containing individual parts of fields (German: *Teil
   -  `gml` *\<string, UTF-8\>*
   -  `shp` *\<blob\>*
   -  `dbf` *\<blob\>*
-  - `projection` *\<string, UTF-8\> optional for shp and dbf request, can be specified when the input files are not EPSG:25832* 
+  -  `prj` *\<string, UTF-8\> optional when passing shapefiles*
 
 Sample return value:
 ```js
