@@ -13,7 +13,24 @@ export default [
       format: 'umd'
     },
     plugins: [
-      resolve(),
+      resolve({
+        browser: true
+      }),
+      commonjs(),
+      terser()
+    ]
+  },
+  {
+    input: 'src/index.js',
+    output: {
+      name: 'harmonie',
+      file: pkg.module,
+      format: 'es'
+    },
+    plugins: [
+      resolve({
+        browser: true
+      }),
       commonjs(),
       terser()
     ]
@@ -34,10 +51,6 @@ export default [
     output: [{
       file: pkg.main,
       format: 'cjs'
-    },
-    {
-      file: pkg.module,
-      format: 'es'
     }
     ]
   }
