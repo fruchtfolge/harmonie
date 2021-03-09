@@ -22,6 +22,7 @@ async function test (options, updateResults) {
     if (options.gml) options.gml = await readFile(options.gml, 'utf8')
     if (options.shp) options.shp = await readFile(options.shp)
     if (options.dbf) options.dbf = await readFile(options.dbf)
+    if (options.prj) options.prj = await readFile(options.prj, 'utf8')
 
     const data = await harmonie(options)
 
