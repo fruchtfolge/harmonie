@@ -1,3 +1,5 @@
+import truncate from '@turf/truncate'
+
 export default class Field {
   constructor (properties) {
     this.id = properties.id || 'String'
@@ -7,7 +9,16 @@ export default class Field {
     this.Area = properties.Area
     this.FieldBlockNumber = properties.FieldBlockNumber
     this.PartOfField = properties.PartOfField
-    this.SpatialData = properties.SpatialData
+    
+    try {
+      this.SpatialData = truncate(properties.SpatialData, {
+        mutate: true, coordinates: 2
+      })
+    } catch (e) {
+      // in BW geometry ids are replaced with actual geometries later
+      this.SpatialData = properties.SpatialData
+    }
+    
     this.LandUseRestriction = properties.LandUseRestriction
     this.Cultivation = properties.Cultivation
   }

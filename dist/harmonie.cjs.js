@@ -1,22 +1,28 @@
 'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
 var fastXmlParser = require('fast-xml-parser');
 var shapefile = require('shapefile');
 var elanParser = require('elan-parser');
 var helpers$1 = require('@turf/helpers');
 var meta = require('@turf/meta');
-var proj4 = _interopDefault(require('proj4'));
-var polygonClipping = _interopDefault(require('polygon-clipping'));
+var proj4 = require('proj4');
+var polygonClipping = require('polygon-clipping');
 var terraformerWktParser = require('terraformer-wkt-parser');
+var truncate = require('@turf/truncate');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var proj4__default = /*#__PURE__*/_interopDefaultLegacy(proj4);
+var polygonClipping__default = /*#__PURE__*/_interopDefaultLegacy(polygonClipping);
+var truncate__default = /*#__PURE__*/_interopDefaultLegacy(truncate);
 
 var parse = {
   async shape (shp, dbf) {
     return shapefile.read(shp, dbf)
   },
   xml (xml) {
-    return fastXmlParser.parse(xml, { ignoreAttributes: false }, true)
+    const parser = new fastXmlParser.XMLParser({ ignoreAttributes: false }, true);
+    return parser.parse(xml, true)
   },
   dataExperts (xml, gml) {
     return elanParser.join(elanParser.parseXML(xml), elanParser.parseGML(gml))
@@ -24,20 +30,20 @@ var parse = {
 };
 
 // configure proj4 in order to convert GIS coordinates to web mercator
-proj4.defs('EPSG:25832', '+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs');
+proj4__default["default"].defs('EPSG:25832', '+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs');
 // DE-MV
-proj4.defs('EPSG:5650', '+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9996 +x_0=33500000 +y_0=0 +ellps=GRS80 +units=m +no_defs');
+proj4__default["default"].defs('EPSG:5650', '+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9996 +x_0=33500000 +y_0=0 +ellps=GRS80 +units=m +no_defs');
 // DE-HE
-proj4.defs('EPSG:31467', '+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs');
+proj4__default["default"].defs('EPSG:31467', '+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs');
 // DE-SL
-proj4.defs('EPSG:31462', '+proj=tmerc +lat_0=0 +lon_0=6 +k=1 +x_0=2500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs');
+proj4__default["default"].defs('EPSG:31462', '+proj=tmerc +lat_0=0 +lon_0=6 +k=1 +x_0=2500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs');
 // others
-proj4.defs('EPSG:31468', '+proj=tmerc +lat_0=0 +lon_0=12 +k=1 +x_0=4500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs');
-proj4.defs('EPSG:25833', '+proj=utm +zone=33 +ellps=GRS80 +units=m +no_defs');
-proj4.defs('EPSG:4647', '+proj=tmerc +lat_0=0 +lon_0=9 +k=0.9996 +x_0=32500000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs');
+proj4__default["default"].defs('EPSG:31468', '+proj=tmerc +lat_0=0 +lon_0=12 +k=1 +x_0=4500000 +y_0=0 +ellps=bessel +datum=potsdam +units=m +no_defs');
+proj4__default["default"].defs('EPSG:25833', '+proj=utm +zone=33 +ellps=GRS80 +units=m +no_defs');
+proj4__default["default"].defs('EPSG:4647', '+proj=tmerc +lat_0=0 +lon_0=9 +k=0.9996 +x_0=32500000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs');
 
-const fromETRS89 = new proj4.Proj('EPSG:25832');
-const toWGS84 = new proj4.Proj('WGS84');
+const fromETRS89 = new proj4__default["default"].Proj('EPSG:25832');
+const toWGS84 = new proj4__default["default"].Proj('WGS84');
 
 // ToDo: Fix lexical binding of this
 function getArrayDepth (value) {
@@ -75,7 +81,7 @@ var helpers = {
   toWGS84 (coordPair, projection) {
     if (coordPair.length !== 2) return
     if (!projection) projection = fromETRS89;
-    return proj4(projection, toWGS84, coordPair)
+    return proj4__default["default"](projection, toWGS84, coordPair)
   },
   toCoordinates (string, projection, keepProjection) {
     const numbers = string.split(/\s+/g).map(s => Number(s)).filter(n => !isNaN(n));
@@ -109,7 +115,7 @@ var helpers = {
   reprojectFeature (feature, projection) {
     if (!projection) projection = fromETRS89;
     meta.coordEach(feature, coord => {
-      const p = proj4(projection, toWGS84, coord);
+      const p = proj4__default["default"](projection, toWGS84, coord);
       coord.length = 0;
       coord.push(...p);
     });
@@ -143,7 +149,7 @@ var helpers = {
         // two fields in the same fieldblock, while another farmer owns the field
         // in between these other fields.
         // we therefore need to check if the fields would form a union or not
-        const union = polygonClipping.union(...fieldsInFieldBlock.map(f => f.SpatialData.geometry.coordinates));
+        const union = polygonClipping__default["default"].union(...fieldsInFieldBlock.map(f => f.SpatialData.geometry.coordinates));
         // the features do not form a single union, we therefore assume they
         // cannot be joined to single field
 
@@ -190,13 +196,22 @@ class Field {
     this.Area = properties.Area;
     this.FieldBlockNumber = properties.FieldBlockNumber;
     this.PartOfField = properties.PartOfField;
-    this.SpatialData = properties.SpatialData;
+    
+    try {
+      this.SpatialData = truncate__default["default"](properties.SpatialData, {
+        mutate: true, coordinates: 2
+      });
+    } catch (e) {
+      // in BW geometry ids are replaced with actual geometries later
+      this.SpatialData = properties.SpatialData;
+    }
+    
     this.LandUseRestriction = properties.LandUseRestriction;
     this.Cultivation = properties.Cultivation;
   }
 }
 
-async function bb (query) {
+async function bb$1 (query) {
   const incomplete = queryComplete(query, ['xml']);
   if (incomplete) throw new Error(incomplete)
   const data = parse.xml(query.xml);
@@ -259,14 +274,18 @@ async function bb (query) {
   return helpers.groupByFLIK(plots)
 }
 
-async function bw (query) {
+async function bw$1 (query) {
   const incomplete = queryComplete(query, ['xml', 'shp', 'dbf']);
   if (incomplete) throw new Error(incomplete)
   // parse the shape file information
   const geometries = await parse.shape(query.shp, query.dbf);
   // reproject coordinates into web mercator
   query.prj = query.prj || 'GEOGCS["ETRS89",DATUM["D_ETRS_1989",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]';
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj));
+  geometries.features = geometries.features.map(f => {
+    return truncate__default["default"](helpers.reprojectFeature(f, query.prj), {
+      mutate: true, coordinates: 2
+    })
+  });
 
   // parse the individual field information
   const data = parse.xml(query.xml);
@@ -277,6 +296,7 @@ async function bw (query) {
     subplotsRawData = data['fsv:FSV']['fsv:FSVTable']['fsv:FSVTableRow'];
     // only consider plots that have a geometry attached
     subplotsRawData = subplotsRawData.filter(plot => plot['fsvele:Geometrie']);
+    
   } catch (e) {
     throw new Error('Error in XML data structure. Is this file the correct file from FSV BW?')
   }
@@ -320,7 +340,7 @@ async function bw (query) {
   return helpers.groupByFLIK(cleanedPlots)
 }
 
-async function bw$1 (query) {
+async function bw (query) {
   const incomplete = queryComplete(query, ['xml']);
   if (incomplete) throw new Error(incomplete)
   const data = parse.xml(query.xml);
@@ -393,7 +413,7 @@ async function he (query) {
   return helpers.groupByFLIK(subplots)
 }
 
-async function bb$1 (query) {
+async function bb (query) {
   const incomplete = queryComplete(query, ['xml']);
   if (incomplete) throw new Error(incomplete)
   const data = parse.xml(query.xml);
@@ -456,7 +476,7 @@ async function bb$1 (query) {
   return helpers.groupByFLIK(plots)
 }
 
-async function sl (query) {
+async function sl$2 (query) {
   const incomplete = queryComplete(query, ['shp', 'dbf']);
   if (incomplete) throw new Error(incomplete)
   // if a projection was passed, check if it is supported
@@ -517,8 +537,8 @@ async function nw (query) {
         Name: f.nutzungaj.bezeichnung
       },
       CatchCrop: {
-        CropSpeciesCode: f.greeningcode === '1' ? 50 : '',
-        Name: f.greeningcode === '1' ? 'Mischkulturen Saatgutmischung' : ''
+        CropSpeciesCode: f.greeningcode == '1' ? 50 : '',
+        Name: f.greeningcode == '1' ? 'Mischkulturen Saatgutmischung' : ''
       },
       PrecedingCrop: {
         CropSpeciesCode: f.nutzungvj.code,
@@ -562,7 +582,7 @@ async function sl$1 (query) {
   return helpers.groupByFLIK(subplots)
 }
 
-async function sl$2 (query) {
+async function sl (query) {
   const incomplete = queryComplete(query, ['shp', 'dbf']);
   if (incomplete) throw new Error(incomplete)
   // parse the shape file information
@@ -600,37 +620,37 @@ function harmonie (query) {
   }
   switch (state) {
     case 'DE-BB':
-      return bb(query)
+      return bb$1(query)
     case 'DE-BE':
-      return bb(query)
+      return bb$1(query)
     case 'DE-BW':
-      return bw(query)
-    case 'DE-BY':
       return bw$1(query)
+    case 'DE-BY':
+      return bw(query)
     case 'DE-HB':
-      return sl(query)
+      return sl$2(query)
     case 'DE-HE':
       return he(query)
     case 'DE-HH':
-      return sl(query)
+      return sl$2(query)
     case 'DE-MV':
-      return bb$1(query)
+      return bb(query)
     case 'DE-NI':
-      return sl(query)
+      return sl$2(query)
     case 'DE-NW':
       return nw(query)
     case 'DE-RP':
-      return sl(query)
+      return sl$2(query)
     case 'DE-SH':
-      return sl(query)
+      return sl$2(query)
     case 'DE-SL':
       return sl$1(query)
     case 'DE-SN':
-      return sl(query)
-    case 'DE-ST':
-      return sl(query)
-    case 'DE-TH':
       return sl$2(query)
+    case 'DE-ST':
+      return sl$2(query)
+    case 'DE-TH':
+      return sl(query)
     default:
       throw new Error(`No such state as "${state}" according to ISO 3166-2 in Germany."`)
   }

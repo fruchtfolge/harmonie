@@ -2,6 +2,7 @@ import parse from '../utils/parse'
 import helpers from '../utils/helpers'
 import queryComplete from '../utils/queryComplete'
 import Field from '../Field'
+import truncate from '@turf/truncate'
 
 export default async function bw (query) {
   const incomplete = queryComplete(query, ['xml', 'shp', 'dbf'])
@@ -10,7 +11,11 @@ export default async function bw (query) {
   const geometries = await parse.shape(query.shp, query.dbf)
   // reproject coordinates into web mercator
   query.prj = query.prj || 'GEOGCS["ETRS89",DATUM["D_ETRS_1989",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]'
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj))
+  geometries.features = geometries.features.map(f => {
+    return truncate(helpers.reprojectFeature(f, query.prj), {
+      mutate: true, coordinates: 2
+    })
+  })
 
   // parse the individual field information
   const data = parse.xml(query.xml)
@@ -21,6 +26,7 @@ export default async function bw (query) {
     subplotsRawData = data['fsv:FSV']['fsv:FSVTable']['fsv:FSVTableRow']
     // only consider plots that have a geometry attached
     subplotsRawData = subplotsRawData.filter(plot => plot['fsvele:Geometrie'])
+    
   } catch (e) {
     throw new Error('Error in XML data structure. Is this file the correct file from FSV BW?')
   }
