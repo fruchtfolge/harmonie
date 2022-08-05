@@ -1,4 +1,4 @@
-import { parse } from 'fast-xml-parser'
+import { XMLParser } from 'fast-xml-parser'
 import { read } from 'shapefile'
 import { join, parseXML, parseGML } from 'elan-parser'
 
@@ -7,7 +7,8 @@ export default {
     return read(shp, dbf)
   },
   xml (xml) {
-    return parse(xml, { ignoreAttributes: false }, true)
+    const parser = new XMLParser({ ignoreAttributes: false }, true)
+    return parser.parse(xml, true)
   },
   dataExperts (xml, gml) {
     return join(parseXML(xml), parseGML(gml))
