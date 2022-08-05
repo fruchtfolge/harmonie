@@ -23,8 +23,8 @@ export default async function nw (query) {
         Name: f.nutzungaj.bezeichnung
       },
       CatchCrop: {
-        CropSpeciesCode: f.greeningcode === '1' ? 50 : '',
-        Name: f.greeningcode === '1' ? 'Mischkulturen Saatgutmischung' : ''
+        CropSpeciesCode: f.greeningcode == '1' ? 50 : '',
+        Name: f.greeningcode == '1' ? 'Mischkulturen Saatgutmischung' : ''
       },
       PrecedingCrop: {
         CropSpeciesCode: f.nutzungvj.code,
