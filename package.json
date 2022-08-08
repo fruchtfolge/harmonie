@@ -1,6 +1,6 @@
 {
   "name": "zid-harmonie",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "main": "dist/harmonie.cjs.js",
   "module": "dist/harmonie.esm.js",
   "browser": "dist/harmonie.min.js",
