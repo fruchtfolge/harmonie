@@ -35,7 +35,6 @@
     "@turf/helpers": "^6.5.0",
     "@turf/meta": "^6.5.0",
     "@turf/truncate": "^6.5.0",
-    "elan-parser": "^0.3.0",
     "fast-xml-parser": "^4.0.9",
     "polygon-clipping": "^0.15.3",
     "proj4": "^2.8.0",
