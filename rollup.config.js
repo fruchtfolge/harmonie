@@ -40,7 +40,7 @@ export default [
     input: 'src/index.js',
     external: [
       '@turf/helpers',
-      'elan-parser',
+      '@turf/truncate',
       'fast-xml-parser',
       'proj4',
       'shapefile',
@@ -51,7 +51,7 @@ export default [
     output: [{
       file: pkg.main,
       format: 'cjs',
-      exports: "auto"
+      exports: 'auto'
     }
     ]
   }

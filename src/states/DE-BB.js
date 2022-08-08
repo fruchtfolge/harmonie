@@ -1,12 +1,12 @@
-import parse from '../utils/parse'
-import helpers from '../utils/helpers'
-import queryComplete from '../utils/queryComplete'
-import Field from '../Field'
+import { xml } from '../utils/parse.js'
+import { toGeoJSON, groupByFLIK } from '../utils/geometryHelpers.js'
+import queryComplete from '../utils/queryComplete.js'
+import Field from '../Field.js'
 
 export default async function bb (query) {
   const incomplete = queryComplete(query, ['xml'])
   if (incomplete) throw new Error(incomplete)
-  const data = parse.xml(query.xml)
+  const data = xml(query.xml)
   const applicationYear = data['fa:flaechenantrag']['fa:xsd_info']['fa:xsd_jahr']
   const parzellen = data['fa:flaechenantrag']['fa:gesamtparzellen']['fa:gesamtparzelle']
   let count = 0
@@ -21,7 +21,7 @@ export default async function bb (query) {
       Area: hnf['fa:groesse'] / 10000,
       FieldBlockNumber: hnf['fa:flik'],
       PartOfField: 0,
-      SpatialData: helpers.toGeoJSON(hnf['fa:geometrie'], 'EPSG:25833'),
+      SpatialData: toGeoJSON(hnf['fa:geometrie'], 'EPSG:25833'),
       LandUseRestriction: '',
       Cultivation: {
         PrimaryCrop: {
@@ -49,7 +49,7 @@ export default async function bb (query) {
         Area: stf['fa:groesse'] / 10000,
         FieldBlockNumber: stf['fa:flik'],
         PartOfField: j,
-        SpatialData: helpers.toGeoJSON(stf['fa:geometrie'], 'EPSG:25833'),
+        SpatialData: toGeoJSON(stf['fa:geometrie'], 'EPSG:25833'),
         LandUseRestriction: '',
         Cultivation: {
           PrimaryCrop: {
@@ -63,5 +63,5 @@ export default async function bb (query) {
   }, [])
   // finally, group the parts of fields by their FLIK and check whether they are
   // actually seperate parts of fields
-  return helpers.groupByFLIK(plots)
+  return groupByFLIK(plots)
 }

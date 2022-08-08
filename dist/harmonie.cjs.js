@@ -2,10 +2,9 @@
 
 var fastXmlParser = require('fast-xml-parser');
 var shapefile = require('shapefile');
-var elanParser = require('elan-parser');
-var helpers$1 = require('@turf/helpers');
-var meta = require('@turf/meta');
 var proj4 = require('proj4');
+var helpers = require('@turf/helpers');
+var meta = require('@turf/meta');
 var polygonClipping = require('polygon-clipping');
 var terraformerWktParser = require('terraformer-wkt-parser');
 var truncate = require('@turf/truncate');
@@ -16,18 +15,130 @@ var proj4__default = /*#__PURE__*/_interopDefaultLegacy(proj4);
 var polygonClipping__default = /*#__PURE__*/_interopDefaultLegacy(polygonClipping);
 var truncate__default = /*#__PURE__*/_interopDefaultLegacy(truncate);
 
-var parse = {
-  async shape (shp, dbf) {
-    return shapefile.read(shp, dbf)
-  },
-  xml (xml) {
-    const parser = new fastXmlParser.XMLParser({ ignoreAttributes: false }, true);
-    return parser.parse(xml, true)
-  },
-  dataExperts (xml, gml) {
-    return elanParser.join(elanParser.parseXML(xml), elanParser.parseGML(gml))
+function getSafe (value, defVal) {
+  try {
+    return value()
+  } catch (e) {
+    return defVal
+  }
+}
+
+// configure proj4 in order to convert GIS coordinates to web mercator
+proj4__default["default"].defs('EPSG:25832', '+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs');
+const fromETRS89$1 = new proj4__default["default"].Proj('EPSG:25832');
+const toWGS84$1 = new proj4__default["default"].Proj('WGS84');
+
+const alwaysParseAsArrays = [
+  'nn.land.parzelle',
+  'wfs:FeatureCollection.gml:featureMember'
+];
+const options = {
+  ignoreAttributes: true,
+  parseTagValue: true,
+  trimValues: true,
+  parseAttributeValue: true,
+  isArray: (name, jpath) => {
+    if (alwaysParseAsArrays.indexOf(jpath) !== -1) return true
   }
 };
+
+function parseXML (xml) {
+  if (fastXmlParser.XMLValidator.validate(xml) !== true) throw new Error('Invalid XML structure.')
+  const parser = new fastXmlParser.XMLParser(options);
+  const json = parser.parse(xml);
+
+  const basis = {
+    applicationYear: getSafe(() => json.nn.antragsjahr),
+    farmId: getSafe(() => json.nn.bnrzd),
+    state: getSafe(() => json.nn.land.bezeichnung),
+    fieldBlockConstant: getSafe(() => json.nn.land.feldblockkonstante),
+    stateNo: getSafe(() => json.nn.land.nummer)
+  };
+
+  if (getSafe(() => json.nn.land.parzelle)) {
+    return json.nn.land.parzelle.map(field => {
+      return {
+        ...basis,
+        ...field
+      }
+    })
+  } else {
+    return new Error('No fields found in XML.')
+  }
+}
+
+function parseGML (gml) {
+  if (fastXmlParser.XMLValidator.validate(gml) !== true) {
+    throw new Error('Invalid GML structure.')
+  }
+  const parser = new fastXmlParser.XMLParser(options);
+  const json = parser.parse(gml);
+  if (getSafe(() => json['wfs:FeatureCollection']['gml:featureMember'])) {
+    const results = [];
+    json['wfs:FeatureCollection']['gml:featureMember'].forEach(field => {
+      const id = getSafe(() => field['elan:tschlag']['elan:SCHLAGNR']);
+      const year = getSafe(() => field['elan:tschlag']['elan:WIRTSCHAFTSJAHR']);
+      let coordinates = getSafe(() => field['elan:tschlag']['elan:GEO_COORD_']['gml:Polygon']['gml:outerBoundaryIs']['gml:LinearRing']['gml:coordinates']);
+
+      if (!coordinates) return
+
+      // split coordinate string into array of strings
+      coordinates = coordinates.split(' ');
+      // then into array of arrays and transform string values to numbers
+      coordinates = coordinates.map(pair => {
+        return pair.split(',').map(coord => {
+          return Number(coord)
+        })
+      });
+
+      coordinates = coordinates.map(latlng => {
+        return proj4__default["default"](fromETRS89$1, toWGS84$1, latlng)
+      });
+      const feature = helpers.polygon([coordinates], {
+        number: id,
+        year
+      });
+
+      return results.push({
+        schlag: {
+          nummer: id
+        },
+        geometry: feature
+      })
+    });
+
+    return results
+  } else {
+    throw new Error('No fields found in GML.')
+  }
+}
+
+function join (xml, gml) {
+  return xml.map(field => {
+    const geometry = gml.find(
+      // eslint-disable-next-line eqeqeq
+      tschlag => tschlag.schlag.nummer == field.schlag.nummer
+    );
+    if (!geometry) return field
+    return {
+      ...geometry,
+      ...field
+    }
+  })
+}
+
+function shape (shp, dbf) {
+  return shapefile.read(shp, dbf)
+}
+
+function xml (xml) {
+  const parser = new fastXmlParser.XMLParser({ ignoreAttributes: false }, true);
+  return parser.parse(xml, true)
+}
+
+function dataExperts (xml, gml) {
+  return join(parseXML(xml), parseGML(gml))
+}
 
 // configure proj4 in order to convert GIS coordinates to web mercator
 proj4__default["default"].defs('EPSG:25832', '+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs');
@@ -52,133 +163,125 @@ function getArrayDepth (value) {
     : 0
 }
 
-var helpers = {
-  toLetter (number) {
-    if (!isNaN(number) && number >= 0 && number <= 26) {
-      const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
-      return alphabet[number]
-    }
-    return 'a'
-  },
-  toGeoJSON (gml, projection) {
-    // convert gml to json
-    const json = parse.xml(gml.replace(/&lt;/g, '<').replace(/&gt;/g, '>'));
-    const flatJson = this.flatten(json);
-    const polygonArray = Object.keys(flatJson).map(k => {
-      return this.toCoordinates(flatJson[k], projection)
-    }).filter(c => c[0]);
-    if (getArrayDepth(polygonArray) === 4) {
-      return helpers$1.multiPolygon(polygonArray)
-    }
-    return helpers$1.polygon(polygonArray)
-  },
-  toPairs (array) {
-    return array.reduce((result, value, index, array) => {
-      if (index % 2 === 0) { result.push(array.slice(index, index + 2)); }
-      return result
-    }, [])
-  },
-  toWGS84 (coordPair, projection) {
-    if (coordPair.length !== 2) return
-    if (!projection) projection = fromETRS89;
-    return proj4__default["default"](projection, toWGS84, coordPair)
-  },
-  toCoordinates (string, projection, keepProjection) {
-    const numbers = string.split(/\s+/g).map(s => Number(s)).filter(n => !isNaN(n));
-    let coords = this.toPairs(numbers);
-    if (!keepProjection) {
-      coords = coords.map(c => this.toWGS84(c, projection));
-    }
-    return coords
-  },
-  flatten (ob) {
-    const toReturn = {};
-    for (const i in ob) {
-      if (!(i in ob)) continue
-      if ((typeof ob[i]) === 'object') {
-        const flatObject = this.flatten(ob[i]);
-        for (const x in flatObject) {
-          if (!(x in flatObject)) continue
-          toReturn[i + '.' + x] = flatObject[x];
-        }
-      } else {
-        toReturn[i] = ob[i];
-      }
-    }
-    return toReturn
-  },
-  wktToGeoJSON (wkt) {
-    let geojson = terraformerWktParser.parse(wkt);
-    geojson = this.reprojectFeature(geojson);
-    return geojson
-  },
-  reprojectFeature (feature, projection) {
-    if (!projection) projection = fromETRS89;
-    meta.coordEach(feature, coord => {
-      const p = proj4__default["default"](projection, toWGS84, coord);
-      coord.length = 0;
-      coord.push(...p);
-    });
-    return feature
-  },
-  getSafe (value, defVal) {
-    try {
-      return value()
-    } catch (e) {
-      return defVal
-    }
-  },
-  groupByFLIK (fields) {
-    // create an object where each fieldblock the farm operates on is a key
-    // with the fields in that fieldblock being the properties
-    const groups = this.groupBy(fields, 'FieldBlockNumber');
-    let curNo = 0;
-    const reNumberedFields = [];
-    Object.keys(groups).forEach(fieldBlock => {
-      // if there's only one field in the fieldblock, we just re-assign its field
-      // number and go on
-      const fieldsInFieldBlock = groups[fieldBlock];
-      if (fieldsInFieldBlock.length === 1) {
-        fieldsInFieldBlock[0].NumberOfField = curNo;
-        fieldsInFieldBlock[0].PartOfField = 0;
-        reNumberedFields.push(fieldsInFieldBlock[0]);
-        curNo++;
-      } else {
-        // unfortunately, we cannot be sure if the two fields from a fieldblock
-        // are acutally part of a single field, as it may happen that a farmer has
-        // two fields in the same fieldblock, while another farmer owns the field
-        // in between these other fields.
-        // we therefore need to check if the fields would form a union or not
-        const union = polygonClipping__default["default"].union(...fieldsInFieldBlock.map(f => f.SpatialData.geometry.coordinates));
-        // the features do not form a single union, we therefore assume they
-        // cannot be joined to single field
-
-        if (this.getSafe(() => union.geometry.length) > 1) {
-          fieldsInFieldBlock.forEach(field => {
-            field.NumberOfField = curNo;
-            field.PartOfField = 0;
-            reNumberedFields.push(field);
-            curNo++;
-          });
-        } else {
-          fieldsInFieldBlock.forEach((field, i) => {
-            field.NumberOfField = curNo;
-            field.PartOfField = i;
-            reNumberedFields.push(field);
-          });
-          curNo++;
-        }
-      }
-    });
-    return reNumberedFields
-  },
-  groupBy (xs, key) {
-    return xs.reduce((rv, x) => {
-      (rv[x[key]] = rv[x[key]] || []).push(x);
-      return rv
-    }, {})
+function toGeoJSON (gml, projection) {
+  // convert gml to json
+  const json = xml(gml.replace(/&lt;/g, '<').replace(/&gt;/g, '>'));
+  const flatJson = flatten(json);
+  const polygonArray = Object.keys(flatJson).map(k => {
+    return toCoordinates(flatJson[k], projection)
+  }).filter(c => c[0]);
+  if (getArrayDepth(polygonArray) === 4) {
+    return helpers.multiPolygon(polygonArray)
   }
-};
+  return helpers.polygon(polygonArray)
+}
+
+function toPairs (array) {
+  return array.reduce((result, value, index, array) => {
+    if (index % 2 === 0) { result.push(array.slice(index, index + 2)); }
+    return result
+  }, [])
+}
+
+function coordsToWGS84 (coordPair, projection) {
+  if (coordPair.length !== 2) return
+  if (!projection) projection = fromETRS89;
+  return proj4__default["default"](projection, toWGS84, coordPair)
+}
+
+function toCoordinates (string, projection, keepProjection) {
+  const numbers = string.split(/\s+/g).map(s => Number(s)).filter(n => !isNaN(n));
+  let coords = toPairs(numbers);
+  if (!keepProjection) {
+    coords = coords.map(c => coordsToWGS84(c, projection));
+  }
+  return coords
+}
+
+function flatten (ob) {
+  const toReturn = {};
+  for (const i in ob) {
+    if (!(i in ob)) continue
+    if ((typeof ob[i]) === 'object') {
+      const flatObject = flatten(ob[i]);
+      for (const x in flatObject) {
+        if (!(x in flatObject)) continue
+        toReturn[i + '.' + x] = flatObject[x];
+      }
+    } else {
+      toReturn[i] = ob[i];
+    }
+  }
+  return toReturn
+}
+
+function wktToGeoJSON (wkt) {
+  let geojson = terraformerWktParser.parse(wkt);
+  geojson = reprojectFeature(geojson);
+  return geojson
+}
+
+function reprojectFeature (feature, projection) {
+  if (!projection) projection = fromETRS89;
+  meta.coordEach(feature, coord => {
+    const p = proj4__default["default"](projection, toWGS84, coord);
+    coord.length = 0;
+    coord.push(...p);
+  });
+  return feature
+}
+
+function groupByFLIK (fields) {
+  // create an object where each fieldblock the farm operates on is a key
+  // with the fields in that fieldblock being the properties
+  const groups = groupBy(fields, 'FieldBlockNumber');
+  let curNo = 0;
+  const reNumberedFields = [];
+  Object.keys(groups).forEach(fieldBlock => {
+    // if there's only one field in the fieldblock, we just re-assign its field
+    // number and go on
+    const fieldsInFieldBlock = groups[fieldBlock];
+    if (fieldsInFieldBlock.length === 1) {
+      fieldsInFieldBlock[0].NumberOfField = curNo;
+      fieldsInFieldBlock[0].PartOfField = 0;
+      reNumberedFields.push(fieldsInFieldBlock[0]);
+      curNo++;
+    } else {
+      // unfortunately, we cannot be sure if the two fields from a fieldblock
+      // are acutally part of a single field, as it may happen that a farmer has
+      // two fields in the same fieldblock, while another farmer owns the field
+      // in between these other fields.
+      // we therefore need to check if the fields would form a union or not
+      const union = polygonClipping__default["default"].union(...fieldsInFieldBlock.map(f => f.SpatialData.geometry.coordinates));
+      // the features do not form a single union, we therefore assume they
+      // cannot be joined to single field
+
+      if (getSafe(() => union.geometry.length) > 1) {
+        fieldsInFieldBlock.forEach(field => {
+          field.NumberOfField = curNo;
+          field.PartOfField = 0;
+          reNumberedFields.push(field);
+          curNo++;
+        });
+      } else {
+        fieldsInFieldBlock.forEach((field, i) => {
+          field.NumberOfField = curNo;
+          field.PartOfField = i;
+          reNumberedFields.push(field);
+        });
+        curNo++;
+      }
+    }
+  });
+  return reNumberedFields
+}
+
+function groupBy (xs, key) {
+  return xs.reduce((rv, x) => {
+    (rv[x[key]] = rv[x[key]] || []).push(x);
+    return rv
+  }, {})
+}
 
 function queryComplete (query, requiredProps) {
   return requiredProps.reduce((incomplete, curProp) => {
@@ -196,7 +299,7 @@ class Field {
     this.Area = properties.Area;
     this.FieldBlockNumber = properties.FieldBlockNumber;
     this.PartOfField = properties.PartOfField;
-    
+
     try {
       this.SpatialData = truncate__default["default"](properties.SpatialData, {
         mutate: true, coordinates: 2
@@ -205,16 +308,16 @@ class Field {
       // in BW geometry ids are replaced with actual geometries later
       this.SpatialData = properties.SpatialData;
     }
-    
+
     this.LandUseRestriction = properties.LandUseRestriction;
     this.Cultivation = properties.Cultivation;
   }
 }
 
-async function bb$1 (query) {
+async function bb (query) {
   const incomplete = queryComplete(query, ['xml']);
   if (incomplete) throw new Error(incomplete)
-  const data = parse.xml(query.xml);
+  const data = xml(query.xml);
   const applicationYear = data['fa:flaechenantrag']['fa:xsd_info']['fa:xsd_jahr'];
   const parzellen = data['fa:flaechenantrag']['fa:gesamtparzellen']['fa:gesamtparzelle'];
   let count = 0;
@@ -229,7 +332,7 @@ async function bb$1 (query) {
       Area: hnf['fa:groesse'] / 10000,
       FieldBlockNumber: hnf['fa:flik'],
       PartOfField: 0,
-      SpatialData: helpers.toGeoJSON(hnf['fa:geometrie'], 'EPSG:25833'),
+      SpatialData: toGeoJSON(hnf['fa:geometrie'], 'EPSG:25833'),
       LandUseRestriction: '',
       Cultivation: {
         PrimaryCrop: {
@@ -257,7 +360,7 @@ async function bb$1 (query) {
         Area: stf['fa:groesse'] / 10000,
         FieldBlockNumber: stf['fa:flik'],
         PartOfField: j,
-        SpatialData: helpers.toGeoJSON(stf['fa:geometrie'], 'EPSG:25833'),
+        SpatialData: toGeoJSON(stf['fa:geometrie'], 'EPSG:25833'),
         LandUseRestriction: '',
         Cultivation: {
           PrimaryCrop: {
@@ -271,24 +374,24 @@ async function bb$1 (query) {
   }, []);
   // finally, group the parts of fields by their FLIK and check whether they are
   // actually seperate parts of fields
-  return helpers.groupByFLIK(plots)
+  return groupByFLIK(plots)
 }
 
-async function bw$1 (query) {
+async function bw (query) {
   const incomplete = queryComplete(query, ['xml', 'shp', 'dbf']);
   if (incomplete) throw new Error(incomplete)
   // parse the shape file information
-  const geometries = await parse.shape(query.shp, query.dbf);
+  const geometries = await shape(query.shp, query.dbf);
   // reproject coordinates into web mercator
   query.prj = query.prj || 'GEOGCS["ETRS89",DATUM["D_ETRS_1989",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]';
   geometries.features = geometries.features.map(f => {
-    return truncate__default["default"](helpers.reprojectFeature(f, query.prj), {
+    return truncate__default["default"](reprojectFeature(f, query.prj), {
       mutate: true, coordinates: 2
     })
   });
 
   // parse the individual field information
-  const data = parse.xml(query.xml);
+  const data = xml(query.xml);
   let applicationYear, subplotsRawData;
   // try to access the subplots from the xml
   try {
@@ -296,7 +399,6 @@ async function bw$1 (query) {
     subplotsRawData = data['fsv:FSV']['fsv:FSVTable']['fsv:FSVTableRow'];
     // only consider plots that have a geometry attached
     subplotsRawData = subplotsRawData.filter(plot => plot['fsvele:Geometrie']);
-    
   } catch (e) {
     throw new Error('Error in XML data structure. Is this file the correct file from FSV BW?')
   }
@@ -320,12 +422,12 @@ async function bw$1 (query) {
   // in BW some fields are having multiple entries in the raw XML, despite only
   // having a single geometry attached
   // we now group the fields by similar geometries and re-evaluate
-  const grouped = helpers.groupBy(subplots, 'SpatialData');
+  const grouped = groupBy(subplots, 'SpatialData');
   const cleanedPlots = [];
   Object.keys(grouped).forEach(geometryId => {
     const fieldsWithSameId = grouped[geometryId];
     if (fieldsWithSameId.length > 1) {
-      for (var i = 1; i < fieldsWithSameId.length; i++) {
+      for (let i = 1; i < fieldsWithSameId.length; i++) {
         fieldsWithSameId[0].Area += fieldsWithSameId[i].Area;
       }
     }
@@ -337,13 +439,13 @@ async function bw$1 (query) {
   });
   // finally, group the parts of fields by their FLIK and check whether they are
   // actually seperate parts of fields
-  return helpers.groupByFLIK(cleanedPlots)
+  return groupByFLIK(cleanedPlots)
 }
 
-async function bw (query) {
+async function by (query) {
   const incomplete = queryComplete(query, ['xml']);
   if (incomplete) throw new Error(incomplete)
-  const data = parse.xml(query.xml);
+  const data = xml(query.xml);
   let applicationYear, subplots;
   // try to access the subplots from the xml
   try {
@@ -363,33 +465,33 @@ async function bw (query) {
     Area: plot.Flaeche,
     FieldBlockNumber: plot['@_FID'],
     PartOfField: '',
-    SpatialData: helpers.wktToGeoJSON(plot.Geometrie),
+    SpatialData: wktToGeoJSON(plot.Geometrie),
     LandUseRestriction: '',
     Cultivation: {
       PrimaryCrop: {
         // only return the first crop found in the Nutzungen property (in case
         // of multiple crops), as we don't have any spatial information
         // about where the crops are cultivated
-        CropSpeciesCode: helpers.getSafe(() => plot.Nutzungen.Nutzung.Code) || helpers.getSafe(() => plot.Nutzungen.Nutzung[0].Code),
+        CropSpeciesCode: getSafe(() => plot.Nutzungen.Nutzung.Code) || getSafe(() => plot.Nutzungen.Nutzung[0].Code),
         Name: ''
       }
     }
   }));
   // finally, group the parts of fields by their FLIK and check whether they are
   // actually seperate parts of fields
-  return helpers.groupByFLIK(plots)
+  return groupByFLIK(plots)
 }
 
 async function he (query) {
   const incomplete = queryComplete(query, ['shp', 'dbf']);
   if (incomplete) throw new Error(incomplete)
   // parse the shape file information
-  const geometries = await parse.shape(query.shp, query.dbf);
+  const geometries = await shape(query.shp, query.dbf);
   // reproject coordinates into web mercator
   if (!query.prj) {
     query.prj = 'EPSG:31467';
   }
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj));
+  geometries.features = geometries.features.map(f => reprojectFeature(f, query.prj));
 
   const subplots = geometries.features.map((plot, count) => new Field({
     id: `harmonie_${count}_${plot.properties.FLIK}`,
@@ -410,13 +512,13 @@ async function he (query) {
 
   // finally, group the parts of fields by their FLIK and check whether they are
   // actually seperate parts of fields
-  return helpers.groupByFLIK(subplots)
+  return groupByFLIK(subplots)
 }
 
-async function bb (query) {
+async function mv (query) {
   const incomplete = queryComplete(query, ['xml']);
   if (incomplete) throw new Error(incomplete)
-  const data = parse.xml(query.xml);
+  const data = xml(query.xml);
   const applicationYear = data['fa:flaechenantrag']['fa:xsd_info']['fa:xsd_jahr'];
   const parzellen = data['fa:flaechenantrag']['fa:gesamtparzellen']['fa:gesamtparzelle'];
   let count = 0;
@@ -431,7 +533,7 @@ async function bb (query) {
       Area: hnf['fa:groesse'] / 10000,
       FieldBlockNumber: hnf['fa:flik'],
       PartOfField: 0,
-      SpatialData: helpers.toGeoJSON(hnf['fa:geometrie'], 'EPSG:5650'),
+      SpatialData: toGeoJSON(hnf['fa:geometrie'], 'EPSG:5650'),
       LandUseRestriction: '',
       Cultivation: {
         PrimaryCrop: {
@@ -459,7 +561,7 @@ async function bb (query) {
         Area: stf['fa:groesse'] / 10000,
         FieldBlockNumber: stf['fa:flik'],
         PartOfField: j,
-        SpatialData: helpers.toGeoJSON(stf['fa:geometrie']),
+        SpatialData: toGeoJSON(stf['fa:geometrie']),
         LandUseRestriction: '',
         Cultivation: {
           PrimaryCrop: {
@@ -473,10 +575,10 @@ async function bb (query) {
   }, []);
   // finally, group the parts of fields by their FLIK and check whether they are
   // actually seperate parts of fields
-  return helpers.groupByFLIK(plots)
+  return groupByFLIK(plots)
 }
 
-async function sl$2 (query) {
+async function ni (query) {
   const incomplete = queryComplete(query, ['shp', 'dbf']);
   if (incomplete) throw new Error(incomplete)
   // if a projection was passed, check if it is supported
@@ -488,9 +590,9 @@ async function sl$2 (query) {
     query.prj = query.projection;
   }
   // parse the shape file information
-  const geometries = await parse.shape(query.shp, query.dbf);
+  const geometries = await shape(query.shp, query.dbf);
   // reproject coordinates into web mercator
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj));
+  geometries.features = geometries.features.map(f => reprojectFeature(f, query.prj));
 
   // as we don't know anything about the structure of the shape files,
   // we just make some assumptions based on the following information
@@ -514,13 +616,13 @@ async function sl$2 (query) {
 
   // finally, group the parts of fields by their FLIK and check whether they are
   // actually seperate parts of fields
-  return helpers.groupByFLIK(subplots)
+  return groupByFLIK(subplots)
 }
 
 async function nw (query) {
   const incomplete = queryComplete(query, ['xml', 'gml']);
   if (incomplete) throw new Error(incomplete)
-  const data = parse.dataExperts(query.xml, query.gml);
+  const data = dataExperts(query.xml, query.gml);
 
   const plots = data.map((f, i) => new Field({
     id: `harmonie_${i}_${f.feldblock}`,
@@ -537,7 +639,9 @@ async function nw (query) {
         Name: f.nutzungaj.bezeichnung
       },
       CatchCrop: {
+        // eslint-disable-next-line eqeqeq
         CropSpeciesCode: f.greeningcode == '1' ? 50 : '',
+        // eslint-disable-next-line eqeqeq
         Name: f.greeningcode == '1' ? 'Mischkulturen Saatgutmischung' : ''
       },
       PrecedingCrop: {
@@ -548,17 +652,17 @@ async function nw (query) {
   }));
   // finally, group the parts of fields by their FLIK and check whether they are
   // actually seperate parts of fields
-  return helpers.groupByFLIK(plots)
+  return groupByFLIK(plots)
 }
 
-async function sl$1 (query) {
+async function sl (query) {
   const incomplete = queryComplete(query, ['shp', 'dbf']);
   if (incomplete) throw new Error(incomplete)
   // parse the shape file information
-  const geometries = await parse.shape(query.shp, query.dbf);
+  const geometries = await shape(query.shp, query.dbf);
   // reproject coordinates into web mercator
   query.prj = query.prj || 'EPSG:31462';
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj));
+  geometries.features = geometries.features.map(f => reprojectFeature(f, query.prj));
 
   const subplots = geometries.features.map((plot, count) => new Field({
     id: `harmonie_${count}_${plot.properties.FLIK}`,
@@ -579,16 +683,16 @@ async function sl$1 (query) {
 
   // finally, group the parts of fields by their FLIK and check whether they are
   // actually seperate parts of fields
-  return helpers.groupByFLIK(subplots)
+  return groupByFLIK(subplots)
 }
 
-async function sl (query) {
+async function th (query) {
   const incomplete = queryComplete(query, ['shp', 'dbf']);
   if (incomplete) throw new Error(incomplete)
   // parse the shape file information
-  const geometries = await parse.shape(query.shp, query.dbf);
+  const geometries = await shape(query.shp, query.dbf);
   // reproject coordinates into web mercator
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj));
+  geometries.features = geometries.features.map(f => reprojectFeature(f, query.prj));
 
   const subplots = geometries.features.map((plot, count) => new Field({
     id: `harmonie_${count}_${plot.properties.FBI}`,
@@ -609,7 +713,7 @@ async function sl (query) {
 
   // finally, group the parts of fields by their FLIK and check whether they are
   // actually seperate parts of fields
-  return helpers.groupByFLIK(subplots)
+  return groupByFLIK(subplots)
 }
 
 function harmonie (query) {
@@ -620,37 +724,37 @@ function harmonie (query) {
   }
   switch (state) {
     case 'DE-BB':
-      return bb$1(query)
+      return bb(query)
     case 'DE-BE':
-      return bb$1(query)
+      return bb(query)
     case 'DE-BW':
-      return bw$1(query)
-    case 'DE-BY':
       return bw(query)
+    case 'DE-BY':
+      return by(query)
     case 'DE-HB':
-      return sl$2(query)
+      return ni(query)
     case 'DE-HE':
       return he(query)
     case 'DE-HH':
-      return sl$2(query)
+      return ni(query)
     case 'DE-MV':
-      return bb(query)
+      return mv(query)
     case 'DE-NI':
-      return sl$2(query)
+      return ni(query)
     case 'DE-NW':
       return nw(query)
     case 'DE-RP':
-      return sl$2(query)
+      return ni(query)
     case 'DE-SH':
-      return sl$2(query)
+      return ni(query)
     case 'DE-SL':
-      return sl$1(query)
-    case 'DE-SN':
-      return sl$2(query)
-    case 'DE-ST':
-      return sl$2(query)
-    case 'DE-TH':
       return sl(query)
+    case 'DE-SN':
+      return ni(query)
+    case 'DE-ST':
+      return ni(query)
+    case 'DE-TH':
+      return th(query)
     default:
       throw new Error(`No such state as "${state}" according to ISO 3166-2 in Germany."`)
   }

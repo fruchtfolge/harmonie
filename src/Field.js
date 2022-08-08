@@ -9,7 +9,7 @@ export default class Field {
     this.Area = properties.Area
     this.FieldBlockNumber = properties.FieldBlockNumber
     this.PartOfField = properties.PartOfField
-    
+
     try {
       this.SpatialData = truncate(properties.SpatialData, {
         mutate: true, coordinates: 2
@@ -18,7 +18,7 @@ export default class Field {
       // in BW geometry ids are replaced with actual geometries later
       this.SpatialData = properties.SpatialData
     }
-    
+
     this.LandUseRestriction = properties.LandUseRestriction
     this.Cultivation = properties.Cultivation
   }

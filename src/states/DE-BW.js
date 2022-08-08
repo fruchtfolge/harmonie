@@ -1,24 +1,24 @@
-import parse from '../utils/parse'
-import helpers from '../utils/helpers'
-import queryComplete from '../utils/queryComplete'
-import Field from '../Field'
+import { shape, xml } from '../utils/parse.js'
+import { reprojectFeature, groupBy, groupByFLIK } from '../utils/geometryHelpers.js'
+import queryComplete from '../utils/queryComplete.js'
+import Field from '../Field.js'
 import truncate from '@turf/truncate'
 
 export default async function bw (query) {
   const incomplete = queryComplete(query, ['xml', 'shp', 'dbf'])
   if (incomplete) throw new Error(incomplete)
   // parse the shape file information
-  const geometries = await parse.shape(query.shp, query.dbf)
+  const geometries = await shape(query.shp, query.dbf)
   // reproject coordinates into web mercator
   query.prj = query.prj || 'GEOGCS["ETRS89",DATUM["D_ETRS_1989",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]'
   geometries.features = geometries.features.map(f => {
-    return truncate(helpers.reprojectFeature(f, query.prj), {
+    return truncate(reprojectFeature(f, query.prj), {
       mutate: true, coordinates: 2
     })
   })
 
   // parse the individual field information
-  const data = parse.xml(query.xml)
+  const data = xml(query.xml)
   let applicationYear, subplotsRawData
   // try to access the subplots from the xml
   try {
@@ -26,7 +26,6 @@ export default async function bw (query) {
     subplotsRawData = data['fsv:FSV']['fsv:FSVTable']['fsv:FSVTableRow']
     // only consider plots that have a geometry attached
     subplotsRawData = subplotsRawData.filter(plot => plot['fsvele:Geometrie'])
-    
   } catch (e) {
     throw new Error('Error in XML data structure. Is this file the correct file from FSV BW?')
   }
@@ -50,12 +49,12 @@ export default async function bw (query) {
   // in BW some fields are having multiple entries in the raw XML, despite only
   // having a single geometry attached
   // we now group the fields by similar geometries and re-evaluate
-  const grouped = helpers.groupBy(subplots, 'SpatialData')
+  const grouped = groupBy(subplots, 'SpatialData')
   const cleanedPlots = []
   Object.keys(grouped).forEach(geometryId => {
     const fieldsWithSameId = grouped[geometryId]
     if (fieldsWithSameId.length > 1) {
-      for (var i = 1; i < fieldsWithSameId.length; i++) {
+      for (let i = 1; i < fieldsWithSameId.length; i++) {
         fieldsWithSameId[0].Area += fieldsWithSameId[i].Area
       }
     }
@@ -67,5 +66,5 @@ export default async function bw (query) {
   })
   // finally, group the parts of fields by their FLIK and check whether they are
   // actually seperate parts of fields
-  return helpers.groupByFLIK(cleanedPlots)
+  return groupByFLIK(cleanedPlots)
 }

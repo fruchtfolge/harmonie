@@ -1,12 +1,13 @@
-import parse from '../utils/parse'
-import helpers from '../utils/helpers'
-import queryComplete from '../utils/queryComplete'
-import Field from '../Field'
+import { xml } from '../utils/parse.js'
+import { wktToGeoJSON, groupByFLIK } from '../utils/geometryHelpers.js'
+import { getSafe } from '../utils/helpers.js'
+import queryComplete from '../utils/queryComplete.js'
+import Field from '../Field.js'
 
-export default async function bw (query) {
+export default async function by (query) {
   const incomplete = queryComplete(query, ['xml'])
   if (incomplete) throw new Error(incomplete)
-  const data = parse.xml(query.xml)
+  const data = xml(query.xml)
   let applicationYear, subplots
   // try to access the subplots from the xml
   try {
@@ -26,19 +27,19 @@ export default async function bw (query) {
     Area: plot.Flaeche,
     FieldBlockNumber: plot['@_FID'],
     PartOfField: '',
-    SpatialData: helpers.wktToGeoJSON(plot.Geometrie),
+    SpatialData: wktToGeoJSON(plot.Geometrie),
     LandUseRestriction: '',
     Cultivation: {
       PrimaryCrop: {
         // only return the first crop found in the Nutzungen property (in case
         // of multiple crops), as we don't have any spatial information
         // about where the crops are cultivated
-        CropSpeciesCode: helpers.getSafe(() => plot.Nutzungen.Nutzung.Code) || helpers.getSafe(() => plot.Nutzungen.Nutzung[0].Code),
+        CropSpeciesCode: getSafe(() => plot.Nutzungen.Nutzung.Code) || getSafe(() => plot.Nutzungen.Nutzung[0].Code),
         Name: ''
       }
     }
   }))
   // finally, group the parts of fields by their FLIK and check whether they are
   // actually seperate parts of fields
-  return helpers.groupByFLIK(plots)
+  return groupByFLIK(plots)
 }

@@ -1,9 +1,9 @@
-import parse from '../utils/parse'
-import helpers from '../utils/helpers'
-import queryComplete from '../utils/queryComplete'
-import Field from '../Field'
+import { shape } from '../utils/parse.js'
+import { reprojectFeature, groupByFLIK } from '../utils/geometryHelpers.js'
+import queryComplete from '../utils/queryComplete.js'
+import Field from '../Field.js'
 
-export default async function sl (query) {
+export default async function ni (query) {
   const incomplete = queryComplete(query, ['shp', 'dbf'])
   if (incomplete) throw new Error(incomplete)
   // if a projection was passed, check if it is supported
@@ -15,9 +15,9 @@ export default async function sl (query) {
     query.prj = query.projection
   }
   // parse the shape file information
-  const geometries = await parse.shape(query.shp, query.dbf)
+  const geometries = await shape(query.shp, query.dbf)
   // reproject coordinates into web mercator
-  geometries.features = geometries.features.map(f => helpers.reprojectFeature(f, query.prj))
+  geometries.features = geometries.features.map(f => reprojectFeature(f, query.prj))
 
   // as we don't know anything about the structure of the shape files,
   // we just make some assumptions based on the following information
@@ -41,5 +41,5 @@ export default async function sl (query) {
 
   // finally, group the parts of fields by their FLIK and check whether they are
   // actually seperate parts of fields
-  return helpers.groupByFLIK(subplots)
+  return groupByFLIK(subplots)
 }
