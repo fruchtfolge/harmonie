@@ -1,0 +1,1503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fa:flaechenantrag xmlns:fa="http://www.data-experts.de/Flaechen" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="NN2019.xsd">
+  <fa:xsd_info>
+    <fa:xsd_name>NN2019.xsd</fa:xsd_name>
+    <fa:xsd_version>0</fa:xsd_version>
+    <fa:xsd_jahr>2019</fa:xsd_jahr>
+    <fa:xsd_land>BB</fa:xsd_land>
+  </fa:xsd_info>
+  <fa:antragsjahr>2019</fa:antragsjahr>
+  <fa:bnrzd>129530000041</fa:bnrzd>
+  <fa:firma>data experts gmbh</fa:firma>
+  <fa:gesamtparzellen>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='37'&gt;451171.8216081
+        5762731.3491818 451172.9826663 5762742.1524655 451173.48 5762746.78 451175.34 5762757.2 451181.06 5762761.02 451181.68 5762775.6 451179.2 5762787.26 451180.28 5762820.22 451186.12 5762841.54 451193.08 5762863.72 451188.02 5762880.2 451190.468164
+        5762891.1044787 451194.231702 5762907.867825 451196.179758 5762911.207349 451203.971981 5762903.415127 451208.424679 5762894.788023 451212.877378 5762888.108975 451220.669601 5762885.604332 451241.18 5762884.7 451280.22 5762895.8 451294.2 5762894.38
+        451305.88 5762892.26 451320.46 5762880.2 451336.46 5762878.26 451350.88 5762863.08 451354.24 5762856.84 451355.5 5762848.92 451358.36 5762828.64 451353.62 5762812.48 451328.6 5762751.96 451306.3870555 5762692.3374217 451285.86 5762637.24 451283.32
+        5762632.18 451256.08 5762653.72 451187.4 5762709.66 451170.92 5762722.96 451171.8216081 5762731.3491818&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>2003</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='46'&gt;451172.9826663
+            5762742.1524655 451173.48 5762746.78 451175.34 5762757.2 451181.06 5762761.02 451181.68 5762775.6 451179.2 5762787.26 451180.28 5762820.22 451186.12 5762841.54 451193.08 5762863.72 451188.02 5762880.2 451190.468164 5762891.1044787 451200.2252845
+            5762888.9139081 451200.2497129 5762889.0227158 451204.5568752 5762882.5619728 451205.9964175 5762880.8527788 451207.7795692 5762879.5059322 451209.8172863 5762878.5886893 451217.6095093 5762876.0840463 451220.2291151 5762875.6140381 451240.7395141
+            5762874.7097061 451242.342122 5762874.7677559 451243.9148434 5762875.0812354 451281.1137397 5762885.6577659 451292.7996402 5762884.470786 451301.5212188 5762882.8877598 451314.08627 5762872.4944458 451315.6574699 5762871.4286999 451317.4017762
+            5762870.6791141 451319.2563157 5762870.2727071 451331.6864369 5762868.7655549 451342.7090717 5762857.1619768 451345.435289 5762852.0990018 451354.24 5762856.84 451355.5 5762848.92 451358.36 5762828.64 451353.62 5762812.48 451328.6 5762751.96
+            451306.3870555 5762692.3374217 451287.6454761 5762699.3197709 451274.6773331 5762664.5115033 451268.5985282 5762669.3183116 451200.0305439 5762725.1670746 451199.960586 5762725.2237938 451183.480586 5762738.5237938 451183.3255171 5762738.3316482
+            451172.9826663 5762742.1524655&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='5'&gt;451243.021717 5762869.830216 451246.183995 5762869.830216
+            451246.183995 5762872.992494 451243.021717 5762872.992494 451243.021717 5762869.830216&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2'
+            count='5'&gt;451191.815683 5762771.592552 451194.97796 5762771.592552 451194.97796 5762774.75483 451191.815683 5762774.75483 451191.815683 5762771.592552&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;/gml:PolygonPatch&gt;
+            &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>27896</fa:groesse>
+          <fa:teilflaechennummer>2003.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0261005498</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>451</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:nicht_beihilfefaehige_flaechen>
+          <fa:nbf>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='5'&gt;451243.021717
+              5762869.830216 451243.021717 5762872.992494 451246.183995 5762872.992494 451246.183995 5762869.830216 451243.021717 5762869.830216&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt;
+              &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>10</fa:groesse>
+            <fa:teilflaechennummer>2003.02</fa:teilflaechennummer>
+            <fa:flob>DEBBNF1861022399</fa:flob>
+          </fa:nbf>
+          <fa:nbf>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='5'&gt;451191.815683
+              5762771.592552 451191.815683 5762774.75483 451194.97796 5762774.75483 451194.97796 5762771.592552 451191.815683 5762771.592552&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt;
+              &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>9</fa:groesse>
+            <fa:teilflaechennummer>2003.03</fa:teilflaechennummer>
+            <fa:flob>DEBBNF1861022400</fa:flob>
+          </fa:nbf>
+        </fa:nicht_beihilfefaehige_flaechen>
+        <fa:streifen_flaechen>
+          <fa:streifen>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='16'&gt;451171.8216081
+              5762731.3491818 451172.9826663 5762742.1524655 451183.3255171 5762738.3316482 451183.480586 5762738.5237938 451199.960586 5762725.2237938 451200.0305439 5762725.1670746 451268.5985282 5762669.3183116 451274.6773331 5762664.5115033 451287.6454761
+              5762699.3197709 451306.3870555 5762692.3374217 451285.86 5762637.24 451283.32 5762632.18 451256.08 5762653.72 451187.4 5762709.66 451170.92 5762722.96 451171.8216081
+              5762731.3491818&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>3744</fa:groesse>
+            <fa:teilflaechennummer>2003.04</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flik>DEBBLI0261005498</fa:flik>
+            <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+            <fa:nutzung>054</fa:nutzung>
+            <fa:oevf_typ>4</fa:oevf_typ>
+          </fa:streifen>
+          <fa:streifen>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='37'&gt;451336.46 5762878.26
+              451350.88 5762863.08 451354.24 5762856.84 451345.435289 5762852.0990018 451342.7090717 5762857.1619768 451331.6864369 5762868.7655549 451319.2563157 5762870.2727071 451317.4017762 5762870.6791141 451315.6574699 5762871.4286999 451314.08627
+              5762872.4944458 451301.5212188 5762882.8877598 451292.7996402 5762884.470786 451281.1137397 5762885.6577659 451243.9148434 5762875.0812354 451242.342122 5762874.7677559 451240.7395141 5762874.7097061 451220.2291151 5762875.6140381 451217.6095093
+              5762876.0840463 451209.8172863 5762878.5886893 451207.7795692 5762879.5059322 451205.9964175 5762880.8527788 451204.5568752 5762882.5619728 451200.2497129 5762889.0227158 451200.2252845 5762888.9139081 451190.468164 5762891.1044787 451194.231702
+              5762907.867825 451196.179758 5762911.207349 451203.971981 5762903.415127 451208.424679 5762894.788023 451212.877378 5762888.108975 451220.669601 5762885.604332 451241.18 5762884.7 451280.22 5762895.8 451294.2 5762894.38 451305.88 5762892.26 451320.46
+              5762880.2 451336.46 5762878.26&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1887</fa:groesse>
+            <fa:teilflaechennummer>2003.05</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flik>DEBBLI0261005498</fa:flik>
+            <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+            <fa:nutzung>057</fa:nutzung>
+            <fa:oevf_typ>4</fa:oevf_typ>
+          </fa:streifen>
+        </fa:streifen_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='38'&gt;430078.94 5752760.4
+        430078.94 5752760.3999999 430078.9399986 5752760.3999898 430078.9399946 5752760.3999597 430077.66 5752750.8 429900.1119755 5752739.5304732 429666.9813668 5752843.3896918 429666.98 5752843.39 429666.97 5752843.39 429661.4 5752846.05 429672.0
+        5752917.59 429677.34 5752916.84 429672.18 5752918.84 429671.32 5752919.16 429670.96 5752919.3 429676.0754838 5752940.6111853 429676.3395492 5752940.5754089 429697.57 5752936.11 429734.22 5752926.62 429753.23 5752921.67 429762.18 5752919.34 429764.73
+        5752918.67 429764.7310943 5752918.6741765 429765.93 5752923.25 429766.34 5752923.26 429982.24 5752865.81 429995.67 5752861.73 429997.86 5752856.42 429997.87 5752856.4176596 429997.87 5752856.41 430078.64 5752837.19 430081.47 5752835.1 430086.54
+        5752831.34 430086.86 5752831.12 430086.92 5752831.08 430086.92 5752820.41 430086.92 5752820.4 430078.94 5752760.4&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>26</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='34'&gt;430078.94 5752760.4
+            430078.94 5752760.3999999 430078.9399986 5752760.3999898 430078.9399946 5752760.3999597 430077.66 5752750.8 429900.1119755 5752739.5304732 429666.9813668 5752843.3896918 429677.34 5752916.84 429672.18 5752918.84 429671.32 5752919.16 429670.96
+            5752919.3 429676.0754838 5752940.6111853 429676.3395492 5752940.5754089 429697.57 5752936.11 429734.22 5752926.62 429753.23 5752921.67 429762.18 5752919.34 429764.73 5752918.67 429764.7310943 5752918.6741765 429859.04 5752894.06 429976.52 5752861.5
+            429995.6 5752856.96 429996.54 5752856.74 429997.86 5752856.42 429997.87 5752856.4176596 429997.87 5752856.41 430078.64 5752837.19 430081.47 5752835.1 430086.54 5752831.34 430086.86 5752831.12 430086.92 5752831.08 430086.92 5752820.41 430086.92
+            5752820.4 430078.94 5752760.4&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>48622</fa:groesse>
+          <fa:teilflaechennummer>26.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI1661406139</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2019</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>841</fa:nutzung>
+          <fa:oevf_typ>6</fa:oevf_typ>
+          <fa:sorte>19</fa:sorte>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='11'&gt;429764.7310943
+              5752918.6741765 429765.93 5752923.25 429766.34 5752923.26 429982.24 5752865.81 429995.67 5752861.73 429997.86 5752856.42 429996.54 5752856.74 429995.6 5752856.96 429976.52 5752861.5 429859.04 5752894.06 429764.7310943
+              5752918.6741765&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1164</fa:groesse>
+            <fa:teilflaechennummer>26.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0761011836</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='7'&gt;429666.9813668
+              5752843.3896918 429666.98 5752843.39 429666.97 5752843.39 429661.4 5752846.05 429672.0 5752917.59 429677.34 5752916.84 429666.9813668 5752843.3896918&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt;
+              &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>413</fa:groesse>
+            <fa:teilflaechennummer>26.03</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0661009278</fa:flek>
+            <fa:le_art>1</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='33'&gt;429637.9127264
+        5752795.3037048 429648.2104664 5752791.8890252 429639.46 5752723.98 429632.76 5752667.34 429631.925393 5752660.3356976 429631.7967938 5752660.3517725 429621.874015 5752661.5921199 429621.87 5752661.59 429620.23 5752660.61 429619.73 5752656.61
+        428672.5122901 5752778.0063199 428648.3242507 5752781.106282 428658.1052712 5752849.1964119 428658.1052712 5752849.1964122 428658.1052714 5752849.1964135 428658.1052715 5752849.1964138 428659.6 5752857.12 428662.6857436 5752881.083162 428682.22
+        5753017.07 428702.6213071 5753014.6866313 428978.8779131 5752982.4131435 428978.8820325 5752982.4126623 428978.8820341 5752982.4126621 428978.882035 5752982.412662 428978.8820353 5752982.4126619 428978.8820355 5752982.4126619 428978.8820362
+        5752982.4126618 428978.8820383 5752982.4126616 428978.8820412 5752982.4126613 429126.21 5752965.2 429102.42 5752865.6 429599.0545357 5752808.1888885 429637.9127264
+        5752795.3037048&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>2000420</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='31'&gt;429621.874015
+            5752661.5921199 429621.87 5752661.59 429620.23 5752660.61 429619.73 5752656.61 428672.5122901 5752778.0063199 428674.4191082 5752792.8846278 428665.3373547 5752794.0485539 428672.9061702 5752846.7385197 428674.3400223 5752854.339399 428674.4771621
+            5752855.2042633 428677.5489143 5752879.0587711 428694.9902888 5753000.4761073 428700.8807794 5752999.7879547 428702.6213071 5753014.6866313 428978.8779131 5752982.4131435 428978.8820325 5752982.4126623 428978.8820341 5752982.4126621 428978.882035
+            5752982.412662 428978.8820353 5752982.4126619 428978.8820355 5752982.4126619 428978.8820362 5752982.4126618 428978.8820383 5752982.4126616 428978.8820412 5752982.4126613 429126.21 5752965.2 429102.42 5752865.6 429599.0545357 5752808.1888885
+            429637.9127264 5752795.3037048 429633.52 5752753.48 429629.08 5752717.62 429623.36 5752673.48 429621.874015 5752661.5921199&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt;
+            &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>180372</fa:groesse>
+          <fa:teilflaechennummer>2000420.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0361009441</fa:flik>
+          <fa:nutzung>131</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='11'&gt;429637.9127264
+              5752795.3037048 429648.2104664 5752791.8890252 429639.46 5752723.98 429632.76 5752667.34 429631.925393 5752660.3356976 429631.7967938 5752660.3517725 429621.874015 5752661.5921199 429623.36 5752673.48 429629.08 5752717.62 429633.52 5752753.48
+              429637.9127264 5752795.3037048&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1319</fa:groesse>
+            <fa:teilflaechennummer>2000420.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0561000844</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+        <fa:streifen_flaechen>
+          <fa:streifen>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='19'&gt;428659.6 5752857.12
+              428662.6857436 5752881.083162 428682.22 5753017.07 428702.6213071 5753014.6866313 428700.8807794 5752999.7879547 428694.9902888 5753000.4761073 428677.5489143 5752879.0587711 428674.4771621 5752855.2042633 428674.3400223 5752854.339399 428672.9061702
+              5752846.7385197 428665.3373547 5752794.0485539 428674.4191082 5752792.8846278 428672.5122901 5752778.0063199 428648.3242507 5752781.106282 428658.1052712 5752849.1964119 428658.1052712 5752849.1964122 428658.1052714 5752849.1964135 428658.1052715
+              5752849.1964138 428659.6 5752857.12&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>3802</fa:groesse>
+            <fa:teilflaechennummer>2000420.03</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flik>DEBBLI0361009441</fa:flik>
+            <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+            <fa:nutzung>058</fa:nutzung>
+            <fa:oevf_typ>4</fa:oevf_typ>
+          </fa:streifen>
+        </fa:streifen_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='64'&gt;429541.42 5752022.48
+        429547.84 5752021.4 429547.8 5752021.0 429547.68 5752020.0 429529.726166 5751875.211539 429519.958356 5751809.090979 429512.256813 5751770.77111 429512.256813 5751766.638575 429514.886608 5751765.699362 429509.64 5751747.1 429353.14 5751769.2
+        429257.42 5751782.62 429143.44 5751796.84 429137.48 5751805.56 429139.08 5751836.12 429151.4 5751914.7 429157.36 5751929.38 429153.78 5751937.72 429155.0 5751977.78 429023.96 5751997.16 428941.38 5752004.68 428771.84 5752026.82 428725.32 5752024.64
+        428707.88 5752021.54 428694.68 5752018.44 428656.68 5752024.64 428634.2 5752025.42 428623.34 5751993.82 428617.56961 5751981.66003 428606.77528 5751944.832318 428602.965517 5751921.338777 428596.933392 5751911.496889 428588.678904 5751908.322086
+        428567.725206 5751911.179409 428538.72 5751921.56 428536.612139 5751926.418462 428554.68 5752054.52 428558.6 5752082.52 428560.54749 5752109.92958 428561.847664 5752114.136024 428565.442262 5752151.3057 428570.8724 5752152.529393 428572.249054
+        5752166.295939 428584.10358 5752163.772072 428588.386506 5752172.032 428591.522219 5752174.632348 428601.388244 5752173.255693 428612.477962 5752171.343673 428613.013328 5752167.749074 428634.46 5752164.58 428642.74 5752162.78 428643.72 5752162.58
+        428657.92 5752159.5 428789.9 5752140.84 428883.74 5752127.52 428973.04 5752117.66 429168.2 5752091.26 429391.88 5752062.46 429461.66 5752051.3 429460.34 5752056.56 429461.42 5752056.4 429505.04 5752050.16 429522.44 5752041.2 429541.42
+        5752022.48&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>22</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='64'&gt;429541.42 5752022.48
+            429547.84 5752021.4 429547.8 5752021.0 429547.68 5752020.0 429529.726166 5751875.211539 429519.958356 5751809.090979 429512.256813 5751770.77111 429512.256813 5751766.638575 429514.886608 5751765.699362 429509.64 5751747.1 429353.14 5751769.2
+            429257.42 5751782.62 429143.44 5751796.84 429137.48 5751805.56 429139.08 5751836.12 429151.4 5751914.7 429157.36 5751929.38 429153.78 5751937.72 429155.0 5751977.78 429023.96 5751997.16 428941.38 5752004.68 428771.84 5752026.82 428725.32 5752024.64
+            428707.88 5752021.54 428694.68 5752018.44 428656.68 5752024.64 428634.2 5752025.42 428623.34 5751993.82 428617.56961 5751981.66003 428606.77528 5751944.832318 428602.965517 5751921.338777 428596.933392 5751911.496889 428588.678904 5751908.322086
+            428567.725206 5751911.179409 428538.72 5751921.56 428536.612139 5751926.418462 428554.68 5752054.52 428558.6 5752082.52 428560.54749 5752109.92958 428561.847664 5752114.136024 428565.442262 5752151.3057 428570.8724 5752152.529393 428572.249054
+            5752166.295939 428584.10358 5752163.772072 428588.386506 5752172.032 428591.522219 5752174.632348 428601.388244 5752173.255693 428612.477962 5752171.343673 428613.013328 5752167.749074 428634.46 5752164.58 428642.74 5752162.78 428643.72 5752162.58
+            428657.92 5752159.5 428789.9 5752140.84 428883.74 5752127.52 428973.04 5752117.66 429168.2 5752091.26 429391.88 5752062.46 429461.66 5752051.3 429460.34 5752056.56 429461.42 5752056.4 429505.04 5752050.16 429522.44 5752041.2 429541.42
+            5752022.48&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='5'&gt;429516.4 5751870.66 429519.56 5751870.66 429519.56 5751873.82 429516.4 5751873.82
+            429516.4 5751870.66&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='5'&gt;428584.545049 5752140.886893 428591.616116 5752140.886893 428591.616116
+            5752147.95796 428584.545049 5752147.95796 428584.545049 5752140.886893&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>194057</fa:groesse>
+          <fa:teilflaechennummer>22.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0261009610</fa:flik>
+          <fa:nutzung>120</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:nicht_beihilfefaehige_flaechen>
+          <fa:nbf>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='5'&gt;429516.4 5751870.66
+              429516.4 5751873.82 429519.56 5751873.82 429519.56 5751870.66 429516.4 5751870.66&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>9</fa:groesse>
+            <fa:teilflaechennummer>22.02</fa:teilflaechennummer>
+            <fa:flob>DEBBNF1661021722</fa:flob>
+          </fa:nbf>
+          <fa:nbf>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='5'&gt;428584.545049
+              5752140.886893 428584.545049 5752147.95796 428591.616116 5752147.95796 428591.616116 5752140.886893 428584.545049 5752140.886893&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt;
+              &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>49</fa:groesse>
+            <fa:teilflaechennummer>22.03</fa:teilflaechennummer>
+            <fa:flob>DEBBNF1861022477</fa:flob>
+          </fa:nbf>
+        </fa:nicht_beihilfefaehige_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='39'&gt;431815.2666923
+        5752243.0833077 431815.26 5752243.09 431815.25 5752243.09 431804.05 5752246.94 431809.29 5752265.8 431816.49 5752291.73 431815.42 5752292.01 431815.67 5752292.99 431758.37 5752308.62 431759.5 5752312.95 431773.8357104 5752367.8483693 431778.6769062
+        5752367.2255441 431778.6769063 5752367.2255441 431778.71 5752367.21 431778.7399222 5752367.2081229 431778.7399223 5752367.2081229 431781.16129 5752365.764568 431801.765451 5752361.185866 431819.698702 5752357.37028 431855.632111 5752348.9858181
+        431855.6321111 5752348.9858181 431871.33 5752343.35 431869.61 5752337.54 431853.08 5752281.78 431836.77 5752223.96 431836.76 5752223.93 431828.52 5752201.36 431825.88 5752201.36 431825.88 5752201.35 431825.87 5752201.35 431825.87 5752198.19 431827.36
+        5752198.19 431824.52 5752190.39 431810.95 5752194.51 431812.13 5752196.28 431824.52 5752239.92 431823.1223648 5752240.3991892 431823.16 5752240.54 431815.2666923
+        5752243.0833077&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>30</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='39'&gt;431815.2666923
+            5752243.0833077 431815.26 5752243.09 431815.25 5752243.09 431804.05 5752246.94 431809.29 5752265.8 431816.49 5752291.73 431815.42 5752292.01 431815.67 5752292.99 431758.37 5752308.62 431759.5 5752312.95 431773.8357104 5752367.8483693 431778.6769062
+            5752367.2255441 431778.6769063 5752367.2255441 431778.71 5752367.21 431778.7399222 5752367.2081229 431778.7399223 5752367.2081229 431781.16129 5752365.764568 431801.765451 5752361.185866 431819.698702 5752357.37028 431855.632111 5752348.9858181
+            431855.6321111 5752348.9858181 431871.33 5752343.35 431869.61 5752337.54 431853.08 5752281.78 431836.77 5752223.96 431836.76 5752223.93 431828.52 5752201.36 431825.88 5752201.36 431825.88 5752201.35 431825.87 5752201.35 431825.87 5752198.19 431827.36
+            5752198.19 431824.52 5752190.39 431810.95 5752194.51 431812.13 5752196.28 431824.52 5752239.92 431823.1223648 5752240.3991892 431823.16 5752240.54 431815.2666923
+            5752243.0833077&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>8817</fa:groesse>
+          <fa:teilflaechennummer>30.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI1861407003</fa:flik>
+          <fa:nutzung>311</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='43'&gt;437703.68 5755894.66
+        437703.67 5755894.67 437697.1 5755904.86 437687.37 5755914.54 437679.82 5755929.21 437662.41 5755947.79 437662.64 5755948.15 437662.64 5755948.16 437658.86 5755955.14 437658.85 5755955.14 437655.36 5755954.7 437651.86 5755954.26 437651.22 5755953.94
+        437651.1 5755953.88 437645.05 5755954.76 437638.36 5755946.87 437635.27 5755944.95 437635.28 5755944.94 437635.72 5755943.74 437631.22 5755938.42 437624.52 5755935.49 437594.95 5755953.32 437531.87 5755998.32 437535.18 5756004.94 437534.4 5756005.38
+        437547.78 5756019.18 437578.38 5756073.14 437578.46 5756074.42 437587.94 5756066.78 437590.9 5756067.76 437590.9010411 5756067.7646267 437596.53 5756092.78 437597.79 5756098.41 437600.75 5756102.08 437598.72 5756102.54 437639.99 5756178.6 437824.14
+        5756033.42 437784.22 5755926.77 437784.22 5755926.76 437783.01 5755926.25 437749.44 5755912.1 437723.1 5755901.56 437703.68 5755894.66&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt;
+        &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>17</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='45'&gt;437703.68 5755894.66
+            437703.67 5755894.67 437697.1 5755904.86 437687.37 5755914.54 437679.82 5755929.21 437662.41 5755947.79 437662.64 5755948.15 437662.64 5755948.16 437658.86 5755955.14 437658.85 5755955.14 437655.36 5755954.7 437651.86 5755954.26 437651.22 5755953.94
+            437651.1 5755953.88 437645.05 5755954.76 437638.36 5755946.87 437635.27 5755944.95 437635.28 5755944.94 437635.72 5755943.74 437631.22 5755938.42 437624.52 5755935.49 437594.95 5755953.32 437531.87 5755998.32 437535.18 5756004.94 437534.4 5756005.38
+            437547.78 5756019.18 437578.38 5756073.14 437578.46 5756074.42 437587.94 5756066.78 437590.9 5756067.76 437590.9010411 5756067.7646267 437604.48 5756072.28 437611.3 5756070.66 437621.38 5756077.82 437622.04 5756088.22 437617.4 5756098.34 437598.72
+            5756102.54 437639.99 5756178.6 437824.14 5756033.42 437784.22 5755926.77 437784.22 5755926.76 437783.01 5755926.25 437749.44 5755912.1 437723.1 5755901.56 437703.68
+            5755894.66&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>44063</fa:groesse>
+          <fa:teilflaechennummer>17.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+            <fa:bindung>
+              <fa:kennzeichen>882</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2015</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI1461404858</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>451</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='11'&gt;437590.9010411
+              5756067.7646267 437596.53 5756092.78 437597.79 5756098.41 437600.75 5756102.08 437598.72 5756102.54 437617.4 5756098.34 437622.04 5756088.22 437621.38 5756077.82 437611.3 5756070.66 437604.48 5756072.28 437590.9010411
+              5756067.7646267&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>728</fa:groesse>
+            <fa:teilflaechennummer>17.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0961012586</fa:flek>
+            <fa:le_art>3</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='63'&gt;439609.12 5754866.4
+        439562.66 5754860.9 439556.74 5754855.02 439556.66 5754855.18 439549.76 5754849.34 439527.04 5754819.04 439512.56 5754801.92 439482.92 5754773.6 439475.02 5754766.36 439456.26 5754754.18 439437.82 5754734.74 439420.7 5754715.66 439407.2 5754691.28
+        439403.26 5754680.08 439400.0 5754679.52 439398.32 5754705.78 439396.04 5754743.32 439391.44 5754782.18 439387.5 5754803.92 439383.88 5754822.36 439377.0 5754884.26 439376.18 5754899.82 439375.68 5754906.98 439371.88 5754934.22 439357.96 5755034.1
+        439354.68 5755062.1 439351.06 5755088.44 439350.74 5755096.34 439350.78 5755096.36 439444.86 5755119.7 439444.84 5755119.88 439446.5 5755120.3 439446.72 5755119.46 439451.58 5755102.36 439453.42 5755094.34 439457.0 5755088.92 439463.88 5755078.48
+        439470.04 5755069.62 439481.6 5755057.58 439493.26 5755042.84 439495.52 5755040.0 439503.9 5755032.94 439509.38 5755028.32 439520.68 5755018.98 439524.76 5755012.72 439527.08 5755009.14 439532.36 5755004.76 439545.86 5754995.88 439561.98 5754992.58
+        439562.06 5754972.1 439570.62 5754971.16 439581.72 5754970.84 439588.68 5754968.3 439606.76 5754973.06 439617.18 5754969.34 439629.44 5754971.1 439639.94 5754960.6 439641.0 5754950.78 439621.38 5754937.84 439612.62 5754919.98 439615.42 5754904.22
+        439617.18 5754872.7 439609.12 5754866.4&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>6</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='63'&gt;439609.12 5754866.4
+            439562.66 5754860.9 439556.74 5754855.02 439556.66 5754855.18 439549.76 5754849.34 439527.04 5754819.04 439512.56 5754801.92 439482.92 5754773.6 439475.02 5754766.36 439456.26 5754754.18 439437.82 5754734.74 439420.7 5754715.66 439407.2 5754691.28
+            439403.26 5754680.08 439400.0 5754679.52 439398.32 5754705.78 439396.04 5754743.32 439391.44 5754782.18 439387.5 5754803.92 439383.88 5754822.36 439377.0 5754884.26 439376.18 5754899.82 439375.68 5754906.98 439371.88 5754934.22 439357.96 5755034.1
+            439354.68 5755062.1 439351.06 5755088.44 439350.74 5755096.34 439350.78 5755096.36 439444.86 5755119.7 439444.84 5755119.88 439446.5 5755120.3 439446.72 5755119.46 439451.58 5755102.36 439453.42 5755094.34 439457.0 5755088.92 439463.88 5755078.48
+            439470.04 5755069.62 439481.6 5755057.58 439493.26 5755042.84 439495.52 5755040.0 439503.9 5755032.94 439509.38 5755028.32 439520.68 5755018.98 439524.76 5755012.72 439527.08 5755009.14 439532.36 5755004.76 439545.86 5754995.88 439561.98 5754992.58
+            439562.06 5754972.1 439570.62 5754971.16 439581.72 5754970.84 439588.68 5754968.3 439606.76 5754973.06 439617.18 5754969.34 439629.44 5754971.1 439639.94 5754960.6 439641.0 5754950.78 439621.38 5754937.84 439612.62 5754919.98 439615.42 5754904.22
+            439617.18 5754872.7 439609.12 5754866.4&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='9'&gt;439487.14 5755004.08 439487.36 5755002.76 439488.56
+            5754995.58 439490.7 5754991.56 439495.16 5754991.24 439495.34 5754991.22 439500.86 5754990.84 439497.78 5754999.6 439487.14 5755004.08&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;gml:interior&gt; &lt;gml:LinearRing&gt;
+            &lt;gml:posList srsDimension='2' count='8'&gt;439463.68 5755019.34 439463.6 5755019.18 439460.44 5755011.42 439470.36 5755007.16 439482.66 5755016.38 439472.04 5755020.38 439465.16 5755023.0 439463.68
+            5755019.34&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='45'&gt;439394.48 5754853.96 439392.7 5754839.56 439392.62 5754827.16 439394.1 5754825.34
+            439396.28 5754828.82 439394.94 5754836.46 439401.58 5754845.78 439405.58 5754839.12 439401.58 5754832.82 439402.26 5754827.82 439409.9 5754822.18 439405.7 5754811.86 439401.2 5754811.68 439400.36 5754818.12 439395.16 5754816.26 439395.6 5754805.9
+            439402.9 5754807.18 439407.9 5754806.22 439419.08 5754811.96 439430.3 5754811.76 439437.42 5754818.68 439443.6 5754819.44 439448.64 5754822.62 439449.76 5754830.1 439448.56 5754833.56 439445.56 5754837.78 439439.42 5754838.12 439435.82 5754830.38
+            439436.76 5754825.52 439434.62 5754824.3 439432.14 5754829.7 439432.18 5754839.18 439430.58 5754839.18 439432.5 5754856.08 439421.24 5754866.68 439421.52 5754871.36 439416.36 5754870.16 439409.82 5754867.16 439417.4 5754864.44 439412.52 5754854.8
+            439409.72 5754860.04 439405.88 5754862.94 439401.68 5754862.66 439398.4 5754859.02 439394.48 5754853.96&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>60283</fa:groesse>
+          <fa:teilflaechennummer>6.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>825</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2015</fa:verpflichtungsbeginn>
+            </fa:bindung>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI1661406113</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>451</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='9'&gt;439487.14 5755004.08
+              439497.78 5754999.6 439500.86 5754990.84 439495.34 5754991.22 439495.16 5754991.24 439490.7 5754991.56 439488.56 5754995.58 439487.36 5755002.76 439487.14
+              5755004.08&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>108</fa:groesse>
+            <fa:teilflaechennummer>6.04</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0761011459</fa:flek>
+            <fa:le_art>3</fa:le_art>
+          </fa:landschaftselement>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='45'&gt;439394.48 5754853.96
+              439398.4 5754859.02 439401.68 5754862.66 439405.88 5754862.94 439409.72 5754860.04 439412.52 5754854.8 439417.4 5754864.44 439409.82 5754867.16 439416.36 5754870.16 439421.52 5754871.36 439421.24 5754866.68 439432.5 5754856.08 439430.58 5754839.18
+              439432.18 5754839.18 439432.14 5754829.7 439434.62 5754824.3 439436.76 5754825.52 439435.82 5754830.38 439439.42 5754838.12 439445.56 5754837.78 439448.56 5754833.56 439449.76 5754830.1 439448.64 5754822.62 439443.6 5754819.44 439437.42 5754818.68
+              439430.3 5754811.76 439419.08 5754811.96 439407.9 5754806.22 439402.9 5754807.18 439395.6 5754805.9 439395.16 5754816.26 439400.36 5754818.12 439401.2 5754811.68 439405.7 5754811.86 439409.9 5754822.18 439402.26 5754827.82 439401.58 5754832.82
+              439405.58 5754839.12 439401.58 5754845.78 439394.94 5754836.46 439396.28 5754828.82 439394.1 5754825.34 439392.62 5754827.16 439392.7 5754839.56 439394.48
+              5754853.96&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1990</fa:groesse>
+            <fa:teilflaechennummer>6.03</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0561004858</fa:flek>
+            <fa:le_art>3</fa:le_art>
+          </fa:landschaftselement>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='8'&gt;439463.68 5755019.34
+              439465.16 5755023.0 439472.04 5755020.38 439482.66 5755016.38 439470.36 5755007.16 439460.44 5755011.42 439463.6 5755019.18 439463.68 5755019.34&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt;
+              &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>188</fa:groesse>
+            <fa:teilflaechennummer>6.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0761011460</fa:flek>
+            <fa:le_art>3</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='33'&gt;444756.8 5770180.92
+        444754.02 5770178.28 444595.62 5770282.3 444585.28 5770424.44 444589.24 5770426.7 444595.7 5770430.52 444600.56 5770432.28 444608.06 5770434.04 444612.9 5770433.16 444617.16 5770431.1 444619.82 5770426.7 444621.42 5770423.16 444622.6 5770418.46
+        444622.46 5770395.38 444614.38 5770369.22 444613.8 5770365.36 444613.8 5770361.3 444614.7 5770352.04 444617.06 5770340.2 444621.6 5770324.38 444631.6 5770290.94 444634.88 5770284.94 444637.46 5770280.28 444641.42 5770276.62 444665.52 5770255.74
+        444688.46 5770237.08 444708.16 5770222.96 444743.88 5770199.44 444757.4 5770190.62 444758.58 5770188.86 444759.16 5770186.5 444757.84 5770182.54 444756.8
+        5770180.92&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>7</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='33'&gt;444756.8 5770180.92
+            444754.02 5770178.28 444595.62 5770282.3 444585.28 5770424.44 444589.24 5770426.7 444595.7 5770430.52 444600.56 5770432.28 444608.06 5770434.04 444612.9 5770433.16 444617.16 5770431.1 444619.82 5770426.7 444621.42 5770423.16 444622.6 5770418.46
+            444622.46 5770395.38 444614.38 5770369.22 444613.8 5770365.36 444613.8 5770361.3 444614.7 5770352.04 444617.06 5770340.2 444621.6 5770324.38 444631.6 5770290.94 444634.88 5770284.94 444637.46 5770280.28 444641.42 5770276.62 444665.52 5770255.74
+            444688.46 5770237.08 444708.16 5770222.96 444743.88 5770199.44 444757.4 5770190.62 444758.58 5770188.86 444759.16 5770186.5 444757.84 5770182.54 444756.8
+            5770180.92&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>7245</fa:groesse>
+          <fa:teilflaechennummer>7.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+            <fa:bindung>
+              <fa:kennzeichen>11Z</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0367006031</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2018</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>451</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='7'&gt;429821.4249398
+        5754018.9201458 429993.54 5754037.31 429996.96 5753999.26 429957.28 5753877.07 429836.9394082 5753862.2478685 429839.186544 5753874.607113 429821.4249398
+        5754018.9201458&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>100</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='7'&gt;429821.4249398
+            5754018.9201458 429993.54 5754037.31 429996.96 5753999.26 429957.28 5753877.07 429836.9394082 5753862.2478685 429839.186544 5753874.607113 429821.4249398
+            5754018.9201458&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>23690</fa:groesse>
+          <fa:teilflaechennummer>100.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI1861407002</fa:flik>
+          <fa:nutzung>181</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='18'&gt;434781.9 5753123.08
+        434778.72 5753133.06 434774.5012218 5753149.1223205 434774.5012218 5753149.1223206 434779.36 5753158.35 434806.31 5753169.02 434839.41 5753077.71 434794.93 5753063.46 434794.42 5753068.36 434794.42 5753068.37 434791.06 5753087.72 434788.14 5753103.42
+        434787.38 5753105.68 434788.67 5753105.68 434788.67 5753110.15 434785.7723245 5753110.15 434783.82 5753115.42 434781.9 5753123.08&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt;
+        &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>23</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='18'&gt;434781.9 5753123.08
+            434778.72 5753133.06 434774.5012218 5753149.1223205 434774.5012218 5753149.1223206 434779.36 5753158.35 434806.31 5753169.02 434839.41 5753077.71 434794.93 5753063.46 434794.42 5753068.36 434794.42 5753068.37 434791.06 5753087.72 434788.14 5753103.42
+            434787.38 5753105.68 434788.67 5753105.68 434788.67 5753110.15 434785.7723245 5753110.15 434783.82 5753115.42 434781.9 5753123.08&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt;
+            &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>3813</fa:groesse>
+          <fa:teilflaechennummer>23.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+            <fa:bindung>
+              <fa:kennzeichen>882</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2018</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0361301270</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>452</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='35'&gt;426746.6015852
+        5753394.2736644 426690.6890334 5753356.2872742 426690.72 5753357.04 426686.072726 5753363.392839 426678.455054 5753380.079169 426673.376605 5753390.054692 426670.28 5753392.1 426665.74 5753390.84 426650.1 5753394.62 426642.78 5753397.9 426635.36
+        5753401.56 426629.02 5753419.92 426619.18 5753454.9 426611.76 5753481.82 426606.6 5753503.18 426605.84 5753518.08 426608.48 5753529.44 426611.34 5753536.62 426614.54 5753542.7 426617.3 5753544.46 426620.08 5753543.46 426621.98 5753540.38 426624.2
+        5753525.72 426626.4 5753492.28 426629.24 5753474.36 426638.86 5753461.68 426647.58 5753453.9 426653.92 5753452.04 426662.32 5753454.68 426672.34 5753459.12 426682.22 5753462.06 426692.62 5753460.58 426720.98 5753429.18 426739.033687 5753404.020425
+        426746.6015852 5753394.2736644&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>20</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='35'&gt;426746.6015852
+            5753394.2736644 426690.6890334 5753356.2872742 426690.72 5753357.04 426686.072726 5753363.392839 426678.455054 5753380.079169 426673.376605 5753390.054692 426670.28 5753392.1 426665.74 5753390.84 426650.1 5753394.62 426642.78 5753397.9 426635.36
+            5753401.56 426629.02 5753419.92 426619.18 5753454.9 426611.76 5753481.82 426606.6 5753503.18 426605.84 5753518.08 426608.48 5753529.44 426611.34 5753536.62 426614.54 5753542.7 426617.3 5753544.46 426620.08 5753543.46 426621.98 5753540.38 426624.2
+            5753525.72 426626.4 5753492.28 426629.24 5753474.36 426638.86 5753461.68 426647.58 5753453.9 426653.92 5753452.04 426662.32 5753454.68 426672.34 5753459.12 426682.22 5753462.06 426692.62 5753460.58 426720.98 5753429.18 426739.033687 5753404.020425
+            426746.6015852 5753394.2736644&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>8868</fa:groesse>
+          <fa:teilflaechennummer>20.01</fa:teilflaechennummer>
+          <fa:aktivierung>0</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI1661406295</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>452</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='28'&gt;431039.5644313
+        5753562.884205 431035.13 5753555.79 431015.55 5753519.16 430993.633287 5753478.3650273 430987.4252403 5753481.4697363 430987.49 5753481.6 430880.71 5753277.31 430867.83 5753281.84 430788.36 5753311.76 430792.7 5753311.76 430889.25 5753614.42
+        430974.49 5753899.58 431201.7 5753891.42 431054.73 5753610.23 431098.68 5753687.3 431105.6129504 5753683.3468277 431096.918562 5753667.8184829 431096.9185618 5753667.8184825 431096.453784 5753667.121316 431095.422272 5753665.1460803 431091.13
+        5753657.48 431076.18 5753628.42 431075.0327436 5753626.0007135 431065.055825 5753606.807024 431059.768884 5753597.420005 431055.345116 5753589.651438 431053.079284 5753586.846122 431039.5644313
+        5753562.884205&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>5</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='14'&gt;430987.4252403
+            5753481.4697363 430987.49 5753481.6 430880.71 5753277.31 430867.83 5753281.84 430788.36 5753311.76 430792.7 5753311.76 430889.25 5753614.42 430974.49 5753899.58 431201.7 5753891.42 431054.73 5753610.23 431098.68 5753687.3 431031.02 5753568.64
+            430987.4252458 5753481.4697472 430987.4252403 5753481.4697363&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>99169</fa:groesse>
+          <fa:teilflaechennummer>5.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0261008760</fa:flik>
+          <fa:nutzung>131</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='21'&gt;431039.5644313
+              5753562.884205 431035.13 5753555.79 431015.55 5753519.16 430993.633287 5753478.3650273 430987.4252403 5753481.4697363 430987.4252458 5753481.4697472 431031.02 5753568.64 431098.68 5753687.3 431105.6129504 5753683.3468277 431096.918562 5753667.8184829
+              431096.9185618 5753667.8184825 431096.453784 5753667.121316 431095.422272 5753665.1460803 431091.13 5753657.48 431076.18 5753628.42 431075.0327436 5753626.0007135 431065.055825 5753606.807024 431059.768884 5753597.420005 431055.345116 5753589.651438
+              431053.079284 5753586.846122 431039.5644313 5753562.884205&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>2112</fa:groesse>
+            <fa:teilflaechennummer>5.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0561000775</fa:flek>
+            <fa:le_art>1</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='21'&gt;430525.4493382
+        5754236.984301 430518.38 5754282.93 430505.79 5754351.23 430501.75 5754374.6 430499.95 5754386.28 430495.9000726 5754409.9895752 430496.5488422 5754410.1179918 430506.3582038 5754412.0596448 430506.3585181 5754412.0597069 430506.3585181
+        5754412.059707 430506.36 5754412.06 430483.66 5754559.78 430482.12 5754569.77 430805.49 5754535.2 430770.24 5754209.12 430767.63 5754194.3 430535.12 5754224.89 430533.45 5754235.72 430533.4480004 5754235.7203149 430533.4479311 5754235.7203258
+        430525.4493382 5754236.984301&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>2000</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='14'&gt;430506.3585181
+            5754412.059707 430506.36 5754412.06 430483.66 5754559.78 430482.12 5754569.77 430805.49 5754535.2 430770.24 5754209.12 430767.63 5754194.3 430535.12 5754224.89 430533.45 5754235.72 430533.4480004 5754235.7203149 430534.02 5754239.34 430523.88
+            5754323.54 430506.3585181 5754412.0597069 430506.3585181 5754412.059707&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>94832</fa:groesse>
+          <fa:teilflaechennummer>2000.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>812D</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2015</fa:verpflichtungsbeginn>
+            </fa:bindung>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI1361404657</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>451</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='14'&gt;430525.4493382
+              5754236.984301 430518.38 5754282.93 430505.79 5754351.23 430501.75 5754374.6 430499.95 5754386.28 430495.9000726 5754409.9895752 430496.5488422 5754410.1179918 430506.3582038 5754412.0596448 430506.3585181 5754412.0597069 430523.88 5754323.54
+              430534.02 5754239.34 430533.4480004 5754235.7203149 430533.4479311 5754235.7203258 430525.4493382 5754236.984301&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1977</fa:groesse>
+            <fa:teilflaechennummer>2000.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0561000719</fa:flek>
+            <fa:le_art>1</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='25'&gt;427876.5 5753334.0
+        428018.869861 5753582.123606 428116.718855 5753567.7969777 428024.012948 5753575.169408 428022.762779 5753571.668935 428022.262712 5753568.418495 428036.764673 5753565.918157 428061.22 5753551.96 428069.96 5753549.78 428073.04 5753554.58 428077.84
+        5753552.4 428074.269745 5753535.664066 428069.019035 5753522.16224 428056.517344 5753496.658791 428032.264064 5753448.902333 428010.511123 5753411.647295 427993.008756 5753386.39388 427982.86 5753372.06 427971.92 5753362.44 427964.04 5753346.68
+        427956.16 5753345.38 427925.52 5753338.8 427905.496921 5753334.886915 427883.08 5753337.92 427876.5 5753334.0&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>21</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='25'&gt;427876.5 5753334.0
+            428018.869861 5753582.123606 428116.718855 5753567.7969777 428024.012948 5753575.169408 428022.762779 5753571.668935 428022.262712 5753568.418495 428036.764673 5753565.918157 428061.22 5753551.96 428069.96 5753549.78 428073.04 5753554.58 428077.84
+            5753552.4 428074.269745 5753535.664066 428069.019035 5753522.16224 428056.517344 5753496.658791 428032.264064 5753448.902333 428010.511123 5753411.647295 427993.008756 5753386.39388 427982.86 5753372.06 427971.92 5753362.44 427964.04 5753346.68
+            427956.16 5753345.38 427925.52 5753338.8 427905.496921 5753334.886915 427883.08 5753337.92 427876.5 5753334.0&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>19294</fa:groesse>
+          <fa:teilflaechennummer>21.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:flik>DEBBLI0000000002</fa:flik>
+          <fa:nutzung>114</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='44'&gt;342603.04 5777859.16
+        342612.46 5777897.68 342631.8 5777964.8 342657.58 5778054.06 342670.18 5778096.42 342688.2 5778135.14 342692.7 5778145.66 342742.78 5778266.2 342805.06 5778235.16 342817.12 5778227.92 342786.34 5778161.96 342775.18 5778134.5 342774.64 5778121.2
+        342781.4 5778114.22 342788.38 5778109.62 342789.98 5778104.9 342790.74 5778099.1 342790.42 5778074.0 342785.8 5778049.54 342774.76 5778040.0 342762.52 5778029.38 342752.86 5778019.52 342747.72 5777999.36 342737.32 5777972.96 342726.32 5777959.5
+        342722.24 5777955.0 342712.44 5777946.36 342703.86 5777938.38 342698.66 5777932.04 342692.72 5777927.58 342682.34 5777918.54 342670.76 5777907.8 342667.76 5777904.8 342661.8 5777896.28 342660.2 5777882.66 342660.84 5777865.72 342664.767814
+        5777855.62104 342666.268385 5777850.744184 342664.16 5777836.64 342656.76 5777839.22 342650.44 5777841.04 342646.26 5777842.22 342630.82 5777847.16 342603.04
+        5777859.16&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>3</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='44'&gt;342603.04 5777859.16
+            342612.46 5777897.68 342631.8 5777964.8 342657.58 5778054.06 342670.18 5778096.42 342688.2 5778135.14 342692.7 5778145.66 342742.78 5778266.2 342805.06 5778235.16 342817.12 5778227.92 342786.34 5778161.96 342775.18 5778134.5 342774.64 5778121.2
+            342781.4 5778114.22 342788.38 5778109.62 342789.98 5778104.9 342790.74 5778099.1 342790.42 5778074.0 342785.8 5778049.54 342774.76 5778040.0 342762.52 5778029.38 342752.86 5778019.52 342747.72 5777999.36 342737.32 5777972.96 342726.32 5777959.5
+            342722.24 5777955.0 342712.44 5777946.36 342703.86 5777938.38 342698.66 5777932.04 342692.72 5777927.58 342682.34 5777918.54 342670.76 5777907.8 342667.76 5777904.8 342661.8 5777896.28 342660.2 5777882.66 342660.84 5777865.72 342664.767814
+            5777855.62104 342666.268385 5777850.744184 342664.16 5777836.64 342656.76 5777839.22 342650.44 5777841.04 342646.26 5777842.22 342630.82 5777847.16 342603.04
+            5777859.16&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>36844</fa:groesse>
+          <fa:teilflaechennummer>3.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+            <fa:bindung>
+              <fa:kennzeichen>811A</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2017</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0269030580</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>453</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='58'&gt;430449.82 5752588.9
+        430454.94 5752585.71 430454.22 5752572.72 430453.4 5752561.64 430449.88 5752540.82 430432.02 5752444.44 430420.28 5752414.28 430413.7 5752405.98 430407.24 5752406.7 430407.18 5752406.7 430406.98 5752406.02 430403.2035896 5752393.7123351 430287.958882
+        5752409.633111 430190.388005 5752423.571808 430045.52 5752442.26 430047.0 5752451.9 430047.18 5752453.04 430060.2 5752557.88 430074.62 5752644.46 430087.1 5752729.38 430100.68 5752813.18 430106.44 5752825.0 430106.5 5752825.08 430120.88 5752825.78
+        430128.116425 5752824.173572 430266.98 5752772.8 430331.5 5752748.4 430332.4 5752748.06 430332.42 5752748.02 430334.94 5752740.12 430419.72 5752710.6 430430.6 5752706.76 430437.86 5752704.26 430437.3 5752700.62 430437.28 5752700.46 430436.56
+        5752696.32 430435.78 5752694.46 430433.46 5752689.62 430432.7 5752687.1 430423.92 5752666.08 430423.56 5752665.2 430423.76874 5752665.16024 430423.76 5752665.14 430430.04 5752660.46 430437.28 5752649.98 430438.26 5752647.06 430439.08 5752643.82
+        430441.24 5752637.06 430443.94 5752630.04 430446.68 5752620.3 430446.92 5752619.5 430439.16 5752620.8 430439.42 5752619.78 430439.26 5752619.78 430439.5 5752619.46 430445.3 5752596.78 430446.64 5752590.02 430449.82
+        5752588.9&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>2002</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='50'&gt;430446.64 5752590.02
+            430449.82 5752588.9 430444.04 5752579.62 430441.04 5752578.6 430431.9 5752534.62 430429.880158 5752525.12517 430423.001321 5752484.757256 430421.010078 5752476.611264 430413.950219 5752444.027298 430411.053866 5752434.976196 430403.994007
+            5752406.736759 430407.18 5752406.7 430406.98 5752406.02 430403.2035896 5752393.7123351 430287.958882 5752409.633111 430190.388005 5752423.571808 430045.52 5752442.26 430047.0 5752451.9 430047.18 5752453.04 430060.2 5752557.88 430074.62 5752644.46
+            430087.1 5752729.38 430100.68 5752813.18 430106.44 5752825.0 430106.5 5752825.08 430120.88 5752825.78 430128.116425 5752824.173572 430266.98 5752772.8 430331.5 5752748.4 430332.4 5752748.06 430332.42 5752748.02 430334.94 5752740.12 430419.72
+            5752710.6 430430.6 5752706.76 430437.86 5752704.26 430437.3 5752700.62 430437.28 5752700.46 430436.56 5752696.32 430435.78 5752694.46 430433.46 5752689.62 430432.7 5752687.1 430423.92 5752666.08 430423.56 5752665.2 430421.34 5752652.82 430427.36
+            5752644.24 430438.56 5752620.76 430439.26 5752619.78 430439.5 5752619.46 430445.3 5752596.78 430446.64 5752590.02&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>127890</fa:groesse>
+          <fa:teilflaechennummer>2002.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+            <fa:bindung>
+              <fa:kennzeichen>881</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2015</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0261303887</fa:flik>
+          <fa:nutzung>250</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='20'&gt;430449.82 5752588.9
+              430454.94 5752585.71 430454.22 5752572.72 430453.4 5752561.64 430449.88 5752540.82 430432.02 5752444.44 430420.28 5752414.28 430413.7 5752405.98 430407.24 5752406.7 430407.18 5752406.7 430403.994007 5752406.736759 430411.053866 5752434.976196
+              430413.950219 5752444.027298 430421.010078 5752476.611264 430423.001321 5752484.757256 430429.880158 5752525.12517 430431.9 5752534.62 430441.04 5752578.6 430444.04 5752579.62 430449.82
+              5752588.9&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>2898</fa:groesse>
+            <fa:teilflaechennummer>2002.03</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0561000805</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='18'&gt;430423.56 5752665.2
+              430423.76874 5752665.16024 430423.76 5752665.14 430430.04 5752660.46 430437.28 5752649.98 430438.26 5752647.06 430439.08 5752643.82 430441.24 5752637.06 430443.94 5752630.04 430446.68 5752620.3 430446.92 5752619.5 430439.16 5752620.8 430439.42
+              5752619.78 430439.26 5752619.78 430438.56 5752620.76 430427.36 5752644.24 430421.34 5752652.82 430423.56 5752665.2&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>450</fa:groesse>
+            <fa:teilflaechennummer>2002.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0561000804</fa:flek>
+            <fa:le_art>1</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='35'&gt;342390.56 5777684.32
+        342342.12 5777652.68 342335.66 5777654.44 342367.04 5777748.56 342388.5 5777806.5 342382.2 5777813.92 342372.26 5777821.96 342383.3 5777830.16 342386.76 5777837.58 342392.92 5777851.14 342394.5 5777873.4 342415.02 5777901.64 342421.0 5777914.26
+        342452.94 5778004.44 342459.66 5777999.92 342489.16 5777969.48 342513.3 5777943.44 342548.56 5777901.72 342584.04 5777865.86 342587.92 5777856.04 342582.88 5777840.42 342579.56 5777829.24 342569.86 5777825.88 342553.04 5777823.64 342546.58 5777821.02
+        342542.58 5777824.76 342538.38 5777827.64 342534.12 5777823.86 342539.18 5777818.18 342528.4 5777810.94 342512.7 5777797.5 342459.3 5777743.7 342434.26 5777719.42 342419.32 5777704.48 342390.56
+        5777684.32&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>2</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='35'&gt;342390.56 5777684.32
+            342342.12 5777652.68 342335.66 5777654.44 342367.04 5777748.56 342388.5 5777806.5 342382.2 5777813.92 342372.26 5777821.96 342383.3 5777830.16 342386.76 5777837.58 342392.92 5777851.14 342394.5 5777873.4 342415.02 5777901.64 342421.0 5777914.26
+            342452.94 5778004.44 342459.66 5777999.92 342489.16 5777969.48 342513.3 5777943.44 342548.56 5777901.72 342584.04 5777865.86 342587.92 5777856.04 342582.88 5777840.42 342579.56 5777829.24 342569.86 5777825.88 342553.04 5777823.64 342546.58 5777821.02
+            342542.58 5777824.76 342538.38 5777827.64 342534.12 5777823.86 342539.18 5777818.18 342528.4 5777810.94 342512.7 5777797.5 342459.3 5777743.7 342434.26 5777719.42 342419.32 5777704.48 342390.56
+            5777684.32&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='5'&gt;342444.68 5777928.14 342529.82 5777828.46 342533.34 5777831.98 342448.94 5777931.6
+            342444.68 5777928.14&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>35261</fa:groesse>
+          <fa:teilflaechennummer>2.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>882</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2018</fa:verpflichtungsbeginn>
+            </fa:bindung>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0269030618</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>451</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:nicht_beihilfefaehige_flaechen>
+          <fa:nbf>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='5'&gt;342444.68 5777928.14
+              342448.94 5777931.6 342533.34 5777831.98 342529.82 5777828.46 342444.68 5777928.14&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>683</fa:groesse>
+            <fa:teilflaechennummer>2.02</fa:teilflaechennummer>
+            <fa:flob>DEBBNF1369015070</fa:flob>
+          </fa:nbf>
+        </fa:nicht_beihilfefaehige_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='24'&gt;429558.35 5753981.4
+        429561.84 5753981.25 429561.842518 5753981.2498902 429563.239261 5753972.590083 429533.32 5753971.6 429342.82 5753982.58 429224.28 5753989.0 429201.42 5753990.9 429200.70435 5753999.46792 429180.3189892 5754000.680565 429182.38 5754017.73 429183.06
+        5754018.37 429182.54 5754019.05 429212.4167788 5754266.2263939 429213.69 5754276.76 429550.38 5754241.03 429550.61 5754241.0 429591.2 5754236.69 429595.39 5754236.25 429592.8400203 5754218.702857 429558.4103795 5753981.7826111 429558.41 5753981.78
+        429558.4086877 5753981.7716887 429558.35 5753981.4&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>15</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='27'&gt;429200.70435
+            5753999.46792 429180.3189892 5754000.680565 429182.38 5754017.73 429183.06 5754018.37 429182.54 5754019.05 429212.4167788 5754266.2263939 429216.7432317 5754265.7034456 429212.1266103 5754262.0279075 429212.107068 5754261.8437563 429548.6182369
+            5754226.1327341 429548.6699122 5754226.1259938 429549.0261471 5754226.083854 429578.3033084 5754222.9750941 429577.9959428 5754220.8600228 429592.8400203 5754218.702857 429558.4103795 5753981.7826111 429558.41 5753981.78 429558.4086877
+            5753981.7716887 429537.041478 5753982.331389 429526.758495 5753982.817952 429428.295115 5753987.931902 429398.544543 5753989.536502 429344.49225 5753992.555908 429312.660398 5753993.745884 429274.978602 5753995.29569 429230.122642 5753997.8467
+            429200.70435 5753999.46792&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>96162</fa:groesse>
+          <fa:teilflaechennummer>15.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI1861407008</fa:flik>
+          <fa:nutzung>115</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='19'&gt;429558.35 5753981.4
+              429561.84 5753981.25 429561.842518 5753981.2498902 429563.239261 5753972.590083 429533.32 5753971.6 429342.82 5753982.58 429224.28 5753989.0 429201.42 5753990.9 429200.70435 5753999.46792 429230.122642 5753997.8467 429274.978602 5753995.29569
+              429312.660398 5753993.745884 429344.49225 5753992.555908 429398.544543 5753989.536502 429428.295115 5753987.931902 429526.758495 5753982.817952 429537.041478 5753982.331389 429558.4086877 5753981.7716887 429558.35
+              5753981.4&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>3580</fa:groesse>
+            <fa:teilflaechennummer>15.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0561001083</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+        <fa:streifen_flaechen>
+          <fa:streifen>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='16'&gt;429212.4167788
+              5754266.2263939 429213.69 5754276.76 429550.38 5754241.03 429550.61 5754241.0 429591.2 5754236.69 429595.39 5754236.25 429592.8400203 5754218.702857 429577.9959428 5754220.8600228 429578.3033084 5754222.9750941 429549.0261471 5754226.083854
+              429548.6699122 5754226.1259938 429548.6182369 5754226.1327341 429212.107068 5754261.8437563 429212.1266103 5754262.0279075 429216.7432317 5754265.7034456 429212.4167788
+              5754266.2263939&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>5781</fa:groesse>
+            <fa:teilflaechennummer>15.03</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flik>DEBBLI1861407008</fa:flik>
+            <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+            <fa:nutzung>057</fa:nutzung>
+            <fa:oevf_typ>4</fa:oevf_typ>
+          </fa:streifen>
+        </fa:streifen_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='72'&gt;429139.817455
+        5753766.7031151 429139.8186639 5753766.7032227 429139.38 5753756.38 429137.74 5753749.52 429136.16 5753744.74 429136.496134 5753734.8537054 429136.5 5753734.74 429128.94 5753683.54 429124.86 5753652.58 429124.38 5753648.95 429112.61 5753559.7
+        429102.26 5753489.84 429085.5 5753366.59 429085.5 5753366.58 429082.34 5753344.16 429079.95 5753326.7 429077.17 5753306.46 429076.98 5753305.01 429058.32 5753176.11 429057.69 5753176.3 429038.55 5753183.17 429038.28 5753183.26 429038.2722671
+        5753183.26 428968.652863 5753209.263309 428835.151754 5753247.981145 428741.122724 5753274.631084 428721.14 5753281.24 428718.74 5753286.04 428716.88 5753293.24 428723.64 5753296.32 428720.26 5753312.58 428720.75 5753322.69 428740.54 5753451.75
+        428741.5727547 5753460.8299638 428745.78 5753497.82 428747.76 5753523.0 428747.33 5753524.85 428746.77 5753527.26 428749.55 5753550.0099999 428749.5500008 5753550.0099999 428749.55 5753550.01 428752.34 5753572.76 428761.12 5753631.68 428764.32
+        5753644.2 428766.98 5753673.78 428767.84 5753678.21 428767.84 5753678.22 428781.7778882 5753682.9278789 428797.8821149 5753688.3674941 428809.11 5753692.16 428811.48 5753690.58 428813.14 5753691.11 428815.6 5753683.82 428950.32 5753732.33 429036.45
+        5753764.52 429050.88 5753769.55 429051.06 5753769.6 429059.24 5753770.62 429060.62 5753770.8 429061.54 5753770.92 429062.54 5753771.04 429077.52 5753772.9 429078.28 5753781.88 429097.4 5753889.42 429098.36 5753889.3 429100.38 5753889.05 429100.96
+        5753888.54 429100.98 5753888.63 429156.43 5753882.14 429156.62 5753882.12 429139.98 5753770.5 429139.817455 5753766.7031151&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList
+        srsDimension='2' count='14'&gt;429139.817455 5753766.7031151 429133.9510959 5753766.1807937 429105.2035423 5753763.6212057 429105.2035421 5753763.6212057 429105.19 5753763.62 429105.24 5753763.61 429105.26 5753763.61 429105.2632423 5753763.61
+        429105.28 5753763.61 429108.1 5753763.2 429133.65 5753761.73 429133.6501964 5753761.7299888 429139.59 5753761.39 429139.817455 5753766.7031151&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;/gml:PolygonPatch&gt;
+        &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>10</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='71'&gt;429139.817455
+            5753766.7031151 429139.8186639 5753766.7032227 429139.38 5753756.38 429137.74 5753749.52 429136.16 5753744.74 429136.496134 5753734.8537054 429136.5 5753734.74 429128.94 5753683.54 429124.86 5753652.58 429124.38 5753648.95 429112.61 5753559.7
+            429102.26 5753489.84 429085.5 5753366.59 429085.5 5753366.58 429082.34 5753344.16 429079.95 5753326.7 429077.17 5753306.46 429076.98 5753305.01 429058.32 5753176.11 429057.69 5753176.3 429038.55 5753183.17 429038.28 5753183.26 429038.2722671
+            5753183.26 428968.652863 5753209.263309 428835.151754 5753247.981145 428741.122724 5753274.631084 428721.14 5753281.24 428718.74 5753286.04 428716.88 5753293.24 428723.64 5753296.32 428720.26 5753312.58 428720.75 5753322.69 428740.54 5753451.75
+            428741.5727547 5753460.8299638 428771.3805657 5753457.4396245 428775.587811 5753494.4296607 428775.6876787 5753495.4682445 428777.6676787 5753520.6482445 428777.6757713 5753525.2464705 428777.1597088 5753528.6229889 428779.3277128 5753546.3647478
+            428782.069623 5753568.722618 428790.5659822 5753625.739188 428793.385636 5753636.7710834 428794.1994315 5753641.5130734 428796.7221965 5753669.5669786 428797.2901903 5753672.4928073 428797.8821149 5753688.3674941 428809.11 5753692.16 428811.48
+            5753690.58 428813.14 5753691.11 428815.6 5753683.82 428950.32 5753732.33 429036.45 5753764.52 429050.88 5753769.55 429051.06 5753769.6 429059.24 5753770.62 429060.62 5753770.8 429061.54 5753770.92 429062.54 5753771.04 429077.52 5753772.9 429078.28
+            5753781.88 429097.4 5753889.42 429098.36 5753889.3 429100.38 5753889.05 429100.96 5753888.54 429100.98 5753888.63 429156.43 5753882.14 429156.62 5753882.12 429139.98 5753770.5 429139.817455
+            5753766.7031151&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='16'&gt;429139.817455 5753766.7031151 429133.9510959 5753766.1807937 429134.02 5753767.2
+            429078.78 5753777.8 429077.08 5753768.9 429105.2035421 5753763.6212057 429105.19 5753763.62 429105.24 5753763.61 429105.26 5753763.61 429105.2632423 5753763.61 429108.3 5753763.04 429131.76 5753758.96 429133.54 5753760.1 429133.6501964
+            5753761.7299888 429139.59 5753761.39 429139.817455 5753766.7031151&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='16'&gt;428824.82 5753550.4
+            428812.56 5753545.6 428817.62 5753528.28 428823.04 5753525.62 428838.14 5753538.68 428849.06 5753543.46 428860.36 5753545.6 428866.38 5753548.0 428905.3 5753565.32 428911.68 5753574.64 428912.74 5753585.54 428908.48 5753590.38 428899.16 5753591.7
+            428882.1 5753582.38 428854.66 5753567.18 428824.82 5753550.4&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>177124</fa:groesse>
+          <fa:teilflaechennummer>10.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI1861406758</fa:flik>
+          <fa:nutzung>250</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='7'&gt;429133.9510959
+              5753766.1807937 429105.2035423 5753763.6212057 429105.2035421 5753763.6212057 429077.08 5753768.9 429078.78 5753777.8 429134.02 5753767.2 429133.9510959
+              5753766.1807937&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>395</fa:groesse>
+            <fa:teilflaechennummer>10.05</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0561000848</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='9'&gt;429105.2632423
+              5753763.61 429105.28 5753763.61 429108.1 5753763.2 429133.65 5753761.73 429133.6501964 5753761.7299888 429133.54 5753760.1 429131.76 5753758.96 429108.3 5753763.04 429105.2632423
+              5753763.61&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>39</fa:groesse>
+            <fa:teilflaechennummer>10.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0561000848</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+        <fa:nicht_beihilfefaehige_flaechen>
+          <fa:nbf>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='16'&gt;428824.82 5753550.4
+              428854.66 5753567.18 428882.1 5753582.38 428899.16 5753591.7 428908.48 5753590.38 428912.74 5753585.54 428911.68 5753574.64 428905.3 5753565.32 428866.38 5753548.0 428860.36 5753545.6 428849.06 5753543.46 428838.14 5753538.68 428823.04 5753525.62
+              428817.62 5753528.28 428812.56 5753545.6 428824.82 5753550.4&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>2314</fa:groesse>
+            <fa:teilflaechennummer>10.03</fa:teilflaechennummer>
+            <fa:flob>DEBBNF1361015926</fa:flob>
+          </fa:nbf>
+        </fa:nicht_beihilfefaehige_flaechen>
+        <fa:streifen_flaechen>
+          <fa:streifen>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='30'&gt;428764.32 5753644.2
+              428766.98 5753673.78 428767.84 5753678.21 428767.84 5753678.22 428781.7778882 5753682.9278789 428797.8821149 5753688.3674941 428797.2901903 5753672.4928073 428796.7221965 5753669.5669786 428794.1994315 5753641.5130734 428793.385636 5753636.7710834
+              428790.5659822 5753625.739188 428782.069623 5753568.722618 428779.3277128 5753546.3647478 428777.1597088 5753528.6229889 428777.6757713 5753525.2464705 428777.6676787 5753520.6482445 428775.6876787 5753495.4682445 428775.587811 5753494.4296607
+              428771.3805657 5753457.4396245 428741.5727547 5753460.8299638 428745.78 5753497.82 428747.76 5753523.0 428747.33 5753524.85 428746.77 5753527.26 428749.55 5753550.0099999 428749.5500008 5753550.0099999 428749.55 5753550.01 428752.34 5753572.76
+              428761.12 5753631.68 428764.32 5753644.2&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>6779</fa:groesse>
+            <fa:teilflaechennummer>10.04</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flik>DEBBLI1861406758</fa:flik>
+            <fa:nutzung>058</fa:nutzung>
+            <fa:oevf_typ>4</fa:oevf_typ>
+          </fa:streifen>
+        </fa:streifen_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='6'&gt;429632.04 5753980.78
+        429578.18 5753983.6 429629.35 5754353.29 429627.26 5754354.34 429657.55 5754340.76 429632.04 5753980.78&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>4</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='6'&gt;429632.04 5753980.78
+            429578.18 5753983.6 429629.35 5754353.29 429627.26 5754354.34 429657.55 5754340.76 429632.04 5753980.78&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>15265</fa:groesse>
+          <fa:teilflaechennummer>4.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>BJS</fa:kennzeichen>
+            </fa:bindung>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI1861407001</fa:flik>
+          <fa:nutzung>113</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='29'&gt;428688.3081114
+        5753030.1898495 428688.31 5753030.19 428688.3084277 5753030.1902336 428683.06 5753030.97 428683.3298738 5753033.6261263 428684.388804 5753034.24784 428684.930167 5753037.31556 428683.7706379 5753037.9641732 428683.82 5753038.45 428684.42 5753038.45
+        428713.31 5753259.97 428713.5 5753261.36 428715.74 5753265.34 428718.0226508 5753266.0291021 429593.53 5752969.48 429657.78 5752945.8 429658.7145233 5752945.4433117 429658.3856691 5752942.3276925 429657.7849518 5752936.6363979 429626.64 5752805.0
+        429102.42 5752865.6 429126.21 5752965.2 428760.9 5753007.88 428757.18 5753008.32 428682.22 5753017.07 428682.22 5753017.22 428682.22 5753021.65 428683.29 5753029.79 428688.3081114
+        5753030.1898495&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>9</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='50'&gt;429657.7849518
+            5752936.6363979 429626.64 5752805.0 429102.42 5752865.6 429126.21 5752965.2 428760.9 5753007.88 428757.18 5753008.32 428682.22 5753017.07 428682.22 5753017.22 428682.22 5753021.65 428683.29 5753029.79 428688.3081114 5753030.1898495 428688.3
+            5753030.18 428695.06 5753025.88 428757.6 5753015.72 428782.62 5753014.96 428840.74 5753007.98 429068.42 5752976.9 429081.76 5752975.62 429101.1 5752972.22 429117.94 5752970.0 429122.04 5752969.48 429125.24 5752969.06 429131.26 5752969.68 429133.8
+            5752976.04 429128.72 5752978.58 429123.96 5752979.26 429123.72 5752978.86 429121.58 5752979.16 428925.6 5753006.82 428829.98 5753019.22 428690.96 5753037.26 428690.16 5753033.84 428689.7 5753031.88 428688.3084277 5753030.1902336 428683.06 5753030.97
+            428683.3298738 5753033.6261263 428684.388804 5753034.24784 428684.930167 5753037.31556 428683.7706379 5753037.9641732 428683.82 5753038.45 428684.42 5753038.45 428713.31 5753259.97 428713.5 5753261.36 428715.74 5753265.34 428718.0226508
+            5753266.0291021 429593.53 5752969.48 429657.78 5752945.8 429658.7145233 5752945.4433117 429658.3856691 5752942.3276925 429657.7849518 5752936.6363979&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt;
+            &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>193699</fa:groesse>
+          <fa:teilflaechennummer>9.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0361009441</fa:flik>
+          <fa:nutzung>157</fa:nutzung>
+          <fa:oevf_typ>2</fa:oevf_typ>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='34'&gt;428688.3081114
+              5753030.1898495 428688.31 5753030.19 428688.3084277 5753030.1902336 428689.7 5753031.88 428690.16 5753033.84 428843.007975 5753013.856524 428848.782507 5753013.495616 428870.256547 5753010.247442 428913.024173 5753004.653364 428923.85142
+              5753003.570639 428938.829112 5753001.585644 428982.499009 5752995.991566 429023.42 5752990.98 429065.84 5752985.0 429101.74 5752979.6 429120.08 5752976.64 429121.58 5752979.16 429123.72 5752978.86 429123.96 5752979.26 429128.72 5752978.58 429133.8
+              5752976.04 429131.26 5752969.68 429125.24 5752969.06 429122.04 5752969.48 429117.94 5752970.0 429101.1 5752972.22 429081.76 5752975.62 429068.42 5752976.9 428840.74 5753007.98 428782.62 5753014.96 428757.6 5753015.72 428695.06 5753025.88 428688.3
+              5753030.18 428688.3081114 5753030.1898495&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>3238</fa:groesse>
+            <fa:teilflaechennummer>9.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0561000841</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+        <fa:nicht_beihilfefaehige_flaechen>
+          <fa:nbf>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='17'&gt;428690.16 5753033.84
+              428690.96 5753037.26 428829.98 5753019.22 428925.6 5753006.82 429121.58 5752979.16 429120.08 5752976.64 429101.74 5752979.6 429065.84 5752985.0 429023.42 5752990.98 428982.499009 5752995.991566 428938.829112 5753001.585644 428923.85142 5753003.570639
+              428913.024173 5753004.653364 428870.256547 5753010.247442 428848.782507 5753013.495616 428843.007975 5753013.856524 428690.16 5753033.84&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt;
+              &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1343</fa:groesse>
+            <fa:teilflaechennummer>9.03</fa:teilflaechennummer>
+            <fa:flob>DEBBNF1661021723</fa:flob>
+          </fa:nbf>
+        </fa:nicht_beihilfefaehige_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='40'&gt;429621.874015
+        5752661.5921199 429631.7967938 5752660.3517725 429631.925393 5752660.3356976 429621.8 5752575.36 429621.8 5752575.34 429613.8898361 5752524.6149757 429612.6077958 5752517.7624981 429600.697265 5752516.35746 429599.86 5752512.54 429599.5765039
+        5752512.0955207 429599.54 5752512.42 429593.82 5752510.0 429378.18 5752539.14 429366.74 5752543.26 429361.03 5752541.04 429361.02 5752541.04 429174.0988433 5752564.9701928 429174.04 5752564.98 429173.96 5752564.99 429173.81 5752565.01 428631.25
+        5752640.73 428630.3013692 5752643.585878 428630.500665 5752645.1333252 428630.5006651 5752645.1333258 428630.5006651 5752645.1333259 428630.5006651 5752645.133326 428630.5006652 5752645.1333261 428630.51 5752645.18 428630.52 5752645.26 428630.52
+        5752645.28 428630.53 5752645.35 428630.56 5752645.57 428630.79 5752647.35 428631.73 5752654.65 428649.7486981 5752743.4875336 428656.98 5752779.14 429619.73 5752656.61 429620.23 5752660.61 429621.87 5752661.59 429621.874015
+        5752661.5921199&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>1</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='37'&gt;429600.697265
+            5752516.35746 429599.86 5752512.54 429599.5765039 5752512.0955207 429599.54 5752512.42 429593.82 5752510.0 429378.18 5752539.14 429366.74 5752543.26 429361.03 5752541.04 429361.02 5752541.04 429174.0988433 5752564.9701928 429174.04 5752564.98
+            429173.96 5752564.99 429173.81 5752565.01 428631.25 5752640.73 428630.3013692 5752643.585878 428630.500665 5752645.1333252 428630.5006651 5752645.1333258 428630.5006651 5752645.1333259 428630.5006651 5752645.133326 428630.5006652 5752645.1333261
+            428630.51 5752645.18 428630.52 5752645.26 428630.52 5752645.28 428630.53 5752645.35 428630.56 5752645.57 428630.79 5752647.35 428631.73 5752654.65 428649.7486981 5752743.4875336 428656.98 5752779.14 429619.73 5752656.61 429620.23 5752660.61 429621.87
+            5752661.59 429621.874015 5752661.5921199 429620.82 5752653.16 429606.22 5752548.76 429602.72 5752525.58 429600.697265 5752516.35746&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;gml:interior&gt; &lt;gml:LinearRing&gt;
+            &lt;gml:posList srsDimension='2' count='5'&gt;429495.68 5752644.0 429502.74 5752644.02 429502.74 5752651.08 429495.68 5752651.08 429495.68 5752644.0&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;/gml:PolygonPatch&gt;
+            &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>141965</fa:groesse>
+          <fa:teilflaechennummer>1.01</fa:teilflaechennummer>
+          <fa:aktivierung>0</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0361009441</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2019</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>433</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='12'&gt;429621.874015
+              5752661.5921199 429631.7967938 5752660.3517725 429631.925393 5752660.3356976 429621.8 5752575.36 429621.8 5752575.34 429613.8898361 5752524.6149757 429612.6077958 5752517.7624981 429600.697265 5752516.35746 429602.72 5752525.58 429606.22 5752548.76
+              429620.82 5752653.16 429621.874015 5752661.5921199&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1611</fa:groesse>
+            <fa:teilflaechennummer>1.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0561000844</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+        <fa:nicht_beihilfefaehige_flaechen>
+          <fa:nbf>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='5'&gt;429495.68 5752644.0
+              429495.68 5752651.08 429502.74 5752651.08 429502.74 5752644.02 429495.68 5752644.0&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>49</fa:groesse>
+            <fa:teilflaechennummer>1.03</fa:teilflaechennummer>
+            <fa:flob>DEBBNF1361014637</fa:flob>
+          </fa:nbf>
+        </fa:nicht_beihilfefaehige_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='7'&gt;429240.92 5754469.82
+        429243.25 5754487.58 429309.08 5754944.94 429555.6 5754900.11 429488.72 5754401.07 429234.29 5754426.6 429240.92 5754469.82&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt;
+        &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>151</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='7'&gt;429240.92 5754469.82
+            429243.25 5754487.58 429309.08 5754944.94 429555.6 5754900.11 429488.72 5754401.07 429234.29 5754426.6 429240.92 5754469.82&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList
+            srsDimension='2' count='13'&gt;429298.58 5754787.96 429310.9 5754757.28 429324.8 5754722.38 429342.6 5754714.56 429356.08 5754724.98 429360.2 5754740.66 429356.96 5754755.84 429349.72 5754763.2 429341.78 5754769.54 429329.08 5754784.48 429316.36
+            5754787.34 429303.98 5754790.2 429298.58 5754787.96&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>127269</fa:groesse>
+          <fa:teilflaechennummer>151.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+            <fa:bindung>
+              <fa:kennzeichen>881</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2018</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI1861407008</fa:flik>
+          <fa:nutzung>115</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:nicht_beihilfefaehige_flaechen>
+          <fa:nbf>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='13'&gt;429298.58 5754787.96
+              429303.98 5754790.2 429316.36 5754787.34 429329.08 5754784.48 429341.78 5754769.54 429349.72 5754763.2 429356.96 5754755.84 429360.2 5754740.66 429356.08 5754724.98 429342.6 5754714.56 429324.8 5754722.38 429310.9 5754757.28 429298.58
+              5754787.96&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>2586</fa:groesse>
+            <fa:teilflaechennummer>151.02</fa:teilflaechennummer>
+            <fa:flob>DEBBNF1361014507</fa:flob>
+          </fa:nbf>
+        </fa:nicht_beihilfefaehige_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='10'&gt;430523.82 5754217.9
+        430554.69 5754062.62 430232.71 5754012.41 430155.91 5754688.86 430155.91 5754697.72 430244.52 5754682.95 430457.21 5754552.98 430513.78 5754268.4 430521.5 5754222.0 430523.82
+        5754217.9&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>102</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='10'&gt;430523.82 5754217.9
+            430554.69 5754062.62 430232.71 5754012.41 430155.91 5754688.86 430155.91 5754697.72 430244.52 5754682.95 430457.21 5754552.98 430513.78 5754268.4 430521.5 5754222.0 430523.82
+            5754217.9&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>183563</fa:groesse>
+          <fa:teilflaechennummer>102.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>BJS</fa:kennzeichen>
+            </fa:bindung>
+            <fa:bindung>
+              <fa:kennzeichen>881</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0261008868</fa:flik>
+          <fa:nutzung>121</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='26'&gt;427947.7775899
+        5753122.2489724 427940.5206373 5753071.8236512 427772.7174736 5753102.2790297 427809.7739687 5753285.9245731 427809.7739684 5753285.9245731 427809.7739678 5753285.9245731 427793.0443637 5753285.174496 427793.0443631 5753285.1744959 427793.0443625
+        5753285.1744959 427780.2 5753285.04 427750.1165175 5753283.8661436 427740.6468254 5753291.6754889 427933.4391225 5753297.6649858 427942.58 5753290.14 427942.78 5753289.9 427948.78 5753280.1 427948.92 5753279.66 427950.28 5753263.7 427958.68
+        5753235.36 427958.7 5753234.94 427944.86 5753143.38 427948.94 5753134.66 427949.360769 5753134.5845759 427949.360769 5753134.5845758 427949.0505711 5753132.1676174 427947.7775899
+        5753122.2489724&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>11</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='18'&gt;427947.7775899
+            5753122.2489724 427940.5206373 5753071.8236512 427772.7174736 5753102.2790297 427809.7739687 5753285.9245731 427811.54 5753286.04 427848.16 5753288.46 427849.72 5753288.58 427861.92 5753289.36 427863.12 5753289.44 427921.16 5753289.72 427938.96
+            5753257.84 427949.02 5753230.64 427948.7 5753211.18 427947.16 5753196.16 427938.64 5753149.54 427934.92 5753130.86 427939.9 5753123.26 427947.7775899 5753122.2489724&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;gml:interior&gt;
+            &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='5'&gt;427810.3388235 5753126.7627653 427800.1870307 5753110.0421654 427822.2821092 5753104.0705225 427834.8225591 5753114.8194796 427810.3388235
+            5753126.7627653&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>30165</fa:groesse>
+          <fa:teilflaechennummer>11.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI1461405125</fa:flik>
+          <fa:nutzung>648</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='37'&gt;427809.7739687
+              5753285.9245731 427809.7739684 5753285.9245731 427809.7739678 5753285.9245731 427793.0443637 5753285.174496 427793.0443631 5753285.1744959 427793.0443625 5753285.1744959 427780.2 5753285.04 427750.1165175 5753283.8661436 427740.6468254
+              5753291.6754889 427933.4391225 5753297.6649858 427942.58 5753290.14 427942.78 5753289.9 427948.78 5753280.1 427948.92 5753279.66 427950.28 5753263.7 427958.68 5753235.36 427958.7 5753234.94 427944.86 5753143.38 427948.94 5753134.66 427949.360769
+              5753134.5845759 427949.360769 5753134.5845758 427949.0505711 5753132.1676174 427947.7775899 5753122.2489724 427939.9 5753123.26 427934.92 5753130.86 427938.64 5753149.54 427947.16 5753196.16 427948.7 5753211.18 427949.02 5753230.64 427938.96
+              5753257.84 427921.16 5753289.72 427863.12 5753289.44 427861.92 5753289.36 427849.72 5753288.58 427848.16 5753288.46 427811.54 5753286.04 427809.7739687
+              5753285.9245731&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>3149</fa:groesse>
+            <fa:teilflaechennummer>11.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0561000888</fa:flek>
+            <fa:le_art>1</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+        <fa:nicht_antrags_flaechen>
+          <fa:naf>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='5'&gt;427810.3388235
+              5753126.7627653 427834.8225591 5753114.8194796 427822.2821092 5753104.0705225 427800.1870307 5753110.0421654 427810.3388235 5753126.7627653&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt;
+              &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>421</fa:groesse>
+            <fa:teilflaechennummer>11.03</fa:teilflaechennummer>
+            <fa:naf_typ>5</fa:naf_typ>
+          </fa:naf>
+        </fa:nicht_antrags_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='32'&gt;428761.6487411
+        5752416.6022062 428760.4644629 5752412.9901576 428748.7619192 5752377.2973993 428609.6738774 5752397.8698215 428582.74 5752301.36 428577.5359815 5752304.390188 428577.9 5752306.9 428576.88 5752306.9 428576.9 5752307.02 428577.58 5752314.2 428577.6
+        5752314.22 428588.3069189 5752401.2161571 428610.5 5752581.54 428616.022713 5752617.181204 428616.0423714 5752617.4957364 428620.239124 5752616.619112 428620.82 5752619.4 428621.52 5752619.32 428623.2 5752619.16 428623.6216418 5752623.3764179
+        428623.68 5752623.5 428624.42 5752623.74 428665.14 5752620.22 428665.2 5752620.2 428699.6 5752615.04 428786.3 5752603.12 428887.92 5752588.72 428901.1471186 5752587.0577843 428900.8693937 5752581.9323998 428893.2756758 5752441.7911419 428772.6484905
+        5752450.1514419 428761.6487411 5752416.6022062&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>12</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='22'&gt;428760.4644629
+            5752412.9901576 428748.7619192 5752377.2973993 428609.6738774 5752397.8698215 428582.74 5752301.36 428596.98 5752429.72 428605.46 5752503.92 428618.28 5752607.24 428620.239124 5752616.619112 428620.82 5752619.4 428621.52 5752619.32 428623.2
+            5752619.16 428624.2 5752619.06 428659.22 5752615.46 428842.42 5752590.68 428896.54 5752582.52 428900.8693937 5752581.9323998 428893.2756758 5752441.7911419 428772.6484905 5752450.1514419 428761.6487411 5752416.6022062 428614.670083 5752436.514355
+            428614.224276 5752432.724993 428760.4644629 5752412.9901576&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>54854</fa:groesse>
+          <fa:teilflaechennummer>12.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0361302326</fa:flik>
+          <fa:nutzung>156</fa:nutzung>
+          <fa:oevf_typ>2</fa:oevf_typ>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='16'&gt;428623.2 5752619.16
+              428623.6216418 5752623.3764179 428623.68 5752623.5 428624.42 5752623.74 428665.14 5752620.22 428665.2 5752620.2 428699.6 5752615.04 428786.3 5752603.12 428887.92 5752588.72 428901.1471186 5752587.0577843 428900.8693937 5752581.9323998 428896.54
+              5752582.52 428842.42 5752590.68 428659.22 5752615.46 428624.2 5752619.06 428623.2 5752619.16&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1363</fa:groesse>
+            <fa:teilflaechennummer>12.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0661006132</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='16'&gt;428582.74 5752301.36
+              428577.5359815 5752304.390188 428577.9 5752306.9 428576.88 5752306.9 428576.9 5752307.02 428577.58 5752314.2 428577.6 5752314.22 428588.3069189 5752401.2161571 428610.5 5752581.54 428616.022713 5752617.181204 428616.0423714 5752617.4957364
+              428620.239124 5752616.619112 428618.28 5752607.24 428605.46 5752503.92 428596.98 5752429.72 428582.74 5752301.36&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1607</fa:groesse>
+            <fa:teilflaechennummer>12.03</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0661010453</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='5'&gt;428761.6487411
+              5752416.6022062 428760.4644629 5752412.9901576 428614.224276 5752432.724993 428614.670083 5752436.514355 428761.6487411 5752416.6022062&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt;
+              &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>558</fa:groesse>
+            <fa:teilflaechennummer>12.04</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE1761022162</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='14'&gt;428679.0395842
+        5753128.9990532 428584.8956488 5753151.878655 428619.0509901 5753300.4146742 428620.5929847 5753304.0910151 428680.26 5753282.66 428680.3 5753282.64 428690.76 5753278.34 428691.26 5753277.9 428691.36 5753277.26 428690.56 5753272.26 428690.5
+        5753272.08 428690.18 5753271.18 428698.68 5753268.14 428679.0395842 5753128.9990532&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>13</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='8'&gt;428679.0395842
+            5753128.9990532 428584.8956488 5753151.878655 428619.0509901 5753300.4146742 428649.46 5753287.66 428657.82 5753282.76 428690.18 5753271.18 428698.68 5753268.14 428679.0395842
+            5753128.9990532&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>13183</fa:groesse>
+          <fa:teilflaechennummer>13.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0261009486</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>453</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='13'&gt;428620.5929847
+              5753304.0910151 428680.26 5753282.66 428680.3 5753282.64 428690.76 5753278.34 428691.26 5753277.9 428691.36 5753277.26 428690.56 5753272.26 428690.5 5753272.08 428690.18 5753271.18 428657.82 5753282.76 428649.46 5753287.66 428619.0509901
+              5753300.4146742 428620.5929847 5753304.0910151&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>471</fa:groesse>
+            <fa:teilflaechennummer>13.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0661006131</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='18'&gt;428727.84 5753515.44
+        428737.5235744 5753514.1108819 428724.38 5753437.6 428723.9605501 5753434.5855257 428716.24 5753379.1 428703.76 5753305.28 428703.38 5753304.64 428702.68 5753304.44 428694.167804 5753305.359157 428701.104512 5753302.132485 428699.88 5753295.22
+        428698.6273404 5753289.2385506 428531.831621 5753349.888943 428546.2556488 5753455.118655 428552.7060091 5753534.559934 428723.857589 5753520.912071 428728.24 5753518.3 428727.84
+        5753515.44&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>14</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='15'&gt;428698.6273404
+            5753289.2385506 428531.831621 5753349.888943 428546.2556488 5753455.118655 428552.7060091 5753534.559934 428723.857589 5753520.912071 428728.24 5753518.3 428727.84 5753515.44 428727.7 5753514.42 428724.74 5753493.2 428706.9 5753374.66 428694.08
+            5753305.4 428694.167804 5753305.359157 428701.104512 5753302.132485 428699.88 5753295.22 428698.6273404 5753289.2385506&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>35827</fa:groesse>
+          <fa:teilflaechennummer>14.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0261009142</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>451</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='14'&gt;428727.84 5753515.44
+              428737.5235744 5753514.1108819 428724.38 5753437.6 428723.9605501 5753434.5855257 428716.24 5753379.1 428703.76 5753305.28 428703.38 5753304.64 428702.68 5753304.44 428694.167804 5753305.359157 428694.08 5753305.4 428706.9 5753374.66 428724.74
+              5753493.2 428727.7 5753514.42 428727.84 5753515.44&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1848</fa:groesse>
+            <fa:teilflaechennummer>14.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0661009354</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='12'&gt;465159.3220907
+        5797445.2515545 465159.4527945 5797440.5455814 465159.12 5797440.26 465156.54 5797434.7 465162.7074603 5797323.3617929 465164.84 5797246.58 464977.42 5797354.1 464973.46 5797352.5 464949.1769129 5797439.3630989 464970.54 5797444.96 464995.2
+        5797446.18 465159.3220907 5797445.2515545&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>16</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='12'&gt;465159.3220907
+            5797445.2515545 465159.4527945 5797440.5455814 465159.12 5797440.26 465156.54 5797434.7 465162.7074603 5797323.3617929 465164.84 5797246.58 464977.42 5797354.1 464973.46 5797352.5 464949.1769129 5797439.3630989 464970.54 5797444.96 464995.2
+            5797446.18 465159.3220907 5797445.2515545&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>28010</fa:groesse>
+          <fa:teilflaechennummer>16.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI1553391151</fa:flik>
+          <fa:nutzung>181</fa:nutzung>
+          <fa:oevf_typ>2</fa:oevf_typ>
+        </fa:hauptnutzungsflaeche>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='28'&gt;429100.3 5752555.92
+        429110.921884 5752555.444702 429111.2243419 5752558.9060843 429447.8871155 5752513.7911059 429447.805821 5752511.311168 429467.06 5752510.68 429503.652697 5752506.318159 429497.688253 5752426.633187 429494.109587 5752403.252566 429492.200964
+        5752385.83639 429492.916698 5752378.440479 429490.53092 5752326.430527 429442.338212 5752330.486349 429417.36 5752331.28 429400.68 5752330.48 429368.617684 5752203.562981 428911.9076833 5752256.3485591 428911.9076831 5752256.3485591 428909.832651
+        5752256.765821 428893.847941 5752258.435866 428796.98537 5752265.593198 428821.7937711 5752446.7453333 428893.2756758 5752441.7911419 428900.8693937 5752581.9323998 428901.5575634 5752587.002782 429059.3094855 5752565.8630092 429100.7766564
+        5752560.3061414 429100.3 5752555.92&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>18</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='41'&gt;429100.3 5752555.92
+            429110.921884 5752555.444702 429120.86 5752555.0 429158.58 5752550.24 429215.36 5752542.34 429243.6 5752537.46 429285.32 5752529.92 429301.64 5752526.88 429330.06 5752525.08 429357.28 5752523.26 429363.219421 5752522.103804 429390.62991
+            5752516.768059 429412.823957 5752512.498535 429413.336508 5752512.441166 429413.60519 5752512.432388 429431.104103 5752511.858665 429447.805821 5752511.311168 429467.06 5752510.68 429503.652697 5752506.318159 429497.688253 5752426.633187
+            429494.109587 5752403.252566 429492.200964 5752385.83639 429492.916698 5752378.440479 429490.53092 5752326.430527 429442.338212 5752330.486349 429417.36 5752331.28 429400.68 5752330.48 429368.617684 5752203.562981 428911.9076833 5752256.3485591
+            428911.9076831 5752256.3485591 428909.832651 5752256.765821 428893.847941 5752258.435866 428796.98537 5752265.593198 428821.7937711 5752446.7453333 428893.2756758 5752441.7911419 428900.8693937 5752581.9323998 428943.4 5752576.16 429010.52 5752567.7
+            429022.3 5752564.68 429041.96 5752562.26 429100.3 5752555.92&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='5'&gt;429424.5 5752508.12 429413.64
+            5752443.16 429417.66 5752442.16 429428.18 5752507.62 429424.5 5752508.12&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='5'&gt;429172.26 5752525.66
+            429179.34 5752525.68 429179.34 5752532.74 429172.28 5752532.74 429172.26 5752525.66&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2'
+            count='7'&gt;429473.740861 5752504.499977 429472.28 5752491.3 429479.34 5752491.3 429479.313453 5752500.041904 429477.976031 5752500.710615 429477.530224 5752504.722881 429473.740861 5752504.499977&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;
+            &lt;/gml:interior&gt; &lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='5'&gt;428846.72 5752406.4 428853.8 5752406.4 428853.8 5752413.46 428846.72 5752413.46 428846.72
+            5752406.4&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>192361</fa:groesse>
+          <fa:teilflaechennummer>18.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0361302326</fa:flik>
+          <fa:nutzung>311</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='19'&gt;429110.921884
+              5752555.444702 429111.2243419 5752558.9060843 429447.8871155 5752513.7911059 429447.805821 5752511.311168 429431.104103 5752511.858665 429413.60519 5752512.432388 429413.336508 5752512.441166 429412.823957 5752512.498535 429390.62991 5752516.768059
+              429363.219421 5752522.103804 429357.28 5752523.26 429330.06 5752525.08 429301.64 5752526.88 429285.32 5752529.92 429243.6 5752537.46 429215.36 5752542.34 429158.58 5752550.24 429120.86 5752555.0 429110.921884
+              5752555.444702&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1291</fa:groesse>
+            <fa:teilflaechennummer>18.04</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE1861022478</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='10'&gt;429059.3094855
+              5752565.8630092 429100.7766564 5752560.3061414 429100.3 5752555.92 429041.96 5752562.26 429022.3 5752564.68 429010.52 5752567.7 428943.4 5752576.16 428900.8693937 5752581.9323998 428901.5575634 5752587.002782 429059.3094855
+              5752565.8630092&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1039</fa:groesse>
+            <fa:teilflaechennummer>18.03</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0661006132</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='5'&gt;429424.5 5752508.12
+              429428.18 5752507.62 429417.66 5752442.16 429413.64 5752443.16 429424.5 5752508.12&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>259</fa:groesse>
+            <fa:teilflaechennummer>18.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0561000840</fa:flek>
+            <fa:le_art>2</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+        <fa:nicht_beihilfefaehige_flaechen>
+          <fa:nbf>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='7'&gt;429473.740861
+              5752504.499977 429477.530224 5752504.722881 429477.976031 5752500.710615 429479.313453 5752500.041904 429479.34 5752491.3 429472.28 5752491.3 429473.740861
+              5752504.499977&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>77</fa:groesse>
+            <fa:teilflaechennummer>18.06</fa:teilflaechennummer>
+            <fa:flob>DEBBNF1361015471</fa:flob>
+          </fa:nbf>
+          <fa:nbf>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='5'&gt;428846.72 5752406.4
+              428846.72 5752413.46 428853.8 5752413.46 428853.8 5752406.4 428846.72 5752406.4&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>49</fa:groesse>
+            <fa:teilflaechennummer>18.07</fa:teilflaechennummer>
+            <fa:flob>DEBBNF1361014993</fa:flob>
+          </fa:nbf>
+          <fa:nbf>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='5'&gt;429172.26 5752525.66
+              429172.28 5752532.74 429179.34 5752532.74 429179.34 5752525.68 429172.26 5752525.66&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>49</fa:groesse>
+            <fa:teilflaechennummer>18.05</fa:teilflaechennummer>
+            <fa:flob>DEBBNF1361014994</fa:flob>
+          </fa:nbf>
+        </fa:nicht_beihilfefaehige_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='9'&gt;429400.68 5752330.48
+        429490.53092 5752326.430527 429577.633632 5752313.78997 429562.233632 5752182.18997 429368.617684 5752203.562981 429374.582128 5752221.933468 429383.170928 5752254.141466 429399.1 5752318.18 429400.68
+        5752330.48&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>8</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='9'&gt;429400.68 5752330.48
+            429490.53092 5752326.430527 429577.633632 5752313.78997 429562.233632 5752182.18997 429368.617684 5752203.562981 429374.582128 5752221.933468 429383.170928 5752254.141466 429399.1 5752318.18 429400.68
+            5752330.48&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='9'&gt;429531.925658 5752198.434985 429533.885658 5752193.394985 429537.805658 5752190.034985
+            429547.045658 5752190.034985 429553.205658 5752194.234985 429549.565658 5752203.194985 429537.805658 5752211.314985 429531.645658 5752209.074985 429531.925658 5752198.434985&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt;
+            &lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>24292</fa:groesse>
+          <fa:teilflaechennummer>8.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:flik>DEBBLI0000000001</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>480</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='9'&gt;429531.925658
+              5752198.434985 429531.645658 5752209.074985 429537.805658 5752211.314985 429549.565658 5752203.194985 429553.205658 5752194.234985 429547.045658 5752190.034985 429537.805658 5752190.034985 429533.885658 5752193.394985 429531.925658
+              5752198.434985&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>323</fa:groesse>
+            <fa:teilflaechennummer>8.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0000000001</fa:flek>
+            <fa:le_art>3</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+    <fa:gesamtparzelle>
+      <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='12'&gt;427617.96 5753608.06
+        427975.68 5753572.86 427969.031957 5753565.094247 427956.358811 5753540.722812 427942.223378 5753513.670519 427924.188517 5753479.306796 427920.5334387 5753471.1531606 427830.4 5753304.92 427724.64 5753299.92 427669.66 5753297.9 427648.7566997
+        5753293.1575409 427617.96 5753608.06&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+      <fa:gp_nummer>19</fa:gp_nummer>
+      <fa:teilflaechen>
+        <fa:hauptnutzungsflaeche>
+          <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='12'&gt;427617.96 5753608.06
+            427975.68 5753572.86 427969.031957 5753565.094247 427956.358811 5753540.722812 427942.223378 5753513.670519 427924.188517 5753479.306796 427920.5334387 5753471.1531606 427830.4 5753304.92 427724.64 5753299.92 427669.66 5753297.9 427648.7566997
+            5753293.1575409 427617.96 5753608.06&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='15'&gt;427731.54 5753363.46 427718.66 5753346.52 427707.14
+            5753337.7 427715.28 5753324.82 427722.76 5753334.0 427728.16 5753344.8 427734.52 5753348.94 427745.94 5753346.7 427756.42 5753340.68 427754.84 5753325.44 427766.12 5753313.3 427783.08 5753333.64 427768.16 5753354.66 427751.2 5753360.76 427731.54
+            5753363.46&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;gml:interior&gt; &lt;gml:LinearRing&gt; &lt;gml:posList srsDimension='2' count='9'&gt;427837.32 5753346.52 427815.82 5753375.6 427805.34 5753374.02 427796.64 5753354.66
+            427797.3 5753340.42 427805.34 5753339.08 427814.54 5753341.0 427836.76 5753336.54 427837.32 5753346.52&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt; &lt;/gml:interior&gt; &lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+          <fa:groesse>76287</fa:groesse>
+          <fa:teilflaechennummer>19.01</fa:teilflaechennummer>
+          <fa:aktivierung>1</fa:aktivierung>
+          <fa:bindungen>
+            <fa:bindung>
+              <fa:kennzeichen>33</fa:kennzeichen>
+              <fa:verpflichtungsbeginn>01.01.2019</fa:verpflichtungsbeginn>
+            </fa:bindung>
+          </fa:bindungen>
+          <fa:flik>DEBBLI0261009129</fa:flik>
+          <fa:jahr_der_ersten_gruenland_nutzung>2010</fa:jahr_der_ersten_gruenland_nutzung>
+          <fa:nutzung>452</fa:nutzung>
+        </fa:hauptnutzungsflaeche>
+        <fa:landschaftselement_flaechen>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='15'&gt;427731.54 5753363.46
+              427751.2 5753360.76 427768.16 5753354.66 427783.08 5753333.64 427766.12 5753313.3 427754.84 5753325.44 427756.42 5753340.68 427745.94 5753346.7 427734.52 5753348.94 427728.16 5753344.8 427722.76 5753334.0 427715.28 5753324.82 427707.14 5753337.7
+              427718.66 5753346.52 427731.54 5753363.46&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1498</fa:groesse>
+            <fa:teilflaechennummer>19.02</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0661009348</fa:flek>
+            <fa:le_art>3</fa:le_art>
+          </fa:landschaftselement>
+          <fa:landschaftselement>
+            <fa:geometrie>&lt;gml:Surface srsName='EPSG:25833' xmlns:gml="http://www.opengis.net/gml"&gt; &lt;gml:patches&gt; &lt;gml:PolygonPatch&gt; &lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension='2' count='9'&gt;427837.32 5753346.52
+              427836.76 5753336.54 427814.54 5753341.0 427805.34 5753339.08 427797.3 5753340.42 427796.64 5753354.66 427805.34 5753374.02 427815.82 5753375.6 427837.32
+              5753346.52&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:PolygonPatch&gt; &lt;/gml:patches&gt; &lt;/gml:Surface&gt;</fa:geometrie>
+            <fa:groesse>1052</fa:groesse>
+            <fa:teilflaechennummer>19.03</fa:teilflaechennummer>
+            <fa:aktivierung>1</fa:aktivierung>
+            <fa:flek>DEBBLE0661009347</fa:flek>
+            <fa:le_art>3</fa:le_art>
+          </fa:landschaftselement>
+        </fa:landschaftselement_flaechen>
+      </fa:teilflaechen>
+    </fa:gesamtparzelle>
+  </fa:gesamtparzellen>
+</fa:flaechenantrag>

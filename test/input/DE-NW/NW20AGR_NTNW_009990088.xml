@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nn>
+   <antragsjahr>2020</antragsjahr>
+   <anzahl>1</anzahl>
+   <bnrzd>150000000099</bnrzd>
+   <unr>009990088</unr>
+   <firma>data experts gmbh</firma>
+   <land>
+      <bezeichnung>Nordrhein-Westfalen</bezeichnung>
+      <feldblockkonstante>NW</feldblockkonstante>
+      <nummer>5</nummer>
+      <parzelle>
+         <bindung>
+            <kennzeichen>A</kennzeichen>
+            <zusatz/>
+         </bindung>
+         <dauergruenland/>
+         <erosionwasser/>
+         <erosionwind/>
+         <feldblocknr>2</feldblocknr>
+         <feldblock>DENWLI0546132777</feldblock>
+         <feldblockident>05-4613-2777</feldblockident>
+         <fbflaeche>38343</fbflaeche>
+         <nettoflaeche>38343</nettoflaeche>
+         <nettoflaechevj/>
+         <ansaatjahr>2009</ansaatjahr>
+         <greeningcode/>
+         <greeningcodevj/>
+         <greeningfeldblock/>
+         <greeningschlag/>
+         <ansaatjahroevf/>
+         <nutzungaj>
+            <code>459</code>
+            <bezeichnung>459 - Grünland (Dauergrünland)</bezeichnung>
+         </nutzungaj>
+         <nutzungvj>
+            <code/>
+            <bezeichnung/>
+         </nutzungvj>
+         <schlag>
+            <nummer>1</nummer>
+            <bezeichnung/>
+         </schlag>
+         <teilschlag>a</teilschlag>
+         <fb_gueltig_von>2019-07-15T00:00:00.000</fb_gueltig_von>
+         <luftbild_datum/>
+         <ref_luftbild_datum/>
+         <speicher_datum>2020-01-08T06:45:15.000</speicher_datum>
+      </parzelle>
+   </land>
+</nn>
